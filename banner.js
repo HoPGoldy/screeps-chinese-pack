@@ -9,7 +9,7 @@ export default `
 // @name         screeps-chinese-pack
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  用于汉化 screeps.com 网站的油猴脚本
 // @author       hopgoldy
 // @match        https://www.baidu.com/
 // @grant        none

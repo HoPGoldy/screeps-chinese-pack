@@ -1,7 +1,7 @@
 {
   "name": "screeps-chinese-pack",
   "version": "1.0.0",
-  "description": "",
+  "description": "用于汉化 screeps.com 网站的油猴脚本",
   "main": "index.js",
   "scripts": {
     "start": "rollup -cw"
