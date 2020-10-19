@@ -1,0 +1,17 @@
+/**
+ * 油猴脚本的头信息
+ * 
+ * 会在打包时自动插入到脚本头部
+ * 更新后需要重新运行 npm start
+ */
+export default `
+// ==UserScript==
+// @name         screeps-chinese-pack
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       hopgoldy
+// @match        https://www.baidu.com/
+// @grant        none
+// ==/UserScript==
+`

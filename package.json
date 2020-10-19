@@ -1,0 +1,30 @@
+{
+  "name": "screeps-chinese-pack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "rollup -cw"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoPGoldy/screeps-chinese-pack.git"
+  },
+  "keywords": [
+    "screeps",
+    "chinese"
+  ],
+  "author": "hopgoldy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HoPGoldy/screeps-chinese-pack/issues"
+  },
+  "homepage": "https://github.com/HoPGoldy/screeps-chinese-pack#readme",
+  "devDependencies": {
+    "@types/node": "^14.11.10",
+    "rollup": "^2.32.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-typescript2": "^0.28.0",
+    "typescript": "^4.0.3"
+  }
+}
