@@ -30,7 +30,9 @@ yarn start
 
 ```js
 // ==UserScript==
-// @require file://e:\project\screeps-chinese-pack\dist\main.js
+// @name         screeps-chinese-pack
+// @match        http://localhost:8080/
+// @require      file://e:\project\screeps-chinese-pack\dist\main.js
 // ==/UserScript==
 ```
 
