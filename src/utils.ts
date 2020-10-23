@@ -1,4 +1,5 @@
 import { TRANSLATION_DIRECTION } from 'setting'
+import { updateContent, getContent } from 'storage'
 
 /**
  * 递归获取该元素下所有包含内容的 html 元素
@@ -7,7 +8,8 @@ import { TRANSLATION_DIRECTION } from 'setting'
  * @return 包含内容的 html 元素数组
  */
 export const getContentElement = function (el: HTMLElement): HTMLElement[] {
-    if (!el.innerText) return []
+    // 没有内容或者该元素已经被翻译了
+    if (!el.innerText || !el.stopTranslateSearch) return []
     // 下面没有子元素了，那内容就在它自己身上，直接返回
     if (el.children.length === 0) return [el]
 
@@ -26,13 +28,29 @@ export const getContentElement = function (el: HTMLElement): HTMLElement[] {
 /**
  * 翻译指定 html 元素
  * 
- * 会递归翻译其子元素
+ * 会使用当前数据源递归翻译其子元素
  * 该方法会修改 content 参数的内容（会将完成翻译的内容从 content 取出以提高性能，除非该 content 指定了 reuse）
  * 
  * @param el 要进行翻译的 html 元素
- * @param contents 翻译文本
  */
-export const translate = function (el: HTMLElement, contents: TranslationContent[]): void {
+export const translate = function (el: HTMLElement): void {
+    const {
+        content: allContents,
+        queryContent: allQueryContents
+    } = getContent()
+
+    // 翻译所有有选择器的元素
+    const notFindContent = allQueryContents.filter(content => {
+        const targetElement = el.querySelector(content.selector)
+        if (!targetElement || !(targetElement instanceof HTMLElement)) return true
+
+        // 翻译并阻止后续再次翻译
+        updateElement(targetElement, content)
+        targetElement.stopTranslateSearch = true
+
+        return content.reuse ? true : false
+    })
+
     // 取出所有待翻译元素
     const needTranslateElement = getContentElement(el)
 
@@ -42,7 +60,7 @@ export const translate = function (el: HTMLElement, contents: TranslationContent
 
         // 找到符合的翻译内容，并保存其索引
         let translationIndex: number
-        const currentTranslation = contents.find((content, index) => {
+        const currentTranslation = allContents.find((content, index) => {
             if (content[TRANSLATION_DIRECTION.from] !== originContent) return false
 
             translationIndex = index
@@ -56,9 +74,29 @@ export const translate = function (el: HTMLElement, contents: TranslationContent
         }
 
         // 更新文本，如果没指定重用的话就将其移除
-        element.innerHTML = currentTranslation[TRANSLATION_DIRECTION.to]
-        if (!currentTranslation.reuse) contents.splice(translationIndex, 1)
+        updateElement(element, currentTranslation)
+        if (!currentTranslation.reuse) allContents.splice(translationIndex, 1)
     })
+
+    // 把结果更新回数据源
+    updateContent({ content: allContents, queryContent: notFindContent })
+}
+
+
+/**
+ * 使用对应的翻译内容更新元素
+ * 
+ * @param el 要更新的元素
+ * @param content 要更新的翻译内容
+ */
+const updateElement = function (el: HTMLElement, content: TranslationContent): void {
+    let translatedContent: string
+
+    const newContent = content[TRANSLATION_DIRECTION.to]
+    if (typeof newContent === 'string') translatedContent = newContent
+    else translatedContent = newContent(el.innerHTML)
+
+    el.innerHTML = translatedContent
 }
 
 

@@ -5,7 +5,13 @@
  * 和一些应用于该条翻译的配置项
  */
 type TranslationContent = {
-    [Language in Languages]: string
+    /**
+     * 翻译内容
+     * 
+     * 当值为字符串时将直接替换到对应元素的 innerHTML
+     * 值为函数时将执行该函数来对元素进行处理
+     */
+    [Language in Languages]?: string | ElementUpdateCallback
 } & {
     /**
      * 该翻译内容是否可以重用
@@ -16,14 +22,21 @@ type TranslationContent = {
     reuse?: boolean
 
     /**
-     * 自定义文本元素
+     * 文本元素 css 选择器
      * 
-     * 如果需要对文本元素进行更高级的自定义，例如修改字体或动态调整内容，可以通过本回调完成
-     * 
-     * @param el 要进行更新的文本
-     * @return 修改完成的新的 html 元素，该元素将会被直接替换到原有位置
+     * 当该值不为空时，模块会在每次页面更新时主动通过该选择器查找元素，并优先触发翻译
      */
-    custom?: (el: HTMLElement) => HTMLElement
+    selector?: string
+}
+
+/**
+ * 在 html 元素上自定义添加的属性
+ */
+interface HTMLElement {
+    /**
+     * 该值为 true 时将阻止 getContentElement 函数继续向下的递归查找
+     */
+    stopTranslateSearch?: boolean
 }
 
 /**
@@ -43,6 +56,16 @@ interface PageContent {
 }
 
 /**
+ * 要进行更新的新翻译内容
+ * 
+ * 会判断其键是否有值并进行局部更新
+ */
+interface UpdateNewContent {
+    content?: TranslationContent[],
+    queryContent?: TranslationContent[]
+}
+
+/**
  * 当前页面使用的翻译源
  * 
  * 和上面 PageContent 的区别在于这个的 hash 是完全等于当前页面的 hash 的
@@ -51,6 +74,13 @@ interface PageContent {
 interface CurrentPageContent {
     hash: string
     content: TranslationContent[]
+
+    /**
+     * 包含 css 选择器的翻译对象
+     * 
+     * 会在页面更新时主动进行搜索
+     */
+    queryContent: TranslationContent[]
 }
 
 /**
@@ -62,6 +92,13 @@ type HashChangeCallback = (newHash: string) => any
  * 页面内容变化时触发的回调
  */
 type ContentChangeCallback = (contentElement: HTMLElement) => any
+
+/**
+ * 元素更新时触发的回调
+ * 
+ * 回调的返回值将作为元素的 innerHTML
+ */
+type ElementUpdateCallback = (elementInnerHTML: string) => string
 
 /**
  * 翻译的方向
