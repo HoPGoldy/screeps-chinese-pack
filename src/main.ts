@@ -6,7 +6,7 @@ import { updateContentSource, getContent } from 'storage'
  * 在文档加载完成后执行初始化翻译
  * 并开启变更监听动态翻译新增的文本
  */
-document.addEventListener('readystatechange', e => {
+document.addEventListener('readystatechange', () => {
     if (document.readyState !== 'complete') return
 
     // 设置初始翻译源

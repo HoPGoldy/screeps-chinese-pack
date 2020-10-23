@@ -4,17 +4,16 @@
  * 包含了翻译文本的正文（以语言文化代码为键的字符串）
  * 和一些应用于该条翻译的配置项
  */
-interface TranslationContent {
-    'en-US': string
-    'zh-CN': string
-
+type TranslationContent = {
+    [Language in Languages]: string
+} & {
     /**
      * 该翻译内容是否可以重用
      * 
      * 默认为 false，翻译模块会在应用本条翻译后将其从待翻译队列中移除以加快后续翻译速度
      * 设置为 true 后将不会移除，适用于在页面中出现多次的问题，例如按钮、label 等短文本
      */
-    'reuse'?: boolean
+    reuse?: boolean
 
     /**
      * 自定义文本元素
@@ -24,8 +23,13 @@ interface TranslationContent {
      * @param el 要进行更新的文本
      * @return 修改完成的新的 html 元素，该元素将会被直接替换到原有位置
      */
-    'custom'?: (el: HTMLElement) => HTMLElement
+    custom?: (el: HTMLElement) => HTMLElement
 }
+
+/**
+ * 所有支持的语种
+ */
+type Languages = 'en-US' | 'zh-CN'
 
 /**
  * 页面翻译内容
@@ -58,3 +62,12 @@ type HashChangeCallback = (newHash: string) => any
  * 页面内容变化时触发的回调
  */
 type ContentChangeCallback = (contentElement: HTMLElement) => any
+
+/**
+ * 翻译的方向
+ * 将文本从 from 翻译到 to
+ */
+interface TranslationDirection {
+    from: Languages
+    to: Languages
+}
