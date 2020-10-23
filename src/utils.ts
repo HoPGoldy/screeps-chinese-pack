@@ -32,4 +32,41 @@ export const getContentElement = function (el: HTMLElement): HTMLElement[] {
  */
 export const translate = function (el: HTMLElement, content: TranslationContent[]): void {
     const needTranslateElement = getContentElement(el)
+    console.log("translate -> needTranslateElement", needTranslateElement)
+}
+
+
+/**
+ * 监听路由的变化
+ */
+export const onHashChange = function (callback: HashChangeCallback = () => {}) {
+    // pushState 和 replaceState 不会触发对应的回调，这里包装一下
+    history.pushState = wapperHistory('pushState')
+    history.replaceState = wapperHistory('replaceState')
+
+    // 在更新时触发回调
+    const hashCallback = () => callback(document.location.hash)
+
+    window.addEventListener('replaceState', hashCallback)
+    window.addEventListener('pushState', hashCallback)
+}
+
+
+/**
+ * 将指定方法包装上事件功能
+ * 
+ * @param type 要包装的方法名，会在该方法执行时发射同名的事件
+ * @return 包装好的新方法
+ */
+const wapperHistory = function (type: string) {
+    // 保存原始方法
+    const originFunc = history[type]
+
+    return function (...args) {
+        const result = originFunc.apply(this, args)
+        // 派发事件
+        const e = new Event(type)
+        window.dispatchEvent(e)
+        return result
+    }
 }

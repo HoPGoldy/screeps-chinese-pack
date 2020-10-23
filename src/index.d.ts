@@ -48,3 +48,13 @@ interface CurrentPageContent {
     hash: string
     content: TranslationContent[]
 }
+
+/**
+ * hash 变化时触发的回调事件
+ */
+type HashChangeCallback = (newHash: string) => any
+
+/**
+ * 页面内容变化时触发的回调
+ */
+type ContentChangeCallback = (contentElement: HTMLElement) => any

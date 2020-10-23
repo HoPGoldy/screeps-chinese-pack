@@ -1,7 +1,6 @@
-import { translate } from 'utils'
-import getMutationObserver from 'mutationObserver'
-import { updateContentSource } from 'storage'
-
+import { translate, onHashChange } from 'utils'
+import { onElementChange } from 'mutationObserver'
+import { updateContentSource, getContent } from 'storage'
 
 /**
  * 在文档加载完成后执行初始化翻译
@@ -10,16 +9,15 @@ import { updateContentSource } from 'storage'
 document.addEventListener('readystatechange', e => {
     if (document.readyState !== 'complete') return
 
-    // 更新源，因为页面刚加载好，所以这里肯定有值
-    const source = updateContentSource()
+    // 设置初始翻译源
+    const source = updateContentSource(document.location.hash)
 
     // 翻译初始内容
     translate(document.body, source.content)
 
-    // 翻译后续内容
-    getMutationObserver().observe(document.body, {
-        childList: true,
-        characterData: true,
-        subtree: true
-    })
+    // 页面变更时重新加载翻译源
+    onHashChange(updateContentSource)
+
+    // 内容变更时翻译后续内容
+    onElementChange(newElement => translate(newElement, getContent()))
 })
