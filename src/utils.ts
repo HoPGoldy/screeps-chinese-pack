@@ -1,27 +1,36 @@
-import { TRANSLATION_DIRECTION } from 'setting'
+import { TRANSLATE_FROM, TRANSLATE_TO } from 'setting'
 import { updateContent, getContent } from 'storage'
 
 /**
- * 递归获取该元素下所有包含内容的 html 元素
+ * 递归获取该元素下所有包含内容的 text 元素
  * 
- * @param el 要进行查询的 html 元素
- * @return 包含内容的 html 元素数组
+ * @param el 要进行查询的 html 节点
+ * @return 包含内容的 text 元素数组
  */
-export const getContentElement = function (el: HTMLElement): HTMLElement[] {
-    // 没有内容或者该元素已经被翻译了
-    if (!el.innerText || !el.stopTranslateSearch) return []
-    // 下面没有子元素了，那内容就在它自己身上，直接返回
-    if (el.children.length === 0) return [el]
+export const getContentElement = function (el: Node): Text[] {
+    if (el instanceof HTMLElement) {
+        // 没有内容或者该元素被禁止翻译了
+        if (!el.innerText || el.stopTranslateSearch) return []
+        const contentElement: Text[] = []
 
-    const contentElement: HTMLElement[] = []
+        // 遍历所有子节点递归拿到内容节点
+        for (const children of el.childNodes) {
+            if (children.nodeType === Node.TEXT_NODE) {
+                // Text 节点中有很多只有换行符或者空格的，这里将其剔除掉
+                // 正则含义：包含除“换行”“回车”“空格”以外的其他字符
+                if (!/[^(\n|\r| )]/g.test((children as Text).wholeText)) continue
+                contentElement.push(children as Text)
+            }
+            // 元素节点的话就递归继续获取（不会搜索 script 标签）
+            else if (children.nodeType === Node.ELEMENT_NODE && children.nodeName !== 'SCRIPT') {
+                contentElement.push(...getContentElement(children))
+            }
+        }
 
-    // 遍历所有子节点递归拿到内容节点
-    for (const children of el.children) {
-        if (!(children instanceof HTMLElement)) continue
-        contentElement.push(...getContentElement(children))
+        return contentElement
     }
 
-    return contentElement
+    return []
 }
 
 
@@ -34,6 +43,7 @@ export const getContentElement = function (el: HTMLElement): HTMLElement[] {
  * @param el 要进行翻译的 html 元素
  */
 export const translate = function (el: HTMLElement): void {
+    // console.time('translate')
     const {
         content: allContents,
         queryContent: allQueryContents
@@ -41,27 +51,31 @@ export const translate = function (el: HTMLElement): void {
 
     // 翻译所有有选择器的元素
     const notFindContent = allQueryContents.filter(content => {
-        const targetElement = el.querySelector(content.selector)
-        if (!targetElement || !(targetElement instanceof HTMLElement)) return true
+        const targetElements = el.querySelectorAll(content.selector)
+        if (targetElements.length === 0) return true
 
         // 翻译并阻止后续再次翻译
-        updateElement(targetElement, content)
-        targetElement.stopTranslateSearch = true
+        targetElements.forEach(element => {
+            if (element.nodeType !== Node.ELEMENT_NODE) return
+
+            updateElement((element as HTMLElement), content)
+            element.stopTranslateSearch = true
+        })
 
         return content.reuse ? true : false
     })
 
     // 取出所有待翻译元素
-    const needTranslateElement = getContentElement(el)
+    const needTranslateText = getContentElement(el)
 
     // 遍历所有节点进行翻译
-    needTranslateElement.forEach(element => {
-        const originContent = element.innerHTML
+    needTranslateText.forEach(text => {
+        let originContent: string = text.wholeText
 
         // 找到符合的翻译内容，并保存其索引
         let translationIndex: number
         const currentTranslation = allContents.find((content, index) => {
-            if (content[TRANSLATION_DIRECTION.from] !== originContent) return false
+            if (content[TRANSLATE_FROM] !== originContent) return false
 
             translationIndex = index
             return true
@@ -74,45 +88,62 @@ export const translate = function (el: HTMLElement): void {
         }
 
         // 更新文本，如果没指定重用的话就将其移除
-        updateElement(element, currentTranslation)
+        updateText(text, currentTranslation)
         if (!currentTranslation.reuse) allContents.splice(translationIndex, 1)
     })
 
     // 把结果更新回数据源
     updateContent({ content: allContents, queryContent: notFindContent })
+    // console.timeEnd('translate')
 }
 
 
 /**
- * 使用对应的翻译内容更新元素
+ * 使用对应的翻译内容更新 html 元素
  * 
  * @param el 要更新的元素
  * @param content 要更新的翻译内容
  */
 const updateElement = function (el: HTMLElement, content: TranslationContent): void {
-    let translatedContent: string
+    const newContent = content[TRANSLATE_TO]
 
-    const newContent = content[TRANSLATION_DIRECTION.to]
-    if (typeof newContent === 'string') translatedContent = newContent
-    else translatedContent = newContent(el.innerHTML)
-
-    el.innerHTML = translatedContent
+    if (typeof newContent === 'string') el.innerHTML = newContent
+    else newContent(el as (HTMLElement & string))
 }
 
+/**
+ * 使用对应的翻译内容更新 text 元素
+ * 
+ * @param el 要更新的文本节点
+ * @param content 要更新的翻译内容
+ */
+const updateText = function (el: Text, content: TranslationContent): void {
+    const newContent = content[TRANSLATE_TO]
+    if (typeof newContent === 'string') el.parentElement.replaceChild(new Text(newContent), el)
+    else {
+        const newText = newContent(el.wholeText as (HTMLElement & string))
+        el.parentElement.replaceChild(new Text(newText), el)
+    }
+}
 
 /**
  * 监听路由的变化
  */
-export const onHashChange = function (callback: HashChangeCallback = () => {}) {
-    // pushState 和 replaceState 不会触发对应的回调，这里包装一下
-    history.pushState = wapperHistory('pushState')
-    history.replaceState = wapperHistory('replaceState')
-
+export const onHashChange = function (callback: HashChangeCallback = () => {}, type: HashChangeListenerType = 'hash') {
     // 在更新时触发回调
     const hashCallback = () => callback(document.location.hash)
 
-    window.addEventListener('replaceState', hashCallback)
-    window.addEventListener('pushState', hashCallback)
+    if (type === 'history') {
+        // pushState 和 replaceState 不会触发对应的回调，这里包装一下
+        history.pushState = wapperHistory('pushState')
+        history.replaceState = wapperHistory('replaceState')
+
+        window.addEventListener('replaceState', hashCallback)
+        window.addEventListener('pushState', hashCallback)
+    }
+    else {
+        window.addEventListener('hashchange', hashCallback)
+    }
 }
 
 

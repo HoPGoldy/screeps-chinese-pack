@@ -1,7 +1,11 @@
 /**
- * 指示了需要从那个语种翻译到那个语种
+ * 要被翻译的语种
+ * 
+ * 当 TranslationContent 中包含 selector 属性时，该设置将失效（因为翻译源由 selector 选择器指定了）
  */
-export const TRANSLATION_DIRECTION: TranslationDirection = {
-    from: 'en-US',
-    to: 'zh-CN'
-}
+export const TRANSLATE_FROM: Languages = 'en-US'
+
+/**
+ * 要翻译到的语种
+ */
+export const TRANSLATE_TO: Languages = 'zh-CN'

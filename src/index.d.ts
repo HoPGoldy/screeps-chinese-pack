@@ -11,7 +11,7 @@ type TranslationContent = {
      * 当值为字符串时将直接替换到对应元素的 innerHTML
      * 值为函数时将执行该函数来对元素进行处理
      */
-    [Language in Languages]?: string | ElementUpdateCallback
+    [Language in Languages]?: string | TextUpdateCallback | ElementUpdateCallback
 } & {
     /**
      * 该翻译内容是否可以重用
@@ -30,9 +30,9 @@ type TranslationContent = {
 }
 
 /**
- * 在 html 元素上自定义添加的属性
+ * 在元素上自定义添加的属性
  */
-interface HTMLElement {
+interface Element {
     /**
      * 该值为 true 时将阻止 getContentElement 函数继续向下的递归查找
      */
@@ -96,9 +96,32 @@ type ContentChangeCallback = (contentElement: HTMLElement) => any
 /**
  * 元素更新时触发的回调
  * 
- * 回调的返回值将作为元素的 innerHTML
+ * 参数是要更新的元素本身，你可以通过直接对其进行更新来设置一些元素属性（例如 title）
  */
-type ElementUpdateCallback = (elementInnerHTML: string) => string
+type ElementUpdateCallback = BaseCallback<HTMLElement>
+
+/**
+ * 文本更新时触发的回调
+ * 
+ * 参数是原始的内容，回调的返回值将被作为新的内容
+ */
+type TextUpdateCallback = BaseCallback<string>
+
+/**
+ * 翻译回调的原始类型
+ * 
+ * 用于解决上面两个回调签名不兼容导致的无法调用的问题
+ * @TODO 需要优化，调用时将入参指定为了诡异的 (HTMLElement & string）类型
+ */
+type BaseCallback<T extends HTMLElement | string = HTMLElement> = (updateTarget: T) => T extends HTMLElement ? any : T
+
+/**
+ * 监听 hash 变化的方式
+ * 
+ * 有些框架例如 vue 是用了 history 进行的路由控制
+ * 而 screeps 只用简单的 hash 模式即可
+ */
+type HashChangeListenerType = 'history' | 'hash'
 
 /**
  * 翻译的方向
