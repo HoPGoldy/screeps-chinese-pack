@@ -131,21 +131,18 @@ const updateText = function (el: Text, content: TranslationContent): void {
 /**
  * 监听路由的变化
  */
-export const onHashChange = function (callback: HashChangeCallback = () => {}, type: HashChangeListenerType = 'hash') {
+export const onHashChange = function (callback: HashChangeCallback = () => {}) {
     // 在更新时触发回调
     const hashCallback = () => callback(document.location.hash)
 
-    if (type === 'history') {
-        // pushState 和 replaceState 不会触发对应的回调，这里包装一下
-        history.pushState = wapperHistory('pushState')
-        history.replaceState = wapperHistory('replaceState')
+    // pushState 和 replaceState 不会触发对应的回调，这里包装一下
+    history.pushState = wapperHistory('pushState')
+    history.replaceState = wapperHistory('replaceState')
 
-        window.addEventListener('replaceState', hashCallback)
-        window.addEventListener('pushState', hashCallback)
-    }
-    else {
-        window.addEventListener('hashchange', hashCallback)
-    }
+    // 页面变更时触发回调
+    window.addEventListener('replaceState', hashCallback)
+    window.addEventListener('pushState', hashCallback)
+    window.addEventListener('hashchange', hashCallback)
 }
 
 

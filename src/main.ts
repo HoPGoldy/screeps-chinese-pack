@@ -7,16 +7,17 @@ import { updateContentSource } from 'storage'
  * 并开启变更监听动态翻译新增的文本
  */
 document.addEventListener('readystatechange', () => {
-    if (document.readyState !== 'complete') return
-
     // 设置初始翻译源
     updateContentSource(document.location.hash)
 
     // 翻译初始内容
     translate(document.body)
 
-    // 页面变更时重新加载翻译源
-    onHashChange(updateContentSource)
+    // 页面变更时重新加载翻译源并重新翻译
+    onHashChange(hash => {
+        updateContentSource(hash)
+        translate(document.body)
+    })
 
     // 内容变更时翻译后续内容
     onElementChange(translate)

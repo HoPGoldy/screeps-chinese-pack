@@ -116,14 +116,6 @@ type TextUpdateCallback = BaseCallback<string>
 type BaseCallback<T extends HTMLElement | string = HTMLElement> = (updateTarget: T) => T extends HTMLElement ? any : T
 
 /**
- * 监听 hash 变化的方式
- * 
- * 有些框架例如 vue 是用了 history 进行的路由控制
- * 而 screeps 只用简单的 hash 模式即可
- */
-type HashChangeListenerType = 'history' | 'hash'
-
-/**
  * 翻译的方向
  * 将文本从 from 翻译到 to
  */
