@@ -74,5 +74,6 @@ export const updateContentSource = function (hash: string): CurrentPageContent |
     currentPageContent.content = newContent
     currentPageContent.queryContent = newQueryContent
 
+    console.log("currentPageContent", currentPageContent)
     return currentPageContent
 }

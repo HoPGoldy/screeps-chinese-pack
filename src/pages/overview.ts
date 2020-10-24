@@ -8,8 +8,9 @@ const content: PageContent = {
         { 'en-US': 'Manage Power Creeps', 'zh-CN': '管理 power creep' },
         { 'en-US': 'Stats Period', 'zh-CN': '统计时长', reuse: true },
 
-        { 'en-US': '\nView leaderboard\n', 'zh-CN': '查看排行榜', 'reuse': true },
+        { 'en-US': 'Graph:', 'zh-CN': '图表:', 'reuse': true },
 
+        { 'en-US': 'Power processed', 'zh-CN': 'power 处理', 'reuse': true },
         { 'en-US': 'Control points', 'zh-CN': '控制点数', 'reuse': true },
         { 'en-US': 'Energy harvested', 'zh-CN': '能量采集', 'reuse': true },
         { 'en-US': 'Energy spent on construction', 'zh-CN': '能量 - 建筑消耗', 'reuse': true },

@@ -75,7 +75,9 @@ export const translate = function (el: HTMLElement): void {
         // 找到符合的翻译内容，并保存其索引
         let translationIndex: number
         const currentTranslation = allContents.find((content, index) => {
-            if (content[TRANSLATE_FROM] !== originContent) return false
+            // 取出前后可能存在的换行符
+            // 正则含义：去除字符串前后可能存在的空字符
+            if (content[TRANSLATE_FROM] !== originContent.replace(/(^\s*)|(\s*$)/g, '')) return false
 
             translationIndex = index
             return true
