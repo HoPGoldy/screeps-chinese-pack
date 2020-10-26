@@ -1,6 +1,6 @@
 import { TRANSLATE_FROM, TRANSLATE_TO } from 'setting'
 import { getContent, updateContent } from 'storage'
-import { getContentElement } from 'utils'
+import { getContentElement, trim } from 'utils'
 
 /**
  * 翻译指定 html 元素
@@ -76,7 +76,7 @@ const translateNormalContent = function(el: HTMLElement, allContents: Translatio
         const currentTranslation = allContents.find((content, index) => {
             // 取出前后可能存在的换行符
             // 正则含义：去除字符串前后可能存在的空字符
-            if (content[TRANSLATE_FROM] !== originContent.replace(/(^\s*)|(\s*$)/g, '')) return false
+            if (content[TRANSLATE_FROM] !== trim(originContent)) return false
 
             translationIndex = index
             return true

@@ -106,6 +106,16 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
 
 
 /**
+ * 去掉字符串两端的空白字符
+ * 
+ * @param str 要修剪的字符串
+ */
+export const trim = function (str: string): string {
+    return str.replace(/(^\s*)|(\s*$)/g, '')
+}
+
+
+/**
  * 回调 - 页面有新元素变更
  * 
  * @param callback 在变更时执行的回调，入参为发生变更的 HTMLElement（包括新增和修改，没有删除）
@@ -131,7 +141,7 @@ export const onElementChange = function (callback: ContentChangeCallback = () =>
  */
 export const translateMultiple = function (contents: MultipleMap) {
     return (el: HTMLElement) => {
-        const newContent = contents[el.innerText]
+        const newContent = contents[trim(el.innerText)]
         if (newContent) el.innerText = newContent
     }
 }
