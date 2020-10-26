@@ -120,3 +120,18 @@ export const onElementChange = function (callback: ContentChangeCallback = () =>
         subtree: true
     })
 }
+
+/**
+ * 多行翻译
+ * 
+ * 当一个 css 选择器会选中多个元素时，就可以使用该函数快速生成一个翻译源
+ * 会根据传入的数据源的键值对进行翻译
+ * 
+ * @param contents 多行翻译源
+ */
+export const translateMultiple = function (contents: MultipleMap) {
+    return (el: HTMLElement) => {
+        const newContent = contents[el.innerText]
+        if (newContent) el.innerText = newContent
+    }
+}

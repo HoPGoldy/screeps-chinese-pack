@@ -123,3 +123,12 @@ interface TranslationDirection {
     from: Languages
     to: Languages
 }
+
+/**
+ * 多行翻译源
+ * 
+ * 键为翻译原文，值为翻译后的文本
+ */
+interface MultipleMap {
+    [originContent: string]: string
+}
