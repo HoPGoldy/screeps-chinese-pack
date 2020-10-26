@@ -1,6 +1,6 @@
-import { translate, onHashChange } from 'utils'
-import { onElementChange } from 'mutationObserver'
-import { updateContentSource } from 'storage'
+import translate from 'translate'
+import { onHashChange, onElementChange } from 'utils'
+import { updateSource } from 'storage'
 
 /**
  * 在文档加载完成后执行初始化翻译
@@ -8,14 +8,14 @@ import { updateContentSource } from 'storage'
  */
 document.addEventListener('readystatechange', () => {
     // 设置初始翻译源
-    updateContentSource(document.location.hash)
+    updateSource(document.location.hash)
 
     // 翻译初始内容
     translate(document.body)
 
-    // 页面变更时重新加载翻译源并重新翻译
+    // 页面变更时重新加载翻译源并全量翻译
     onHashChange(hash => {
-        updateContentSource(hash)
+        updateSource(hash)
         translate(document.body)
     })
 

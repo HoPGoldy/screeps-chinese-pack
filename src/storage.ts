@@ -1,4 +1,5 @@
 import pages from 'pages'
+import { getNoQueryHash } from 'utils'
 
 /**
  * 实际的存储对象
@@ -46,10 +47,8 @@ export const updateContent = function (newContent: UpdateNewContent): void {
  * @param hash 要进行翻译源匹配的 hash 值
  * @returns 更新后的翻译源
  */
-export const updateContentSource = function (hash: string): CurrentPageContent | undefined {
-    // 因为 hash 包含 query 字符串，所以这里要剔除掉
-    const hashList = hash.split('?')
-    const currentHash = hashList.length > 0 ? hashList[0] : '/'
+export const updateSource = function (hash: string): CurrentPageContent {
+    const currentHash = getNoQueryHash(hash)
 
     // 没有变更就不进行搜索
     if (currentHash === currentPageContent.hash) return currentPageContent
