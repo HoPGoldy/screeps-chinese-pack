@@ -150,7 +150,7 @@ export const onElementChange = function (callback: ContentChangeCallback = () =>
  */
 export const translateMultiple = function (contents: MultipleMap) {
     return (el: HTMLElement) => {
-        const newContent = contents[trim(el.innerText)]
-        if (newContent) el.innerText = newContent
+        const newContent = contents[trim(el.innerHTML)]
+        if (newContent) el.innerHTML = newContent
     }
 }
