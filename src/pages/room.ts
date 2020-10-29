@@ -12,7 +12,7 @@ const TOOLTIP_LABEL: MultipleMap = {
 }
 
 const content: PageContent = {
-    hashs: [ '#!/room', '#!/sim/custom' ],
+    hashs: [ '#!/room', '#!/sim/custom', '#!/sim/survival', '#!/sim/tutorial/' ],
     content: [
         {
             'selector': 'div.tooltip.ng-scope.ng-isolate-scope > div.tooltip-inner.ng-binding',

@@ -24,7 +24,14 @@ const content: PageContent = {
         {
             'en-US': 'Modify the landscape, create any objects, and test your scripts playing for two virtual players at once.',
             'zh-CN': '修改地形、创建任何对象并同时操控两个虚拟玩家来测试您的代码。'
-        }
+        },
+        {
+            'en-US': 'Your script will be saved, but your simulation progress will be lost! Are you sure?',
+            'zh-CN': '您的代码将会保存，但是您的模拟器进度将会丢失！确定要退出么？',
+            reuse: true
+        },
+        { 'en-US': 'Cancel', 'zh-CN': '取消', reuse: true },
+        { 'en-US': 'OK', 'zh-CN': '确定', reuse: true },
     ]
 }
 
