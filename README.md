@@ -1,6 +1,6 @@
 # Screeps-chinese-pack
 
-用于汉化 [screeps.com](https://screeps.com) 网站的 [油猴脚本](https://www.tampermonkey.net/)。
+用于汉化 [screeps.com](https://screeps.com) 网站的 [油猴脚本](https://www.tampermonkey.net/)。由 Screeps 中国玩家自发创建并维护，[点此](./CONTRIBUTING.md) 来查看如何参与本项目！
 
 # 需求
 
@@ -36,4 +36,4 @@ yarn start
 // ==/UserScript==
 ```
 
-之后编辑 `/src` 目录下的文件，将会直接同步到浏览器中。
+之后编辑 `/src` 目录下的文件，刷新浏览器后即可看到你的修改。
