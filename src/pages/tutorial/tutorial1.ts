@@ -47,7 +47,19 @@ const TUTORIAL_CONTENT = {
     '在这里您可以看到选中对象的属性。每个属性的值和身体部件的功能都可以在文档中找到相关介绍。',
 
     'It is time to put the creep to work! This yellow square is an energy source — a valuable game resource.\nIt can be harvested by creeps with one or more <code>WORK</code> body parts and transported to the spawn by creeps with <code>CARRY</code> parts.':
-    '现在是时候让这个 creep 去工作了！这个黄色小方块是一个能量源 —— 一种宝贵的游戏资源。它可以被带有一个或多个 <code>WORK</code> 身体部件的 creep 采集，并由带有 <code>CARRY</code> 部件的 creep 运送到 spawn。',
+    '现在是时候让这个 creep 去工作了！这个黄色小方块是一个能量源（Source） —— 一种宝贵的游戏资源。它可以被带有一个或多个 <code>WORK</code> 身体部件的 creep 采集，并由带有 <code>CARRY</code> 部件的 creep 运送到 spawn。',
+
+    'To give your creep a permanently working command, the console is not enough, since we want the creep to work all the time.\nSo we\'ll be using the Script tab rather than the console.':
+    '要给您的 creep 设置一个永久工作指令光靠控制台是不够的，因为我们更希望 creep 可以一直工作下去。所以我们将使用代码面板而不是控制台。',
+
+    'Here you can write scripts that will run on a permanent basis, each game tick in a loop.\nIt allows writing constantly working programs to control behaviour of your creeps which will work even while you\nare offline (in the real game only, not the Simulation Room mode).':
+    '在这里您可以编写每个游戏 tick 都会循环执行的持久性代码。所以您可以编写持续工作的程序来控制 creep 的行为，哪怕您已经离线了（仅就实际游戏而言，对于模拟模式并不生效）。',
+
+    'To commit a script to the game so it can run, use this button or <strong>Ctrl+Enter</strong>.':
+    '使用 <strong>Ctrl+Enter</strong> 来向游戏提交代码，这样就可以让代码开始运行。',
+
+    'The code for each Tutorial section is created in its own branch. You can view code from these branches for\nfurther use in your scripts.':
+    '每个教程章节的代码都会创建并保存到独有的分支中。您可以从这些分支中查看代码以便以后使用。',
 }
 
 const OBJECTIVE_CONTENT = {
@@ -56,6 +68,24 @@ const OBJECTIVE_CONTENT = {
 
     '<div class="fa fa-caret-right"></div>\nHide the editor panel with <strong>Alt+Enter</strong> and select your creep with the help of the "View" action.':
     '按下 <strong>Alt+Enter</strong> 键来隐藏编辑器面板并在 “查看” 功能下选中您的 creep',
+
+    '<div class="fa fa-caret-down"></div>\nDocumentation:\n<ul>\n<li>\n<a app-nw-external-link="" href="http://docs.screeps.com/introduction.html#Game-world" target="_blank">Game world</a>\n</li>\n</ul>':
+    '<div class="fa fa-caret-down"></div>\n文档:\n<ul>\n<li>\n<a app-nw-external-link="" href="https://screeps-cn.gitee.io/introduction.html#%E6%B8%B8%E6%88%8F%E4%B8%96%E7%95%8C" target="_blank">游戏世界</a>\n</li>\n</ul>',
+
+    '<div class="fa fa-caret-right"></div>\nClick the "Console" tab.':
+    '<div class="fa fa-caret-right"></div>\n点击 “控制台” 面板。',
+
+    '<div class="fa fa-caret-right"></div>\nType anything in this field and press Enter.':
+    '<div class="fa fa-caret-right"></div>\n在这里随便输点什么然后按回车键。',
+
+    '<div class="fa fa-caret-down"></div>\nDocumentation:\n<ul>\n<li>\n<a app-nw-external-link="" href="http://docs.screeps.com/introduction.html#Your-colony" target="_blank">Your colony</a>\n</li>\n<li>\n<a app-nw-external-link="" href="http://docs.screeps.com/creeps.html" target="_blank">Creeps</a>\n</li>\n<li>\n<a app-nw-external-link="" href="http://docs.screeps.com/global-objects.html#Game-object" target="_blank">Game object</a>\n</li>\n<li>\n<code><a app-nw-external-link="" href="http://docs.screeps.com/api/#StructureSpawn.spawnCreep" target="_blank">StructureSpawn.spawnCreep</a></code>\n</li>\n</ul>':
+    '<div class="fa fa-caret-down"></div>\文档:\n<ul>\n<li>\n<a app-nw-external-link="" href="https://screeps-cn.gitee.io/introduction.html#%E5%B1%9E%E5%9C%B0%EF%BC%88Colony%EF%BC%89" target="_blank">您的属地</a>\n</li>\n<li>\n<a app-nw-external-link="" href="https://screeps-cn.gitee.io/creeps.html" target="_blank">Creeps</a>\n</li>\n<li>\n<a app-nw-external-link="" href="https://screeps-cn.gitee.io/global-objects.html#Game-%E5%AF%B9%E8%B1%A1" target="_blank">游戏对象</a>\n</li>\n<li>\n<code><a app-nw-external-link="" href="https://screeps-cn.gitee.io/api/#StructureSpawn.spawnCreep" target="_blank">StructureSpawn.spawnCreep</a></code>\n</li>\n</ul>',
+    
+    '<div class="fa fa-caret-right"></div>\nClick the "Script" tab.':
+    '<div class="fa fa-caret-right"></div>点击 “代码” 面板。',
+
+    '<div class="fa fa-caret-down"></div>\nDocumentation:\n<ul>\n<li>\n<a app-nw-external-link="" href="http://docs.screeps.com/scripting-basics.html" target="_blank">Scripting basics</a>\n</li>\n</ul>':
+    '<div class="fa fa-caret-down"></div>文档:\n<ul>\n<li>\n<a app-nw-external-link="" href="https://screeps-cn.gitee.io/scripting-basics.html" target="_blank">代码基础</a>\n</li>\n</ul>'
 }
 
 
@@ -71,21 +101,13 @@ const content: PageContent = {
 
         { 'en-US': 'Welcome to Screeps!', 'zh-CN': '欢迎来到 Screeps！', reuse: true },
 
-        { 'en-US': 'Documentation:', 'zh-CN': '文档：', reuse: true },
-        { 'en-US': 'Game world', 'zh-CN': '游戏世界', reuse: true },
-
-        { 'en-US': 'Click the "Console" tab.', 'zh-CN': '点击 “控制台” 面板', reuse: true },
-    
-        { 'en-US': 'Type anything in this field and press Enter.', 'zh-CN': '在这个输入框中随便填点什么然后按回车键', reuse: true },
-
-        { 'en-US': 'Your colony', 'zh-CN': '您的殖民地', reuse: true },
-        { 'en-US': 'Game object', 'zh-CN': '游戏对象', reuse: true },
-
+        // 翻译所有教程文本
         {
             'selector': 'body > div.top-content.ng-scope > .ng-scope > div > div.tutorial-content.ng-scope > section > p',
             'zh-CN': translateMultiple(TUTORIAL_CONTENT),
             reuse: true
         },
+        // 翻译所有目标文本
         {
             'selector': 'body > div.top-content.ng-scope > .ng-scope > div > div.tutorial-content.ng-scope > section > div.objective:not(:last-child)',
             'zh-CN': translateMultiple(OBJECTIVE_CONTENT),
