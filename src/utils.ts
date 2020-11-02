@@ -141,6 +141,32 @@ export const onElementChange = function (callback: ContentChangeCallback = () =>
 }
 
 /**
+ * 回调 - 当页面出现可以进行翻译的内容
+ * 
+ * @param callback 页面可以进行翻译时执行的回调
+ */
+export const onPageLoad = function (callback: () => any) {
+    // 设置定时器，在页面出现内容后就开始翻译
+    // 这个设定是因为国内网络不好的时候会出现页面还在加载（一直转圈）但是已经可以进行游戏的情况
+    // 这时候下面的 readystatechange 是还没有触发的
+    const timer = setInterval(() => {
+        if (document.body.innerText.length <= 0) return
+
+        clearInterval(timer)
+        callback()
+    }, 500)
+
+    /**
+     * 在文档加载完成后再执行一次全量翻译防止有遗漏
+     */
+    document.addEventListener('readystatechange', () => {
+        clearInterval(timer)
+        callback()
+    })
+    
+}
+
+/**
  * 多行翻译
  * 
  * 当一个 css 选择器会选中多个元素时，就可以使用该函数快速生成一个翻译源

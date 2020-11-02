@@ -1,15 +1,12 @@
 import translate from 'translate'
-import { onHashChange, onElementChange } from 'utils'
+import { onHashChange, onElementChange, onPageLoad } from 'utils'
 import { updateSource } from 'storage'
 
-/**
- * 在文档加载完成后执行初始化翻译
- * 并开启变更监听动态翻译新增的文本
- */
-document.addEventListener('readystatechange', () => {
-    // 设置初始翻译源
-    updateSource(document.location.hash)
+// 设置初始翻译源
+updateSource(document.location.hash)
 
+// 页面内容出现后执行翻译
+onPageLoad(() => {
     // 翻译初始内容
     translate(document.body)
 
