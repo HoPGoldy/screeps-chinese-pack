@@ -9,3 +9,8 @@ export const TRANSLATE_FROM: Languages = 'en-US'
  * 要翻译到的语种
  */
 export const TRANSLATE_TO: Languages = 'zh-CN'
+
+/**
+ * 中文文档的域名
+ */
+export const DOCUMENT_CN = 'https://screeps-cn.gitee.io'

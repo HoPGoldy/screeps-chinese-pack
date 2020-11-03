@@ -1,3 +1,4 @@
+import { DOCUMENT_CN } from 'setting'
 import { translateMultiple } from 'utils'
 import { getObjectiveTranslationContent } from './utils'
 
@@ -159,46 +160,46 @@ const OBJECTIVE_CONTENT = {
  */
 const OBJECTIVE_LINK = {
     'http://docs.screeps.com/introduction.html#Game-world':
-    'https://screeps-cn.gitee.io/introduction.html#%E6%B8%B8%E6%88%8F%E4%B8%96%E7%95%8C',
+    `${DOCUMENT_CN}/introduction.html#%E6%B8%B8%E6%88%8F%E4%B8%96%E7%95%8C`,
 
     'http://docs.screeps.com/introduction.html#Your-colony':
-    'https://screeps-cn.gitee.io/introduction.html#%E5%B1%9E%E5%9C%B0%EF%BC%88Colony%EF%BC%89',
+    `${DOCUMENT_CN}/introduction.html#%E5%B1%9E%E5%9C%B0%EF%BC%88Colony%EF%BC%89`,
 
     'http://docs.screeps.com/creeps.html':
-    'https://screeps-cn.gitee.io/creeps.html',
+    `${DOCUMENT_CN}/creeps.html`,
 
     'http://docs.screeps.com/global-objects.html#Game-object':
-    'https://screeps-cn.gitee.io/global-objects.html#Game-%E5%AF%B9%E8%B1%A1',
+    `${DOCUMENT_CN}/global-objects.html#Game-%E5%AF%B9%E8%B1%A1`,
 
     'http://docs.screeps.com/api/#StructureSpawn.spawnCreep':
-    'https://screeps-cn.gitee.io/api/#StructureSpawn.spawnCreep',
+    `${DOCUMENT_CN}/api/#StructureSpawn.spawnCreep`,
 
     'http://docs.screeps.com/scripting-basics.html':
-    'https://screeps-cn.gitee.io/scripting-basics.html',
+    `${DOCUMENT_CN}/scripting-basics.html`,
 
     'http://docs.screeps.com/api/#Game.creeps':
-    'https://screeps-cn.gitee.io/api/#Game.creeps',
+    `${DOCUMENT_CN}/api/#Game.creeps`,
     
     'http://docs.screeps.com/api/#RoomObject.room':
-    'https://screeps-cn.gitee.io/api/#RoomObject.room',
+    `${DOCUMENT_CN}/api/#RoomObject.room`,
     
     'http://docs.screeps.com/api/#Room.find':
-    'https://screeps-cn.gitee.io/api/#Room.find',
+    `${DOCUMENT_CN}/api/#Room.find`,
     
     'http://docs.screeps.com/api/#Creep.moveTo':
-    'https://screeps-cn.gitee.io/api/#Creep.moveTo',
+    `${DOCUMENT_CN}/api/#Creep.moveTo`,
     
     'http://docs.screeps.com/api/#Creep.harvest':
-    'https://screeps-cn.gitee.io/api/#Creep.harvest',
+    `${DOCUMENT_CN}/api/#Creep.harvest`,
     
     'http://docs.screeps.com/modules.html':
-    'https://screeps-cn.gitee.io/modules.html',
+    `${DOCUMENT_CN}/modules.html`,
 
     'http://docs.screeps.com/api/#Creep.store':
-    'https://screeps-cn.gitee.io/api/#Creep.store',
+    `${DOCUMENT_CN}/api/#Creep.store`,
 
     'http://docs.screeps.com/api/#Creep.transfer':
-    'https://screeps-cn.gitee.io/api/#Creep.transfer',
+    `${DOCUMENT_CN}/api/#Creep.transfer`,
 }
 
 
