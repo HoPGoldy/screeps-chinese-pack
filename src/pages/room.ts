@@ -28,7 +28,7 @@ const content: PageContent = {
         },
 
         // 下方 Script 面板
-        { 'en-US': 'Script', 'zh-CN': '代码' },
+        { 'en-US': 'Script', 'zh-CN': '脚本' },
         { 'en-US': 'Branch:', 'zh-CN': '分支:', reuse: true },
         { 'en-US': 'Modules', 'zh-CN': '模块', reuse: true },
         { 'en-US': 'Choose active branch:', 'zh-CN': '选择活动分支', reuse: true },
