@@ -12,8 +12,8 @@ export default {
     },
     plugins: [
         // 清除上次编译成果
-        clear({ targets: ["dist"] }),
+        clear({ targets: ['dist'] }),
         // 编译 ts
-        typescript({ tsconfig: "./tsconfig.json" })
+        typescript({ tsconfig: './tsconfig.json' })
     ]
-};
+}

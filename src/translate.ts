@@ -2,28 +2,34 @@ import { TRANSLATE_FROM, TRANSLATE_TO } from 'setting'
 import { getContent, updateContent } from 'storage'
 import { getContentElement, trim } from 'utils'
 
+
 /**
- * 翻译指定 html 元素
+ * 使用对应的翻译内容更新 html 元素
  * 
- * 会使用当前数据源递归翻译其子元素
- * 该方法会修改 全局存储 currentPageContent 的内容（会将完成翻译的内容从 content 取出以提高性能，除非该 content 指定了 reuse）
- * 
- * @param el 要进行翻译的 html 元素
+ * @param el 要更新的元素
+ * @param content 要更新的翻译内容
  */
-const translate = function (el: HTMLElement): void {
-    // console.time('translate')
-    const {
-        content: allContents,
-        queryContent: allQueryContents
-    } = getContent()
+const updateElement = function (el: HTMLElement, content: TranslationContent): void {
+    const newContent = content[TRANSLATE_TO]
 
-    // 执行翻译
-    const nextSearchdQueryContents = translateQueryContent(el, allQueryContents)
-    const nextSearchContents = translateNormalContent(el, allContents)
+    if (typeof newContent === 'string') el.innerHTML = newContent
+    else newContent(el as (HTMLElement & string))
+}
 
-    // 把没有使用或者启用了重用的翻译内容更新回数据源
-    updateContent({ content: nextSearchContents, queryContent: nextSearchdQueryContents })
-    // console.timeEnd('translate')
+
+/**
+ * 使用对应的翻译内容更新 text 元素
+ * 
+ * @param el 要更新的文本节点
+ * @param content 要更新的翻译内容
+ */
+const updateText = function (el: Text, content: TranslationContent): void {
+    const newContent = content[TRANSLATE_TO]
+    if (typeof newContent === 'string') el.parentElement.replaceChild(new Text(newContent), el)
+    else {
+        const newText = newContent(el.wholeText as (HTMLElement & string))
+        el.parentElement.replaceChild(new Text(newText), el)
+    }
 }
 
 
@@ -49,7 +55,7 @@ const translateQueryContent = function (el: HTMLElement, allQueryContents: Trans
             element.stopTranslateSearch = true
         })
 
-        return content.reuse ? true : false
+        return content.reuse
     })
 }
 
@@ -63,13 +69,13 @@ const translateQueryContent = function (el: HTMLElement, allQueryContents: Trans
  * @param el 要翻译的 html 元素
  * @param allContents 所有不带选择器的翻译内容
  */
-const translateNormalContent = function(el: HTMLElement, allContents: TranslationContent[]): TranslationContent[] {
+const translateNormalContent = function (el: HTMLElement, allContents: TranslationContent[]): TranslationContent[] {
     // 取出所有待翻译元素
     const needTranslateText = getContentElement(el)
 
     // 遍历所有节点进行翻译
     needTranslateText.forEach(text => {
-        let originContent: string = text.wholeText
+        const originContent: string = text.wholeText
 
         // 找到符合的翻译内容，并保存其索引
         let translationIndex: number
@@ -96,32 +102,30 @@ const translateNormalContent = function(el: HTMLElement, allContents: Translatio
     return allContents
 }
 
-/**
- * 使用对应的翻译内容更新 html 元素
- * 
- * @param el 要更新的元素
- * @param content 要更新的翻译内容
- */
-const updateElement = function (el: HTMLElement, content: TranslationContent): void {
-    const newContent = content[TRANSLATE_TO]
-
-    if (typeof newContent === 'string') el.innerHTML = newContent
-    else newContent(el as (HTMLElement & string))
-}
 
 /**
- * 使用对应的翻译内容更新 text 元素
+ * 翻译指定 html 元素
  * 
- * @param el 要更新的文本节点
- * @param content 要更新的翻译内容
+ * 会使用当前数据源递归翻译其子元素
+ * 该方法会修改 全局存储 currentPageContent 的内容（会将完成翻译的内容从 content 取出以提高性能，除非该 content 指定了 reuse）
+ * 
+ * @param el 要进行翻译的 html 元素
  */
-const updateText = function (el: Text, content: TranslationContent): void {
-    const newContent = content[TRANSLATE_TO]
-    if (typeof newContent === 'string') el.parentElement.replaceChild(new Text(newContent), el)
-    else {
-        const newText = newContent(el.wholeText as (HTMLElement & string))
-        el.parentElement.replaceChild(new Text(newText), el)
-    }
+const translate = function (el: HTMLElement): void {
+    // console.time('translate')
+    const {
+        content: allContents,
+        queryContent: allQueryContents
+    } = getContent()
+
+    // 执行翻译
+    const nextSearchdQueryContents = translateQueryContent(el, allQueryContents)
+    const nextSearchContents = translateNormalContent(el, allContents)
+
+    // 把没有使用或者启用了重用的翻译内容更新回数据源
+    updateContent({ content: nextSearchContents, queryContent: nextSearchdQueryContents })
+    // console.timeEnd('translate')
 }
+
 
 export default translate

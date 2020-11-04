@@ -5,7 +5,7 @@ const content: PageContent = {
      * 在页面切换时会通过首匹配该 hash 来选择哪些翻译源是适用于该页面的，
      * 可以通过填写多个来进行复用，不同的翻译源可以通过填写相同的 hash，在翻译时会自动进行组合。
      */
-    hashs: [ '#!/overview' ],
+    hashs: ['#!/overview'],
 
     /**
      * 翻译的内容
@@ -34,7 +34,7 @@ const content: PageContent = {
          */
         {
             'en-US': 'Stats Period',
-            'zh-CN': (oldContent: string) => `统计时长（${oldContent}）`
+            'zh-CN': (oldContent: string) => `统计时长（${oldContent}）`,
         },
 
         /**
@@ -48,9 +48,9 @@ const content: PageContent = {
          */
         {
             'selector': 'section > aside > div.aside-content > .world-room.ng-scope.ng-isolate-scope > div > button > span',
-            'zh-CN': (el: HTMLElement) => { el.innerHTML = el.innerHTML.replace('room', '房间') }
-        }
-    ]
+            'zh-CN': (el: HTMLElement) => { el.innerHTML = el.innerHTML.replace('room', '房间') },
+        },
+    ],
 }
 
 export default content

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 /**
  * 文档翻译内容
  * 

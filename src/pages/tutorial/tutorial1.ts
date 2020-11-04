@@ -179,19 +179,19 @@ const OBJECTIVE_LINK = {
 
     'http://docs.screeps.com/api/#Game.creeps':
     `${DOCUMENT_CN}/api/#Game.creeps`,
-    
+
     'http://docs.screeps.com/api/#RoomObject.room':
     `${DOCUMENT_CN}/api/#RoomObject.room`,
-    
+
     'http://docs.screeps.com/api/#Room.find':
     `${DOCUMENT_CN}/api/#Room.find`,
-    
+
     'http://docs.screeps.com/api/#Creep.moveTo':
     `${DOCUMENT_CN}/api/#Creep.moveTo`,
-    
+
     'http://docs.screeps.com/api/#Creep.harvest':
     `${DOCUMENT_CN}/api/#Creep.harvest`,
-    
+
     'http://docs.screeps.com/modules.html':
     `${DOCUMENT_CN}/modules.html`,
 
@@ -204,7 +204,7 @@ const OBJECTIVE_LINK = {
 
 
 const content: PageContent = {
-    hashs: [ '#!/sim/tutorial/1' ],
+    hashs: ['#!/sim/tutorial/1'],
 
     content: [
         { 'en-US': 'Back', 'zh-CN': '返回', reuse: true },
@@ -218,10 +218,10 @@ const content: PageContent = {
 
         { 'en-US': 'Welcome to Screeps!', 'zh-CN': '欢迎来到 Screeps！', reuse: true },
         { 'en-US': 'JavaScript Reference:', 'zh-CN': 'JavaScript 参考：', reuse: true },
-        
+
         // 翻译所有教程文本
         {
-            'selector': 'body > div.top-content.ng-scope > .ng-scope > div > div.tutorial-content.ng-scope > section > p',
+            selector: 'body > div.top-content.ng-scope > .ng-scope > div > div.tutorial-content.ng-scope > section > p',
             'zh-CN': translateMultiple(TUTORIAL_CONTENT),
             reuse: true
         },
@@ -229,6 +229,5 @@ const content: PageContent = {
         ...getObjectiveTranslationContent(OBJECTIVE_CONTENT, OBJECTIVE_LINK)
     ]
 }
-console.log("content", content)
 
 export default content

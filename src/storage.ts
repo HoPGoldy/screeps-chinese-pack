@@ -30,7 +30,7 @@ export const getContent = function (): CurrentPageContent {
  */
 export const updateContent = function (newContent: UpdateNewContent): void {
     // 遍历所有键尝试更新
-    Object.keys(newContent).map(key => {
+    Object.keys(newContent).forEach(key => {
         // 如果没有值或者当前数据源不包含该键就不更新
         if (!newContent[key] || !(key in currentPageContent)) return
 
@@ -58,7 +58,7 @@ export const updateSource = function (hash: string): CurrentPageContent {
 
     // 找到所有匹配的翻译源
     for (const page of pages) {
-        const matched = page.hashs.find(hash => currentHash.startsWith(hash))
+        const matched = page.hashs.find(pageHash => currentHash.startsWith(pageHash))
         if (!matched) continue
 
         // 根据是否由 selector 分开存储
@@ -67,7 +67,7 @@ export const updateSource = function (hash: string): CurrentPageContent {
             else newContent.push(content)
         })
     }
-    
+
     // 更新当前存储
     currentPageContent.hash = currentHash
     currentPageContent.content = newContent

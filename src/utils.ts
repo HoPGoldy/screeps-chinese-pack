@@ -100,7 +100,7 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
             else if (mutation.type === 'characterData') {
                 return [mutation.target]
             }
-            
+
             return []
         }))
 
@@ -163,7 +163,6 @@ export const onPageLoad = function (callback: () => any) {
         clearInterval(timer)
         callback()
     })
-    
 }
 
 /**
