@@ -29,6 +29,14 @@ type TranslationContent = {
      * 当该值不为空时，模块会在每次页面更新时主动通过该选择器查找元素，并优先触发翻译
      */
     selector?: string
+
+    /**
+     * 上面的 selector 基于那个元素进行搜索
+     * 
+     * 默认情况下会对变更的元素执行 selector 搜索以减小范围，但是有可能在变更元素之外出现了需要翻译的文本，这时就可以使用该选项重新指定搜索源，例如：
+     * queryWith: document.body
+     */
+    queryWith?: HTMLElement
 }
 
 /**

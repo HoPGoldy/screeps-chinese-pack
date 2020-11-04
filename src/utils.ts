@@ -106,7 +106,7 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
 
         // 给所有需要处理的元素执行回调
         for (const node of changedNodes) {
-            if (!(node instanceof HTMLElement)) continue
+            if (!(node instanceof HTMLElement) || node.nodeType === Node.COMMENT_NODE) continue
 
             callback(node)
         }

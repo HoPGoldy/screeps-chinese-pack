@@ -44,7 +44,7 @@ const updateText = function (el: Text, content: TranslationContent): void {
 const translateQueryContent = function (el: HTMLElement, allQueryContents: TranslationContent[]): TranslationContent[] {
     // 翻译所有有选择器的元素
     return allQueryContents.filter(content => {
-        const targetElements = el.querySelectorAll(content.selector)
+        const targetElements = (content.queryWith || el).querySelectorAll(content.selector)
         if (targetElements.length === 0) return true
 
         // 翻译并阻止后续再次翻译
