@@ -106,7 +106,7 @@ const TUTORIAL_CONTENT = {
     '现在看起来好多了！',
 
     'By adding new roles and modules to your creeps this way, you can control and manage the work of many creeps.\nIn the next Tutorial section, we’ll develop a new creep role.':
-    '通过这种方法向您的 creep 添加新的角色和模块，由此控制和管理众多 creep 的工作。在下一关里，我们将开发一个新的 creep 角色。',
+    '通过这种方法向您的 creep 添加新的角色和模块，由此控制和管理众多 creep 的工作。在下一关里，我们将开发一个新的 creep 角色。'
 }
 
 /**
@@ -152,7 +152,7 @@ const OBJECTIVE_CONTENT = {
     '使用模块组织代码',
 
     'Include the <code>role.harvester</code> module in the main module.':
-    '将 <code>role.harvester</code> 模块引入到 main 模块中。',
+    '将 <code>role.harvester</code> 模块引入到 main 模块中。'
 }
 
 /**
@@ -199,7 +199,7 @@ const OBJECTIVE_LINK = {
     `${DOCUMENT_CN}/api/#Creep.store`,
 
     'http://docs.screeps.com/api/#Creep.transfer':
-    `${DOCUMENT_CN}/api/#Creep.transfer`,
+    `${DOCUMENT_CN}/api/#Creep.transfer`
 }
 
 
@@ -207,23 +207,23 @@ const content: PageContent = {
     hashs: ['#!/sim/tutorial/1'],
 
     content: [
-        { 'en-US': 'Back', 'zh-CN': '返回', reuse: true },
-        { 'en-US': 'Start', 'zh-CN': '开始', reuse: true },
-        { 'en-US': 'Next', 'zh-CN': '下一步', reuse: true },
-        { 'en-US': 'Got it', 'zh-CN': '明白了', reuse: true },
-        { 'en-US': 'Code', 'zh-CN': '代码', reuse: true },
-        { 'en-US': 'Next section', 'zh-CN': '下一关', reuse: true },
-        { 'en-US': 'Stay', 'zh-CN': '再待会', reuse: true },
-        { 'en-US': 'Documentation:', 'zh-CN': '文档：', reuse: true },
+        { 'en-US': 'Back', 'zh-CN': '返回', 'reuse': true },
+        { 'en-US': 'Start', 'zh-CN': '开始', 'reuse': true },
+        { 'en-US': 'Next', 'zh-CN': '下一步', 'reuse': true },
+        { 'en-US': 'Got it', 'zh-CN': '明白了', 'reuse': true },
+        { 'en-US': 'Code', 'zh-CN': '代码', 'reuse': true },
+        { 'en-US': 'Next section', 'zh-CN': '下一关', 'reuse': true },
+        { 'en-US': 'Stay', 'zh-CN': '再待会', 'reuse': true },
+        { 'en-US': 'Documentation:', 'zh-CN': '文档：', 'reuse': true },
 
-        { 'en-US': 'Welcome to Screeps!', 'zh-CN': '欢迎来到 Screeps！', reuse: true },
-        { 'en-US': 'JavaScript Reference:', 'zh-CN': 'JavaScript 参考：', reuse: true },
+        { 'en-US': 'Welcome to Screeps!', 'zh-CN': '欢迎来到 Screeps！', 'reuse': true },
+        { 'en-US': 'JavaScript Reference:', 'zh-CN': 'JavaScript 参考：', 'reuse': true },
 
         // 翻译所有教程文本
         {
-            selector: 'body > div.top-content.ng-scope > .ng-scope > div > div.tutorial-content.ng-scope > section > p',
+            'selector': 'body > div.top-content.ng-scope > .ng-scope > div > div.tutorial-content.ng-scope > section > p',
             'zh-CN': translateMultiple(TUTORIAL_CONTENT),
-            reuse: true
+            'reuse': true
         },
         // 翻译所有目标文本
         ...getObjectiveTranslationContent(OBJECTIVE_CONTENT, OBJECTIVE_LINK)

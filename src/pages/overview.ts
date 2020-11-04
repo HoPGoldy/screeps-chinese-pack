@@ -7,18 +7,18 @@ const OVERVIEW_HEADER: MultipleMap = {
     'Energy<br>on creeps': '能量 - 孵化消耗',
     'Creeps<br>produced': 'creep 孵化',
     'Creeps<br>lost': 'creep 损失',
-    'Power<br>processed': 'power 处理',
+    'Power<br>processed': 'power 处理'
 }
 
 const content: PageContent = {
-    hashs: [ '#!/overview' ],
+    hashs: ['#!/overview'],
     content: [
         { 'en-US': 'Overview', 'zh-CN': '总览' },
 
         { 'en-US': 'Global Control Level', 'zh-CN': '全局控制等级' },
         { 'en-US': 'Global Power Level', 'zh-CN': '全局超能等级' },
         { 'en-US': 'Manage Power Creeps', 'zh-CN': '管理 power creep' },
-        { 'en-US': 'Stats Period', 'zh-CN': '统计时长', reuse: true },
+        { 'en-US': 'Stats Period', 'zh-CN': '统计时长', 'reuse': true },
 
         { 'en-US': 'Graph:', 'zh-CN': '图表:', 'reuse': true },
 
@@ -33,7 +33,9 @@ const content: PageContent = {
 
         {
             'selector': 'body > div.top-content.ng-scope > div.page-content.ng-scope > section > div.overview-block.ng-scope > div.overview-rooms.overview-rooms-grid.ng-scope > div > a > div > i',
-            'zh-CN': (el: HTMLElement) => { el.title = '查看房间总览' }
+            'zh-CN': (el: HTMLElement) => {
+                el.title = '查看房间总览'
+            }
         },
         {
             'selector': 'body > div.top-content.ng-scope > div.page-content.ng-scope > section > app-profile-stats > div > div > div > div.profile-stat-title',

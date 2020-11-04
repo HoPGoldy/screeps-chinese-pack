@@ -24,7 +24,7 @@ const content: PageContent = {
          * 当该项翻译会用在多个地方时，可以指定 reuse 来进行复用
          * 当你使用基础用例写完之后发现文本并没有翻译（页面拿去翻译某个你没看到的文本了），就可以尝试加上该选项
          */
-        { 'en-US': 'Stats Period', 'zh-CN': '统计时长', reuse: true },
+        { 'en-US': 'Stats Period', 'zh-CN': '统计时长', 'reuse': true },
 
         /**
          * 自定义翻译内容
@@ -34,7 +34,7 @@ const content: PageContent = {
          */
         {
             'en-US': 'Stats Period',
-            'zh-CN': (oldContent: string) => `统计时长（${oldContent}）`,
+            'zh-CN': (oldContent: string) => `统计时长（${oldContent}）`
         },
 
         /**
@@ -48,9 +48,11 @@ const content: PageContent = {
          */
         {
             'selector': 'section > aside > div.aside-content > .world-room.ng-scope.ng-isolate-scope > div > button > span',
-            'zh-CN': (el: HTMLElement) => { el.innerHTML = el.innerHTML.replace('room', '房间') },
-        },
-    ],
+            'zh-CN': (el: HTMLElement) => {
+                el.innerHTML = el.innerHTML.replace('room', '房间')
+            }
+        }
+    ]
 }
 
 export default content

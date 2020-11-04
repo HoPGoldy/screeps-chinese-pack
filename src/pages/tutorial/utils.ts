@@ -30,7 +30,7 @@ export const getObjectiveTranslationContent = function (contents: MultipleMap, l
                 const newContent = contents[targetContentKey]
                 objectiveEl.innerHTML = objectiveEl.innerHTML.replace(targetContentKey, newContent)
             },
-            reuse: true
+            'reuse': true
         },
 
         // 翻译所有文档目标，注意这里的选择器是目标元素最前面的小箭头，向下的就作为文档目标解析
@@ -40,13 +40,12 @@ export const getObjectiveTranslationContent = function (contents: MultipleMap, l
                 // 翻译链接文本
                 const newContent = contents[trim(el.innerHTML)]
                 if (newContent) el.innerHTML = newContent
-    
+
                 // 翻译链接网址
                 const newHref = linkHrefs[el.href]
                 if (newHref) el.href = newHref
             },
-            reuse: true
+            'reuse': true
         }
-
     ]
 }

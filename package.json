@@ -4,7 +4,8 @@
   "description": "用于汉化 screeps.com 网站的油猴脚本",
   "main": "index.js",
   "scripts": {
-    "start": "rollup -cw"
+    "start": "rollup -cw",
+    "lint": "eslint src/**"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
     "url": "https://github.com/HoPGoldy/screeps-chinese-pack/issues"
   },
   "homepage": "https://github.com/HoPGoldy/screeps-chinese-pack#readme",
+  "eslintIgnore": ["dist/**"],
   "devDependencies": {
     "@types/node": "^14.11.10",
     "@typescript-eslint/eslint-plugin": "^4.6.1",
@@ -29,6 +31,7 @@
     "eslint-plugin-import": "^2.22.1",
     "rollup": "^2.32.0",
     "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-typescript2": "^0.28.0",
     "typescript": "^4.0.3"
   }

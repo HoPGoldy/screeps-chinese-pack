@@ -1,5 +1,5 @@
 const content: PageContent = {
-    hashs: [ '#!/sim' ],
+    hashs: ['#!/sim'],
     content: [
         { 'en-US': 'Simulation mode', 'zh-CN': '模拟模式' },
         {
@@ -19,7 +19,7 @@ const content: PageContent = {
             'selector': 'body > app2-router-outlet > app-simulation-mode > section:nth-child(2) > div:nth-child(4) > a > section',
             'zh-CN': '在一个预定义布局的虚拟房间中实践您的代码。'
         },
-        
+
         { 'en-US': 'Custom', 'zh-CN': '自定义' },
         {
             'en-US': 'Modify the landscape, create any objects, and test your scripts playing for two virtual players at once.',
@@ -28,10 +28,10 @@ const content: PageContent = {
         {
             'en-US': 'Your script will be saved, but your simulation progress will be lost! Are you sure?',
             'zh-CN': '您的代码将会保存，但是您的模拟器进度将会丢失！确定要退出么？',
-            reuse: true
+            'reuse': true
         },
-        { 'en-US': 'Cancel', 'zh-CN': '取消', reuse: true },
-        { 'en-US': 'OK', 'zh-CN': '确定', reuse: true },
+        { 'en-US': 'Cancel', 'zh-CN': '取消', 'reuse': true },
+        { 'en-US': 'OK', 'zh-CN': '确定', 'reuse': true }
     ]
 }
 
