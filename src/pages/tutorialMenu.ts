@@ -10,8 +10,8 @@ const content: PageContent = {
         { 'en-US': 'Auto-spawning creeps', 'zh-CN': '自动孵化 creep' },
         { 'en-US': 'Defending your room', 'zh-CN': '防守您的房间' },
 
-        { 'en-US': 'Don\'t know how to code in JavaScript?', 'zh-CN': '不知道如何编写 JavaScript 代码？' },
-        { 'en-US': 'Check out this free interactive course!', 'zh-CN': '看看这个免费的互动教程！' }
+        { 'en-US': 'Don\'t know how to code in JavaScript?', 'zh-CN': '不知道如何编写 JavaScript 代码？', 'reuse': true },
+        { 'en-US': 'Check out this free interactive course!', 'zh-CN': '看看这个免费的互动教程！', 'reuse': true }
     ]
 }
 

@@ -221,7 +221,7 @@ const content: PageContent = {
 
         // 翻译所有教程文本
         {
-            'selector': 'body > div.top-content.ng-scope > .ng-scope > div > div.tutorial-content.ng-scope > section > p',
+            'selector': '.tutorial-content.ng-scope > section > p',
             'zh-CN': translateMultiple(TUTORIAL_CONTENT),
             'reuse': true
         },

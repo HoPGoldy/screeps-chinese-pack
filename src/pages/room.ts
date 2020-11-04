@@ -46,7 +46,7 @@ const content: PageContent = {
         // // 下方 Memory 面板
         { 'en-US': 'Memory', 'zh-CN': '内存' },
         {
-            'selector': 'body > div.top-content.ng-scope > div.page-content.ng-scope > section > div > div > .ng-scope > div > div.ng-isolate-scope > div > div.tab-pane.ng-scope.active > .ng-scope > section > div:nth-child(2) > div > form > input',
+            'selector': 'div.tab-pane > .ng-scope > section > div:nth-child(2) > div > form > input',
             'zh-CN': (el: HTMLInputElement) => {
                 el.placeholder = '添加新的内存监视路径，例如：creeps.John'
             },

@@ -1,5 +1,8 @@
 import { translateMultiple } from 'utils'
 
+/**
+ * 中间横排的信息一览
+ */
 const OVERVIEW_HEADER: MultipleMap = {
     'Control<br>points': '控制点数',
     'Energy<br>harvested': '能量采集',
@@ -8,6 +11,19 @@ const OVERVIEW_HEADER: MultipleMap = {
     'Creeps<br>produced': 'creep 孵化',
     'Creeps<br>lost': 'creep 损失',
     'Power<br>processed': 'power 处理'
+}
+
+/**
+ * 图表右上角的下拉框选项
+ */
+const GRAPH_SELECT_LIST: MultipleMap = {
+    'Power processed': 'power 处理',
+    'Control points': '控制点数',
+    'Energy harvested': '能量采集',
+    'Energy spent on construction': '能量 - 建筑消耗',
+    'Energy spent on creeps': '能量 - 孵化消耗',
+    'Creeps produced': 'creep 孵化',
+    'Creeps lost': 'creep 损失'
 }
 
 const content: PageContent = {
@@ -22,24 +38,21 @@ const content: PageContent = {
 
         { 'en-US': 'Graph:', 'zh-CN': '图表:', 'reuse': true },
 
-        { 'en-US': 'Power processed', 'zh-CN': 'power 处理', 'reuse': true },
-        { 'en-US': 'Control points', 'zh-CN': '控制点数', 'reuse': true },
-        { 'en-US': 'Energy harvested', 'zh-CN': '能量采集', 'reuse': true },
-        { 'en-US': 'Energy spent on construction', 'zh-CN': '能量 - 建筑消耗', 'reuse': true },
-        { 'en-US': 'Energy spent on creeps', 'zh-CN': '能量 - 孵化消耗', 'reuse': true },
-        { 'en-US': 'Creeps produced', 'zh-CN': 'creep 孵化', 'reuse': true },
-        { 'en-US': 'Creeps lost', 'zh-CN': 'creep 损失', 'reuse': true },
-        { 'en-US': 'Power processed', 'zh-CN': 'power 处理', 'reuse': true },
-
         {
-            'selector': 'body > div.top-content.ng-scope > div.page-content.ng-scope > section > div.overview-block.ng-scope > div.overview-rooms.overview-rooms-grid.ng-scope > div > a > div > i',
-            'zh-CN': (el: HTMLElement) => {
-                el.title = '查看房间总览'
-            }
-        },
-        {
-            'selector': 'body > div.top-content.ng-scope > div.page-content.ng-scope > section > app-profile-stats > div > div > div > div.profile-stat-title',
+            'selector': '.profile-stat-title',
             'zh-CN': translateMultiple(OVERVIEW_HEADER)
+        },
+        // 翻译下拉框当前选中值
+        {
+            'selector': 'button > span.toggle-text.ng-scope > span',
+            'zh-CN': translateMultiple(GRAPH_SELECT_LIST),
+            'queryWith': document.body,
+            'reuse': true
+        },
+        // 翻译下拉框选项
+        {
+            'selector': 'a.ng-binding.ng-scope',
+            'zh-CN': translateMultiple(GRAPH_SELECT_LIST)
         }
     ]
 }
