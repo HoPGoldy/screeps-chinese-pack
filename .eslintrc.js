@@ -23,7 +23,7 @@ module.exports = {
         'arrow-parens': ['error', 'as-needed'],
         'no-undef': 'off',
         'array-callback-return': ['error', { allowImplicit: true }],
-        'no-restricted-syntax': ['error', "BinaryExpression[operator='off']"],
+        'no-restricted-syntax': ['error', "BinaryExpression[operator='of']"],
         'import/extensions': 'off',
         'import/prefer-default-export': 'off',
         'no-param-reassign': 'off',

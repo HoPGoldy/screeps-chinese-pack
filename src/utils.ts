@@ -6,12 +6,14 @@
  */
 export const getContentElement = function (el: Node): Text[] {
     if (el instanceof HTMLElement) {
-        // 没有内容或者该元素被禁止翻译了
-        if (!el.innerText || el.stopTranslateSearch) return []
+        // 该元素被禁止翻译了就跳过
+        if (el.stopTranslateSearch) return []
         const contentElement: Text[] = []
 
         // 遍历所有子节点递归拿到内容节点
-        for (const children of el.childNodes) {
+        for (let i = 0; i < el.childNodes.length; i += 1) {
+            const children = el.childNodes[i]
+
             if (children.nodeType === Node.TEXT_NODE) {
                 // Text 节点中有很多只有换行符或者空格的，这里将其剔除掉
                 // 正则含义：包含除“换行”“回车”“空格”以外的其他字符
@@ -140,6 +142,7 @@ export const onElementChange = function (callback: ContentChangeCallback = () =>
     })
 }
 
+
 /**
  * 回调 - 当页面出现可以进行翻译的内容
  * 
@@ -164,6 +167,7 @@ export const onPageLoad = function (callback: () => any) {
         callback()
     })
 }
+
 
 /**
  * 多行翻译
