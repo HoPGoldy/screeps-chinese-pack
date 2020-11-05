@@ -11,7 +11,7 @@ export default `
 // @version      0.1
 // @description  用于汉化 screeps.com 网站的油猴脚本
 // @author       hopgoldy
-// @match        http://localhost:8080/
+// @match        https://screeps.com/*
 // @grant        none
 // ==/UserScript==
 `
