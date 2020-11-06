@@ -7,7 +7,7 @@ import { getObjectiveTranslationContent } from './utils'
  */
 const TUTORIAL_CONTENT = {
     'In this Tutorial section we’ll talk about a key strategic object in your room: <strong>Room Controller</strong>.\nBy controlling this invincible structure you can build facilities in the room.\nThe higher the controller level, the more structures available to build.':
-    '在本教程部分中，我们将来介绍您房间中的重要战略目标：<strong>房间控制器</strong>（controller）。控制这个不可摧毁的小东西将允许您在房间中建筑建筑。控制器的等级越高，允许建造的建筑就越多。',
+    '在本教程部分中，我们将来介绍您房间中的重要战略目标：<strong>房间控制器</strong>（controller）。控制这个不可摧毁的小东西将允许您在房间中建造建筑。控制器的等级越高，允许建造的建筑就越多。',
 
     'You will need a new worker creep to upgrade your controller level. Let\'s call it "Upgrader1".\nIn following sections we\'ll discuss how to create creeps automatically, but for now let\'s send a\ncommand manually to the console.':
     '您将需要一个新 creep 工作单位去升级您的控制器等级，让我们称其为 “Upgrader1”。在接下来的章节中我们将介绍如何自动创建 creep，但是现在让我们还是和之前一样在控制器里输入下面的命令。',
