@@ -1,6 +1,6 @@
 import { DOCUMENT_CN } from 'setting'
 import { translateMultiple } from 'utils'
-import { getObjectiveTranslationContent } from './utils'
+import { getBaseUIContent, getObjectiveTranslationContent } from './utils'
 
 /**
  * 教程正文
@@ -91,15 +91,9 @@ const content: PageContent = {
     hashs: ['#!/sim/tutorial/2'],
 
     content: [
-        { 'en-US': 'Back', 'zh-CN': '返回', 'reuse': true },
-        { 'en-US': 'Start', 'zh-CN': '开始', 'reuse': true },
-        { 'en-US': 'Next', 'zh-CN': '下一步', 'reuse': true },
-        { 'en-US': 'Got it', 'zh-CN': '明白了', 'reuse': true },
-        { 'en-US': 'Code', 'zh-CN': '代码', 'reuse': true },
-        { 'en-US': 'Next section', 'zh-CN': '下一关', 'reuse': true },
-        { 'en-US': 'Stay', 'zh-CN': '再待会', 'reuse': true },
-        { 'en-US': 'Documentation:', 'zh-CN': '文档：', 'reuse': true },
+        ...getBaseUIContent(),
 
+        { 'en-US': 'Next section', 'zh-CN': '下一关', 'reuse': true },
         { 'en-US': 'Control', 'zh-CN': '控制', 'reuse': true },
         { 'en-US': 'Memory object', 'zh-CN': 'Memory 对象', 'reuse': true },
 

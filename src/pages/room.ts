@@ -105,6 +105,7 @@ const content: PageContent = {
         { 'en-US': 'Downgrade in:', 'zh-CN': '降级时间:', 'reuse': true },
         { 'en-US': 'Power enabled:', 'zh-CN': '是否启用 Power:', 'reuse': true },
         { 'en-US': 'Activate safe mode', 'zh-CN': '激活安全模式', 'reuse': true },
+        { 'en-US': 'This action will consume 1 available safe mode activation. Proceed?', 'zh-CN': '这将会消耗掉一次安全模式激活次数，确定继续？', 'reuse': true },
         { 'en-US': 'Unclaim', 'zh-CN': '取消占领', 'reuse': true }
     ]
 }
