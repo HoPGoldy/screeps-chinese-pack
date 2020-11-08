@@ -5,6 +5,7 @@ import room from './room'
 import tutorial from './tutorial'
 import market from './market'
 import profile from './profile'
+import rank from './rank'
 
 export default [
     overview,
@@ -13,5 +14,6 @@ export default [
     ...tutorial,
     room,
     ...market,
-    profile
+    profile,
+    rank
 ]

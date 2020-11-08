@@ -61,7 +61,8 @@ const content: PageContent = {
         // 翻译下拉框选项
         {
             'selector': 'a.ng-binding.ng-scope',
-            'zh-CN': translateMultiple(GRAPH_SELECT_LIST)
+            'zh-CN': translateMultiple(GRAPH_SELECT_LIST),
+            'reuse': true
         }
     ]
 }
