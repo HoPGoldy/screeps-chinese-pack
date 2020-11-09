@@ -5,6 +5,8 @@ import tutorialMenu from './tutorialMenu'
 import room from './room'
 import tutorial from './tutorial'
 import market from './market'
+import inventory from './inventory'
+
 export default [
     overview,
     sidebar,
@@ -12,5 +14,6 @@ export default [
     tutorialMenu,
     ...tutorial,
     room,
-    ...market
+    ...market,
+    inventory
 ]
