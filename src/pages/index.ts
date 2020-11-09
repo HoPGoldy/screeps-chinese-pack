@@ -4,12 +4,13 @@ import simTab from './simTab'
 import tutorialMenu from './tutorialMenu'
 import room from './room'
 import tutorial from './tutorial'
-
+import market from './market'
 export default [
     overview,
     sidebar,
     simTab,
     tutorialMenu,
     ...tutorial,
-    room
+    room,
+    ...market
 ]
