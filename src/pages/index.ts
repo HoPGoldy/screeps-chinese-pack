@@ -4,6 +4,7 @@ import simTab from './simTab'
 import tutorialMenu from './tutorialMenu'
 import room from './room'
 import tutorial from './tutorial'
+import power from './power'
 
 export default [
     overview,
@@ -11,5 +12,6 @@ export default [
     simTab,
     tutorialMenu,
     ...tutorial,
-    room
+	room,
+	power
 ]
