@@ -17,7 +17,8 @@ const content: PageContent = {
         // 练习的文本介绍里有个换行，很气
         {
             'selector': 'div:nth-child(4) > a > section',
-            'zh-CN': '在一个预定义布局的虚拟房间中实践您的代码。'
+            'zh-CN': '在一个预定义布局的虚拟房间中实践您的代码。',
+            'reuse': true
         },
 
         { 'en-US': 'Custom', 'zh-CN': '自定义' },
