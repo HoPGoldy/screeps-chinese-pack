@@ -15,7 +15,7 @@ export default [
     sidebar,
     simTab,
     ...tutorial,
-	  power,
+    power,
     room,
     ...market,
     profile,
