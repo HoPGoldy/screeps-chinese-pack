@@ -33,7 +33,6 @@ const content: PageContent = {
             'reuse': true
         },
         // 建筑状态
-        { 'en-US': 'No controller', 'zh-CN': '无有效控制器', 'reuse': true },
         {
             'selector': 'div > div > div > button > .ng-scope > div',
             'zh-CN': (el: HTMLElement) => {
@@ -41,6 +40,7 @@ const content: PageContent = {
                 el.innerHTML = el.innerHTML.replace('required', '')
                 el.innerHTML = el.innerHTML.replace('RCL ', '要求RCL')
                 el.innerHTML = el.innerHTML.replace('Available', '可建造')
+                el.innerHTML = el.innerHTML.replace('No controller', '控制器无效')
             },
             'reuse': true
         },
