@@ -15,20 +15,16 @@ const NOTICE_LOG: MultipleMap = {
 }
 
 const content: PageContent = {
-    /**
-     * 将该页内容应用到哪些 hash 路由中
-     * 
-     * 在页面切换时会通过首匹配该 hash 来选择哪些翻译源是适用于该页面的，
-     * 可以通过填写多个来进行复用，不同的翻译源可以通过填写相同的 hash，在翻译时会自动进行组合。
-     */
     hashs: ['#!/room', '#!/sim/custom', '#!/sim/survival', '#!/sim/tutorial/'],
-
-    /**
-     * 翻译的内容
-     */
     content: [
         // 建筑
         { 'en-US': 'Construct', 'zh-CN': '建筑', 'reuse': true },
+        // 建筑过多弹窗
+        {
+            'en-US': 'You have too many construction sites. The maximum number of construction sites per player is 100.',
+            'zh-CN': '你创建的construction site过多。每个玩家能够创建的construction site上限为100。',
+            'reuse': true
+        },
         // 下方提示
         {
             'selector': 'g > text',
@@ -44,13 +40,6 @@ const content: PageContent = {
                 el.innerHTML = el.innerHTML.replace('Available:', '可建造数:')
                 el.innerHTML = el.innerHTML.replace('required', '')
                 el.innerHTML = el.innerHTML.replace('RCL ', '要求RCL')
-            },
-            'reuse': true
-        },
-        {
-            'selector': 'div > div > div > button > .ng-scope > div > span',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('Available:', '可建造数:')
                 el.innerHTML = el.innerHTML.replace('Available', '可建造')
             },
             'reuse': true
