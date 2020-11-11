@@ -1,3 +1,19 @@
+const trim = function (str: string): string {
+    return str.replace(/(^\s*)|(\s*$)/g, '')
+}
+
+const translateMultiple = function (contents: MultipleMap) {
+    return (el: HTMLElement) => {
+        const newContent = contents[trim(el.innerHTML)]
+        if (newContent) el.innerHTML = newContent
+    }
+}
+
+const NOTICE_LOG: MultipleMap = {
+    'Choose location': '选择建造位置',
+    'Place your spawn': '选择建造Spawn的位置'
+}
+
 const content: PageContent = {
     /**
      * 将该页内容应用到哪些 hash 路由中
@@ -15,10 +31,9 @@ const content: PageContent = {
         { 'en-US': 'Construct', 'zh-CN': '建筑', 'reuse': true },
         // 下方提示
         {
-            'selector': '.room.ng-scope > svg > text',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('Choose location', '选择建造位置')
-            },
+            'selector': 'g > text',
+            'zh-CN': translateMultiple(NOTICE_LOG),
+            'queryWith': document.body,
             'reuse': true
         },
         // 建筑状态

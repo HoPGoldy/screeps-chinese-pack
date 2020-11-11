@@ -4,7 +4,7 @@ import simTab from './simTab'
 import tutorialMenu from './tutorialMenu'
 import room from './room'
 import tutorial from './tutorial'
-import structureList from './structureList'
+import construct from './construct'
 
 
 export default [
@@ -14,5 +14,5 @@ export default [
     tutorialMenu,
     ...tutorial,
     room,
-    structureList
+    construct
 ]
