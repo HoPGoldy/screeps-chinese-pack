@@ -10,6 +10,7 @@ import profile from './profile'
 import rank from './rank'
 import account from './account'
 import enter from './enter'
+import shards from './shards'
 
 export default [
     overview,
@@ -24,5 +25,6 @@ export default [
     profile,
     rank,
     ...account,
-    enter
+    enter,
+    shards
 ]
