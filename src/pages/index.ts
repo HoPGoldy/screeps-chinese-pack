@@ -8,17 +8,20 @@ import market from './market'
 import profile from './profile'
 import rank from './rank'
 import account from './account'
-
+import enter from './enter'
+import shards from './shards'
 
 export default [
     overview,
     sidebar,
     simTab,
     ...tutorial,
-	  power,
+    power,
     room,
     ...market,
     profile,
     rank,
-    ...account
+    ...account,
+    enter,
+    shards
 ]
