@@ -37,3 +37,13 @@ yarn start
 ```
 
 之后编辑 `/src` 目录下的文件，刷新浏览器后即可看到你的修改。
+
+## 鸣谢
+
+本项目和 Screeps-cn 社区完全自发维护，在此对这些做出过贡献的人们表示由衷的感谢！如果你曾经做出过贡献但是并没有在下面中找到你的名字，请及时联系我们：
+
+[HoPGoldy](https://github.com/HoPGoldy)，
+[masterkeze](https://github.com/masterkeze)，
+[NSKMaki](https://github.com/NSKMaki)。
+
+*排名取决于参与日期。*
