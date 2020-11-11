@@ -63,11 +63,11 @@ const content: PageContent = {
         { 'en-US': 'Cancel', 'zh-CN': '取消', 'reuse': true },
         { 'en-US': 'OK', 'zh-CN': '确认', 'reuse': true },
         // 建筑描述
-        { 'en-US': 'Contains additional energy which can be used by spawns for spawning bigger creeps.', 'zh-CN': '为Spawn提供生产更大体型creep的储能空间。', 'reuse': true },
+        { 'en-US': 'Contains additional energy which can be used by spawns for spawning bigger creeps.', 'zh-CN': '为Spawn提供生产更大体型creep所需要的储能空间。', 'reuse': true },
         { 'en-US': 'Decreases movement cost. Decays over time and requires repair.', 'zh-CN': '降低移动的消耗。会随着时间推移而风化并需要维护。', 'reuse': true },
-        { 'en-US': 'Blocks movement of all creeps. Requires repair after construction.', 'zh-CN': '能够阻挡所有creep。建造之后需要维护', 'reuse': true },
+        { 'en-US': 'Blocks movement of all creeps. Requires repair after construction.', 'zh-CN': '能够阻挡所有creep。建造之后需要维护。', 'reuse': true },
         { 'en-US': 'Defends creeps and structures on the same tile and blocks enemy movement. Decays over time and requires repair.', 'zh-CN': '保护位于同一位置的creep及建筑，能够阻挡敌人。会随着时间推移而风化并需要维护。', 'reuse': true },
-        { 'en-US': 'Remotely attacks or heals any creep in a room, or repairs a structure.', 'zh-CN': '能够对同房间的任意creep进行远距离攻击或治疗，也可维修建筑', 'reuse': true },
+        { 'en-US': 'Remotely attacks or heals any creep in a room, or repairs a structure.', 'zh-CN': '能够对同房间的任意creep进行远距离攻击或治疗，也可对建筑进行维护。', 'reuse': true },
         { 'en-US': 'Stores up to 2,000 resource units. Decays over time and requires repair.', 'zh-CN': '能够存储2,000单位的资源。会随着时间推移而风化并需要维护。', 'reuse': true },
         { 'en-US': 'Stores up to 1,000,000 resource units.', 'zh-CN': '能够存储1,000,000单位的资源。', 'reuse': true },
         { 'en-US': 'Remotely transfers energy to another Link in the same room.', 'zh-CN': '能够向同房间的Link远距离传送能量。', 'reuse': true },
@@ -77,8 +77,8 @@ const content: PageContent = {
         { 'en-US': 'Produces trade commodities.', 'zh-CN': '能够生产可交易商品。', 'reuse': true },
         { 'en-US': 'Spawns creeps using energy contained in the room spawns and extensions.', 'zh-CN': '使用房间内Spawn与Extension储备的能量生产creep。', 'reuse': true },
         { 'en-US': 'Provides visibility into a distant room from your script.', 'zh-CN': '能够使你的脚本获取远处一房间的视野。', 'reuse': true },
-        { 'en-US': 'Spawns power creeps with special unique powers.', 'zh-CN': '能够生产拥有特殊技能的超能creep', 'reuse': true },
-        { 'en-US': 'Launches a nuke to a distant room dealing huge damage to the landing area.', 'zh-CN': '能够向远处一房间发射一颗核弹，并对目标区域造成巨大伤害。', 'reuse': true }
+        { 'en-US': 'Spawns power creeps with special unique powers.', 'zh-CN': '能够生产拥有特殊技能的超能creep。', 'reuse': true },
+        { 'en-US': 'Launches a nuke to a distant room dealing huge damage to the landing area.', 'zh-CN': '能够向远处一房间发射核弹，对命中区域造成巨大伤害。', 'reuse': true }
         // 建筑名称，暂不翻译，中文来自hoho简书
         // { 'en-US': 'Extension', 'zh-CN': 'Spawn 扩展', 'reuse': true },
         // { 'en-US': 'Road', 'zh-CN': '道路', 'reuse': true },
