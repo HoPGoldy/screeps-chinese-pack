@@ -44,6 +44,7 @@ yarn start
 
 [HoPGoldy](https://github.com/HoPGoldy)，
 [masterkeze](https://github.com/masterkeze)，
-[NSKMaki](https://github.com/NSKMaki)。
+[NSKMaki](https://github.com/NSKMaki)，
+[LOSKIw](https://github.com/LOSKIw)。
 
 *排名取决于参与日期。*
