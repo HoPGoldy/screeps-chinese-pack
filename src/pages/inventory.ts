@@ -34,8 +34,8 @@ const content: PageContent = {
         { 'en-US': 'Mono', 'zh-CN': '独行', 'reuse': true },
         // 排序选择框
         { 'en-US': 'Sort', 'zh-CN': '排序', 'reuse': true },
-        { 'en-US': 'New to old', 'zh-CN': '获取时间由早到晚', 'reuse': true },
-        { 'en-US': 'Old to new', 'zh-CN': '获取时间由晚到早', 'reuse': true },
+        { 'en-US': 'New to old', 'zh-CN': '获取时间从早到晚', 'reuse': true },
+        { 'en-US': 'Old to new', 'zh-CN': '获取时间从晚到早', 'reuse': true },
         { 'en-US': 'Rare to common', 'zh-CN': '品质从稀有到常见', 'reuse': true },
         { 'en-US': 'Common to rare', 'zh-CN': '品质从常见到稀有', 'reuse': true },
         { 'en-US': 'Rooms', 'zh-CN': '按激活状态', 'reuse': true },
@@ -54,7 +54,7 @@ const content: PageContent = {
             'reuse': true
         },
         { 'en-US': 'Restrict by theme', 'zh-CN': '限定主题', 'reuse': true },
-        // Steam 交互相关
+        // 侧边栏 Steam 交互相关
         {
             'en-US': 'error connecting to Steam',
             'zh-CN': '连接至Steam时发生错误',
@@ -70,7 +70,6 @@ const content: PageContent = {
             'zh-CN': '被拖拽的物品将会变为未启用状态',
             'reuse': true
         },
-        { 'en-US': 'Select all', 'zh-CN': '全选', 'reuse': true },
         {
             'en-US': 'Transfer to Steam',
             'zh-CN': '转移到Steam库存',
@@ -81,6 +80,28 @@ const content: PageContent = {
         {
             'en-US': 'Steam Community Market',
             'zh-CN': 'Steam社区市场',
+            'reuse': true
+        },
+        // 底边栏
+        { 'en-US': 'Select all', 'zh-CN': '全选', 'reuse': true },
+        { 'en-US': 'Deactivate', 'zh-CN': '停用', 'reuse': true },
+        { 'en-US': 'Cancel', 'zh-CN': '取消', 'reuse': true },
+        // {
+        //     'selector': 'button.btn.btn--transparent',
+        //     'zh-CN': (el: HTMLElement) => {
+        //         el.innerHTML = el.innerHTML.replace('Unselect', '撤销选择')
+        //     },
+        //     'reuse': true
+        // },
+        {
+            'en-US': 'Are you sure you want to deactivate decoration(s)?',
+            'zh-CN': '确定要停用勾选的装饰吗?',
+            'reuse': true
+        },
+        {
+            'en-US':
+                'They will be saved in your account and can be reactivated in the future.',
+            'zh-CN': '这些装饰将会继续存储在你的账户中，你可以之后再启用他们。',
             'reuse': true
         },
         // 明细
@@ -100,6 +121,16 @@ const content: PageContent = {
         { 'en-US': 'Alpha', 'zh-CN': '透明度', 'reuse': true },
         { 'en-US': 'Brightness', 'zh-CN': '亮度', 'reuse': true },
         { 'en-US': 'Convert back to', 'zh-CN': '分解为', 'reuse': true },
+        { 'en-US': 'Back edit', 'zh-CN': '返回编辑', 'reuse': true },
+        { 'en-US': 'Decoration activated', 'zh-CN': '装饰已启用', 'reuse': true },
+        { 'en-US': 'Got it', 'zh-CN': '好的', 'reuse': true },
+        {
+            'selector': 'p.ng-star-inserted > div',
+            'zh-CN': (el: HTMLElement) => {
+                el.innerHTML = el.innerHTML.replace('Decoration', '装饰')
+                el.innerHTML = el.innerHTML.replace('activated.', '已启用')
+            }
+        },
         // 涂鸦明细
         {
             'en-US': 'You can place this image as a graffiti on walls.',
