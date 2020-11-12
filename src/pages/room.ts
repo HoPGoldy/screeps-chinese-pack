@@ -68,7 +68,7 @@ const content: PageContent = {
 
         // 右侧 panel 名
         // 装扮面板
-        { 'en-US': 'Decorations', 'zh-CN': '装扮' },
+        { 'en-US': 'Decorations', 'zh-CN': '装饰' },
         { 'en-US': 'View in inventory', 'zh-CN': '在库存中查看' },
 
         { 'en-US': 'World Map', 'zh-CN': '世界地图' },
@@ -256,7 +256,7 @@ const content: PageContent = {
         { 'en-US': 'Low', 'zh-CN': '低', 'reuse': true },
         { 'en-US': 'Disabled', 'zh-CN': '关闭', 'reuse': true },
         { 'en-US': 'Animated', 'zh-CN': '动态', 'reuse': true },
-        { 'en-US': 'Static', 'zh-CN': '静态', 'reuse': true }   
+        { 'en-US': 'Static', 'zh-CN': '静态', 'reuse': true }
     ]
 }
 
