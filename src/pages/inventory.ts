@@ -92,6 +92,30 @@ const content: PageContent = {
             'zh-CN': '正在转移至Steam库存...',
             'reuse': true
         },
+        // 分解
+        { 'en-US': 'Convert', 'zh-CN': '分解', 'reuse': true },
+        {
+            'en-US': 'These decorations will be converted back to',
+            'zh-CN': '这些装饰物将会分解为',
+            'reuse': true
+        },
+        {
+            'en-US': 'This decoration will be converted back to',
+            'zh-CN': '这个装饰物将会分解为',
+            'reuse': true
+        },
+        { 'en-US': 'This action', 'zh-CN': '这个操作', 'reuse': true },
+        { 'en-US': 'can not be undone', 'zh-CN': '不能被撤销', 'reuse': true },
+        {
+            'en-US': '. Your decorations will be lost.',
+            'zh-CN': '。你的装饰物会消失。',
+            'reuse': true
+        },
+        {
+            'en-US': '. Your decoration will be lost.',
+            'zh-CN': '。你的装饰物会消失。',
+            'reuse': true
+        },
         // 底边栏
         { 'en-US': 'Select all', 'zh-CN': '全选', 'reuse': true },
         {
