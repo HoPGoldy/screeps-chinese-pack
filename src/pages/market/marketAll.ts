@@ -22,6 +22,7 @@ const content: PageContent = {
         { 'en-US': 'Transactions', 'zh-CN': '交易次数' },
         { 'en-US': 'Total volume', 'zh-CN': '总成交量' },
         { 'en-US': 'Price (avg ± stddev)', 'zh-CN': '单价 (均价 ± 标准差)' },
+
         // 翻译订单
         {
             'selector': '#mat-dialog-0 > app-dlg-resource-orders > header:nth-child(6) > div:nth-child(1) > span',

@@ -24,6 +24,7 @@ const content: PageContent = {
         // 费用类型
         { 'en-US': 'Extend order', 'zh-CN': '扩充订单', 'reuse': true },
         { 'en-US': 'Change price', 'zh-CN': '变更单价', 'reuse': true },
+
         // 描述类
         { 'en-US': 'Market fee', 'zh-CN': '市场费用', 'reuse': true },
         {
@@ -40,6 +41,7 @@ const content: PageContent = {
         { 'en-US': 'You have no orders', 'zh-CN': '你还没有订单' },
         { 'en-US': 'Create an order using the', 'zh-CN': '若要创建订单请使用' },
         { 'en-US': 'Market API', 'zh-CN': '市场API' },
+
         // 页尾
         { 'en-US': 'Newer', 'zh-CN': '更早的记录' },
         { 'en-US': 'Older', 'zh-CN': '更晚的记录' }
