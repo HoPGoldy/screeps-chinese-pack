@@ -31,14 +31,7 @@ const content: PageContent = {
         { 'en-US': 'Expand all', 'zh-CN': '展开所有', 'reuse': true },
         { 'en-US': 'Create new creep', 'zh-CN': '创建新的 creep' },
         { 'en-US': 'not spawned', 'zh-CN': '未孵化', 'reuse': true },
-        // { 'en-US': 'operator', 'zh-CN': '行家', 'reuse': true },
-        {
-            'selector': '.creep-char creep-char--xp',
-            'zh-CN': (el: HTMLElement) => {
-                el.style.content = '生命值'
-            },
-            'reuse': true
-        },
+
         {
             'selector': '._upgrade',
             'zh-CN': (el: HTMLElement) => {
@@ -46,18 +39,22 @@ const content: PageContent = {
             },
             'reuse': true
         },
-        {
-            'selector': '._message --alive',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('in ', '在 ')
-            },
-            'reuse': true
-        },
+
         { 'en-US': 'lvl 1', 'zh-CN': '等级1', 'reuse': true },
         { 'en-US': 'lvl 2', 'zh-CN': '等级2', 'reuse': true },
         { 'en-US': 'lvl 3', 'zh-CN': '等级3', 'reuse': true },
         { 'en-US': 'lvl 4', 'zh-CN': '等级4', 'reuse': true },
-        { 'en-US': 'lvl 5', 'zh-CN': '等级5', 'reuse': true }
+        { 'en-US': 'lvl 5', 'zh-CN': '等级5', 'reuse': true },
+        // pc技能
+        // GENERATE_OPS
+        { 'en-US': 'Generate', 'zh-CN': '生产 ', 'reuse': true },
+        { 'en-US': 'ops resource units.', 'zh-CN': ' 单位的ops。', 'reuse': true },
+        // OPERATE_EXTENSION
+        { 'en-US': 'Instantly fill', 'zh-CN': '使用目标 (container, storage, terminal) 内的能量立即充满房间内 ', 'reuse': true },
+        { 'en-US': 'of all extensions in the room using energy from the target structure (container, storage, or terminal).', 'zh-CN': ' 的 extension.', 'reuse': true },
+        { 'en-US': 'Cooldown 50 ticks.', 'zh-CN': ' 冷却50 ticks。 ', 'reuse': true },
+        { 'en-US': 'Range 3 squares.', 'zh-CN': '距离3格。 ', 'reuse': true },
+        { 'en-US': 'Consumes 2 ops resource units.', 'zh-CN': '消耗2点 ops。', 'reuse': true }
     ]
 }
 
