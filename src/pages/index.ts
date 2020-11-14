@@ -11,6 +11,7 @@ import rank from './rank'
 import account from './account'
 import enter from './enter'
 import shards from './shards'
+import map from './map'
 
 export default [
     overview,
@@ -26,5 +27,6 @@ export default [
     rank,
     ...account,
     enter,
-    shards
+    shards,
+    map
 ]
