@@ -53,7 +53,23 @@ const content: PageContent = {
             'zh-CN': '来抽取装饰物',
             'reuse': true
         },
+        {
+            'en-US':
+                'Only decorations from this set will be pixelized, but the cost will be higher.',
+            'zh-CN': '只有限定主题的装饰物会被抽到，但是价格会更高。',
+            'reuse': true
+        },
         { 'en-US': 'Restrict by theme', 'zh-CN': '限定主题', 'reuse': true },
+        {
+            'en-US': 'How to get pixels?',
+            'zh-CN': '如何获取pixel?',
+            'reuse': true
+        },
+        {
+            'en-US': 'Pixelization progress',
+            'zh-CN': 'pixel收集进度',
+            'reuse': true
+        },
         // 侧边栏 Steam 交互相关
         {
             'en-US': 'error connecting to Steam',
@@ -114,6 +130,22 @@ const content: PageContent = {
         {
             'en-US': '. Your decoration will be lost.',
             'zh-CN': '。你的装饰物会消失。',
+            'reuse': true
+        },
+        {
+            'en-US': 'Decoration successfully converted.',
+            'zh-CN': '装饰物分解成功',
+            'reuse': true
+        },
+        {
+            'en-US': 'Decorations successfully converted.',
+            'zh-CN': '装饰物分解成功',
+            'reuse': true
+        },
+        { 'en-US': 'You got', 'zh-CN': '你获得了', 'reuse': true },
+        {
+            'en-US': 'Congratulations! You have pixelized new decorations!',
+            'zh-CN': '恭喜！你抽到了新的装饰物！',
             'reuse': true
         },
         // 底边栏
