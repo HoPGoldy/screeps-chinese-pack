@@ -10,6 +10,7 @@ import profile from './profile'
 import rank from './rank'
 import account from './account'
 import enter from './enter'
+import shards from './shards'
 
 
 export default [
@@ -25,5 +26,6 @@ export default [
     rank,
     ...account,
     enter,
+    shards,
     inventory
 ]
