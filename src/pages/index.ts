@@ -3,7 +3,6 @@ import sidebar from './sidebar'
 import simTab from './simTab'
 import room from './room'
 import tutorial from './tutorial'
-import construct from './construct'
 import power from './power'
 import market from './market'
 import inventory from './inventory'
@@ -11,6 +10,7 @@ import profile from './profile'
 import rank from './rank'
 import account from './account'
 import enter from './enter'
+import shards from './shards'
 
 
 export default [
@@ -19,7 +19,6 @@ export default [
     simTab,
     ...tutorial,
     room,
-    construct,
     power,
     room,
     ...market,
@@ -27,5 +26,6 @@ export default [
     rank,
     ...account,
     enter,
+    shards,
     inventory
 ]
