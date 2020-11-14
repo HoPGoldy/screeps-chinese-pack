@@ -225,13 +225,13 @@ const content: PageContent = {
         // 练习/模拟房间面板
         // ticks速度调整面板
         { 'en-US': 'Simulation Room', 'zh-CN': '模拟器房间', 'reuse': true },
-        {
-            'selector': '.speed.ng-scope > span',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('Speed', '速度')
-            },
-            'reuse': true
-        },
+        // {
+        //     'selector': 'div.speed.ng-scope > span.ng-binding',
+        //     'zh-CN': (el: HTMLElement) => {
+        //         el.innerHTML = el.innerHTML.replace('Speed', '速度(Speed)')
+        //     },
+        //     'reuse': true
+        // },
         { 'en-US': 'Leave simulation', 'zh-CN': '退出模拟器', 'reuse': true },
 
         // 玩家控制权面板
