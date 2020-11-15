@@ -210,6 +210,10 @@ const content: PageContent = {
         // creep面板
         { 'en-US': 'Suicide', 'zh-CN': '自杀(suicide)' },
         { 'en-US': 'View memory', 'zh-CN': '查看memory' },
+        { 'en-US': 'Body', 'zh-CN': '部件' },
+
+        // powercreep
+        { 'en-US': 'Class:', 'zh-CN': '种类:', 'reuse': true },
 
         // 自定义面板
         { 'en-US': 'Customize', 'zh-CN': '自定义房间设置', 'reuse': true },
@@ -221,13 +225,13 @@ const content: PageContent = {
         // 练习/模拟房间面板
         // ticks速度调整面板
         { 'en-US': 'Simulation Room', 'zh-CN': '模拟器房间', 'reuse': true },
-        {
-            'selector': '.speed.ng-scope > span',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('Speed', '速度')
-            },
-            'reuse': true
-        },
+        // {
+        //     'selector': 'div.speed.ng-scope > span.ng-binding',
+        //     'zh-CN': (el: HTMLElement) => {
+        //         el.innerHTML = el.innerHTML.replace('Speed', '速度(Speed)')
+        //     },
+        //     'reuse': true
+        // },
         { 'en-US': 'Leave simulation', 'zh-CN': '退出模拟器', 'reuse': true },
 
         // 玩家控制权面板
@@ -256,7 +260,63 @@ const content: PageContent = {
         { 'en-US': 'Low', 'zh-CN': '低', 'reuse': true },
         { 'en-US': 'Disabled', 'zh-CN': '关闭', 'reuse': true },
         { 'en-US': 'Animated', 'zh-CN': '动态', 'reuse': true },
-        { 'en-US': 'Static', 'zh-CN': '静态', 'reuse': true }
+        { 'en-US': 'Static', 'zh-CN': '静态', 'reuse': true },
+
+        // effect面板
+        { 'en-US': 'Effects', 'zh-CN': '效果', 'reuse': true },
+        // {
+        //     'selector': 'div.effect-icon',
+        //     'zh-CN': (el: HTMLElement) => {
+        //         let text = el.getAttribute('title')
+        //         text = text.replace('Ticks remaining', '剩余时长')
+        //         el.setAttribute('title', text)
+        //     },
+        //     'reuse': true
+        // },
+        {
+            'en-US': 'While this structure is alive, it will send invader creeps to all rooms in this sector. It also seems there are some valuable resources inside.',
+            'zh-CN': '当该建筑存在时, 会在本sector的全部房间生成 invader creeps。其内部似乎有贵重的资源。',
+            'reuse': true
+        },
+
+        // 特殊建筑面板
+        // portal
+        { 'en-US': 'Destination:', 'zh-CN': '目的地 (destination):', 'reuse': true },
+
+        // controller
+        { 'en-US': 'Reserved:', 'zh-CN': '预定:', 'reuse': true },
+
+        // invader core
+        { 'en-US': 'This structure is spawned by its parent nearby.', 'zh-CN': '该建筑由位于附近的父建筑生成', 'reuse': true },
+        { 'en-US': 'Deploying in:', 'zh-CN': '剩余部署时间:', 'reuse': true },
+
+        // invader core creep
+        {
+            'en-US': 'This creep is angry with your harvesting activity here. Its home is located somewhere in this sector.',
+            'zh-CN': '你的采集行为激怒了这个creep。它的出生点位于本sector的某个位置。',
+            'reuse': true
+        },
+
+        // source keeper lair
+        { 'en-US': 'Spawning in:', 'zh-CN': '下一次生成单位:', 'reuse': true },
+
+        // deposite
+        { 'en-US': 'Deposit:', 'zh-CN': '沉积物(Deposit):', 'reuse': true },
+        { 'en-US': 'Last cooldown:', 'zh-CN': '上一次采集冷却:', 'reuse': true },
+
+        // powerbank
+        { 'en-US': 'Power:', 'zh-CN': 'Power 容量:', 'reuse': true },
+        { 'en-US': 'This structure emits bright light and splashes of sparks.', 'zh-CN': '这个建筑散发着亮光，飞溅出火星。', 'reuse': true },
+
+        // tombstone
+        { 'en-US': 'Death time:', 'zh-CN': '死亡时间:', 'reuse': true }
+        // {
+        //     'selector': 'div.ng-scope > div.ng-binding.ng-scope',
+        //     'zh-CN': (el: HTMLElement) => {
+        //         el.innerHTML = el.innerHTML.replace('ago', '之前')
+        //     },
+        //     'reuse': true
+        // }
     ]
 }
 
