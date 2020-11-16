@@ -35,7 +35,6 @@ const GRAPH_SELECT_LIST: MultipleMap = {
 const content: PageContent = {
     hashs: ['#!/map'],
     content: [
-        { 'en-US': 'shard3', 'zh-CN': '位面3' },
         { 'en-US': 'Check out alpha version of the new world map with support of Decorations and Map Visuals (coming soon)', 'zh-CN': '转换为支持装饰与地图可视化（即将来临）的世界地图a测版本' },
         {
             'selector': 'body > div.top-content.ng-scope > div.page-content.ng-scope > section > div.map-container > form > input',
