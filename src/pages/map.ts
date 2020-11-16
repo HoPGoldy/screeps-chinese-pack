@@ -77,6 +77,16 @@ const content: PageContent = {
         { 'en-US': 'Body parts produced:', 'zh-CN': '身体部件生产数量: ', 'reuse': true },
         { 'en-US': 'Body parts lost:', 'zh-CN': '身体部件损失数量: ', 'reuse': true },
         { 'en-US': 'Power processed:', 'zh-CN': 'power 精炼: ', 'reuse': true },
+        // 未选择房间时
+        { 'en-US': 'Welcome to the', 'zh-CN': '欢迎来到 ' },
+        { 'en-US': 'screeps world', 'zh-CN': 'SCREEPS 世界' },
+        { 'en-US': 'Choose a room to found your colony.', 'zh-CN': '选择一个房间来建立你的殖民地' },
+        { 'en-US': 'First time?', 'zh-CN': '第一次尝试? ' },
+        { 'en-US': 'See tips how to choose', 'zh-CN': '看看这个帮你选择的小贴士' },
+        { 'en-US': 'OK', 'zh-CN': '好的' },
+        { 'en-US': 'Select your room', 'zh-CN': '挑选你的房间' },
+        { 'en-US': 'Another area', 'zh-CN': '另一个区域' },
+        { 'en-US': 'Random room', 'zh-CN': '随机房间', 'reuse': true },
         // 翻译下拉框当前选中值
         {
             'selector': 'button > span.toggle-text.ng-scope > span > b',
