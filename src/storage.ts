@@ -14,6 +14,14 @@ const currentPageContent: CurrentPageContent = {
 
 
 /**
+ * HTML 元素内容缓存
+ * 
+ * 会缓存上次翻译后的内容，如果下次获取元素发现没有变化就不会执行翻译
+ */
+export const contentCache = new Map<string, string>()
+
+
+/**
  * 获取当前的翻译源文本
  * 
  * @return 当前使用的翻译源 [ 普通翻译对象，包含选择器的翻译对象 ]

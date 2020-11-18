@@ -8,12 +8,12 @@ updateSource(document.location.hash)
 // 页面内容出现后执行翻译
 onPageLoad(() => {
     // 翻译初始内容
-    translate(document.body)
+    translate([document.body])
 
     // 页面变更时重新加载翻译源并全量翻译
     onHashChange(hash => {
         updateSource(hash)
-        translate(document.body)
+        translate([document.body])
     })
 
     // 内容变更时翻译后续内容

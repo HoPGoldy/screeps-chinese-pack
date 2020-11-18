@@ -55,7 +55,6 @@ const content: PageContent = {
         {
             'selector': 'button > span.toggle-text.ng-scope > span',
             'zh-CN': translateMultiple(GRAPH_SELECT_LIST),
-            'queryWith': document.body,
             'reuse': true
         },
         // 翻译下拉框选项

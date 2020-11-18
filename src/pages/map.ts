@@ -101,14 +101,23 @@ const content: PageContent = {
             'selector': 'body > app2-router-outlet > app-world-map-base > section > article.__block.--top.--left > form > input',
             'zh-CN': (el: HTMLElement) => {
                 el.setAttribute('placeholder', '通过房间名或玩家名来搜索 ...')
-            },
+            }
+        },
+        {
+            'selector': '.stats > div:nth-child(2) > span',
+            'zh-CN': translateMultiple({
+                'Ultra': '超高',
+                'High': '高',
+                'Moderate': '中等',
+                'Low': '低'
+            }),
+            'protect': true,
             'reuse': true
         },
         // 翻译下拉框当前选中值
         {
             'selector': 'button > span.toggle-text.ng-scope > span > b',
             'zh-CN': translateMultiple(GRAPH_SELECT_LIST),
-            'queryWith': document.body,
             'reuse': true
         },
         // 翻译下拉框选项

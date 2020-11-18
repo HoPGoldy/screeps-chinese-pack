@@ -48,8 +48,7 @@ const content: PageContent = {
             'selector': 'section > section > div:nth-child(2) > div.modules-list > form > input',
             'zh-CN': (el: HTMLInputElement) => {
                 el.placeholder = '输入新模块名称...'
-            },
-            'reuse': true
+            }
         },
         // // 下方 Console 面板
         { 'en-US': 'Console', 'zh-CN': '控制台' },
@@ -59,8 +58,7 @@ const content: PageContent = {
             'selector': 'div.tab-pane > .ng-scope > section > div:nth-child(2) > div > form > input',
             'zh-CN': (el: HTMLInputElement) => {
                 el.placeholder = '添加新的内存监视路径，例如：creeps.John'
-            },
-            'reuse': true
+            }
         },
         { 'en-US': 'SEGMENT #:', 'zh-CN': '片段 #:', 'reuse': true },
 
@@ -86,9 +84,16 @@ const content: PageContent = {
         // 坐标面板
         { 'en-US': 'Cursor', 'zh-CN': '坐标' },
         { 'en-US': 'Terrain:', 'zh-CN': '地形' },
-        // { 'en-US': 'plain', 'zh-CN': '平原', 'reuse': true },
-        // { 'en-US': 'swamp', 'zh-CN': '沼泽', 'reuse': true },
-        // { 'en-US': 'wall', 'zh-CN': '墙壁', 'reuse': true },
+        {
+            'selector': '.cursor.ng-isolate-scope > div > div > div > span',
+            'zh-CN': translateMultiple({
+                'plain': '平原',
+                'swamp': '沼泽',
+                'wall': '墙壁'
+            }),
+            'protect': true,
+            'reuse': true
+        },
         // RoomObject 面板
         { 'en-US': 'Position:', 'zh-CN': '位置 (position):', 'reuse': true },
         { 'en-US': 'Hits:', 'zh-CN': '生命值 (hits):', 'reuse': true },
@@ -135,7 +140,6 @@ const content: PageContent = {
         {
             'selector': 'g > text',
             'zh-CN': translateMultiple(CONSTRUCT_NOTICE),
-            'queryWith': document.body,
             'reuse': true
         },
         // 建筑状态
