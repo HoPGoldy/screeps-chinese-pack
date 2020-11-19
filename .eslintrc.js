@@ -33,6 +33,8 @@ module.exports = {
         'brace-style': ['error', 'stroustrup'],
         'linebreak-style': 'off',
         'no-restricted-globals': 'off',
+        'arrow-body-style': 'off',
+        'operator-linebreak': ['error', 'after'],
         // 由于本项目用于翻译，所以允许出现超长行
         'max-len': 'off'
     }

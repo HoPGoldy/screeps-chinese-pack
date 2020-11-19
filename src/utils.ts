@@ -5,7 +5,7 @@
  * @return 包含内容的 text 元素数组
  */
 export const getContentElement = function (el: Node): Text[] {
-    if (el instanceof HTMLElement) {
+    if (isHTMLElement(el)) {
         // 该元素被禁止翻译了就跳过
         if (el.stopTranslateSearch) return []
         const contentElement: Text[] = []
@@ -21,15 +21,37 @@ export const getContentElement = function (el: Node): Text[] {
                 contentElement.push(children as Text)
             }
             // 元素节点的话就递归继续获取（不会搜索 script 标签）
-            else if (children.nodeType === Node.ELEMENT_NODE && children.nodeName !== 'SCRIPT') {
+            else if (isHTMLElement(children) && children.nodeName !== 'SCRIPT') {
                 contentElement.push(...getContentElement(children))
             }
         }
 
         return contentElement
     }
+    // 如果是文本节点的话就直接返回
+    if (isText(el)) return [el]
 
     return []
+}
+
+
+/**
+ * 判断一个节点是否为 HTMLElement
+ * 
+ * @param el 要判断的节点
+ */
+export const isHTMLElement = function (el: Node): el is HTMLElement {
+    return el.nodeType === Node.ELEMENT_NODE
+}
+
+
+/**
+ * 判断一个节点是否为 Text
+ * 
+ * @param el 要判断的节点
+ */
+export const isText = function (el: Node): el is Text {
+    return el.nodeType === Node.TEXT_NODE
 }
 
 
@@ -106,12 +128,8 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
             return []
         }))
 
-        // 给所有需要处理的元素执行回调
-        for (const node of changedNodes) {
-            if (node.nodeType !== Node.ELEMENT_NODE) continue
-
-            callback(node as HTMLElement)
-        }
+        // 执行回调
+        callback(changedNodes)
     }
 }
 
