@@ -130,6 +130,9 @@ const translateNormalContent = function (el: Node, allContents: TranslationConte
 
     // 遍历所有节点进行翻译
     needTranslateText.forEach(text => {
+        // 这个文本有可能在之前已经被翻译了（被从其父节点上剔除），所以这里不再进行无效翻译
+        if (!text.parentElement) return
+
         const originContent: string = text.wholeText
 
         // 找到符合的翻译内容，并保存其索引
