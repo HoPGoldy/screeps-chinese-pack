@@ -13,7 +13,7 @@ const updateElement = function (el: HTMLElement, content: TranslationContent): s
     const newContent = content[TRANSLATE_TO]
 
     if (typeof newContent === 'string') el.innerHTML = newContent
-    else newContent(el as (HTMLElement & string))
+    else if (typeof newContent === 'function') newContent(el as (HTMLElement & string))
 
     return el.innerHTML
 }
@@ -42,7 +42,7 @@ const updateProtectElement = function (el: HTMLElement, content: TranslationCont
 
     // 翻译替身
     if (typeof newContent === 'string') newEl.innerHTML = newContent
-    else newContent(newEl as (HTMLElement & string))
+    else if (typeof newContent === 'function') newContent(newEl as (HTMLElement & string))
 
     // 更新替身
     if (el.standNode) el.parentElement.replaceChild(newEl, el.standNode)
@@ -72,7 +72,7 @@ const updateProtectElement = function (el: HTMLElement, content: TranslationCont
 const updateText = function (el: Text, content: TranslationContent): void {
     const newContent = content[TRANSLATE_TO]
     if (typeof newContent === 'string') el.parentElement.replaceChild(new Text(newContent), el)
-    else {
+    else if (typeof newContent === 'function') {
         const newText = newContent(el.wholeText as (HTMLElement & string))
         el.parentElement.replaceChild(new Text(newText), el)
     }
@@ -138,9 +138,15 @@ const translateNormalContent = function (el: Node, allContents: TranslationConte
         // 找到符合的翻译内容，并保存其索引
         let translationIndex: number
         const currentTranslation = allContents.find((content, index) => {
-            // 取出前后可能存在的换行符
-            // 正则含义：去除字符串前后可能存在的空字符
-            if (content[TRANSLATE_FROM] !== trim(originContent)) return false
+            const matchContent = content[TRANSLATE_FROM]
+            const targetContent = trim(originContent)
+
+            // 使用字符串匹配
+            if (typeof matchContent === 'string') {
+                if (matchContent !== targetContent) return false
+            }
+            // 不然就使用正则进行匹配
+            else if (!(matchContent as RegExp).test(targetContent)) return false
 
             translationIndex = index
             return true
