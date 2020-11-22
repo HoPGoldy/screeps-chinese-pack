@@ -1,6 +1,7 @@
 const content: PageContent = {
     hashs: ['#!/'],
     content: [
+        { 'en-US': 'Persistent world:', 'zh-CN': '永恒世界：', 'reuse': true },
         { 'en-US': 'Overview', 'zh-CN': '总览', 'reuse': true },
         { 'en-US': 'World', 'zh-CN': '世界', 'reuse': true },
         { 'en-US': 'Market', 'zh-CN': '市场', 'reuse': true },
@@ -22,7 +23,10 @@ const content: PageContent = {
         { 'en-US': 'Respawn', 'zh-CN': '重生', 'reuse': true },
         { 'en-US': 'View profile', 'zh-CN': '查看资料', 'reuse': true },
         { 'en-US': 'Manage account', 'zh-CN': '账户管理', 'reuse': true },
-        { 'en-US': 'Sign out', 'zh-CN': '登出', 'reuse': true }
+        { 'en-US': 'Sign out', 'zh-CN': '登出', 'reuse': true },
+
+        { 'en-US': 'New update is available', 'zh-CN': '有可用的更新' },
+        { 'en-US': 'RELOAD', 'zh-CN': '重新加载' }
     ]
 }
 

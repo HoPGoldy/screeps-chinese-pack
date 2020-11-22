@@ -13,7 +13,7 @@ type TranslationContent = {
      * 当值为字符串时将直接替换到对应元素的 innerHTML
      * 值为函数时将执行该函数来对元素进行处理
      */
-    [Language in Languages]?: string | TextUpdateCallback | ElementUpdateCallback
+    [Language in Languages]?: string | TextUpdateCallback | ElementUpdateCallback | RegExp
 } & {
     /**
      * 该翻译内容是否可以重用
