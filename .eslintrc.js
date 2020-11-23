@@ -34,6 +34,7 @@ module.exports = {
         'linebreak-style': 'off',
         'no-restricted-globals': 'off',
         'arrow-body-style': 'off',
+        'no-return-assign': 'off',
         'operator-linebreak': ['error', 'after'],
         'no-unused-expressions': ['error', { 'allowShortCircuit': true }],
         // 由于本项目用于翻译，所以允许出现超长行

@@ -212,8 +212,8 @@ const content: PageContent = {
         { 'en-US': 'Remove construction site', 'zh-CN': '移除建筑工地', 'reuse': true },
 
         // creep面板
-        { 'en-US': 'Suicide', 'zh-CN': '自杀(suicide)' },
-        { 'en-US': 'View memory', 'zh-CN': '查看memory' },
+        { 'en-US': 'Suicide', 'zh-CN': '自杀 suicide' },
+        { 'en-US': 'View memory', 'zh-CN': '查看 memory' },
         { 'en-US': 'Body', 'zh-CN': '部件' },
 
         // powercreep
@@ -313,7 +313,7 @@ const content: PageContent = {
         { 'en-US': 'This structure emits bright light and splashes of sparks.', 'zh-CN': '这个建筑散发着亮光，飞溅出火星。', 'reuse': true },
 
         // tombstone
-        { 'en-US': 'Death time:', 'zh-CN': '死亡时间:', 'reuse': true }
+        { 'en-US': 'Death time:', 'zh-CN': '死亡时间:', 'reuse': true },
         // {
         //     'selector': 'div.ng-scope > div.ng-binding.ng-scope',
         //     'zh-CN': (el: HTMLElement) => {
@@ -321,6 +321,22 @@ const content: PageContent = {
         //     },
         //     'reuse': true
         // }
+
+        // 禁止翻译代码内容
+        {
+            'selector': '.ace_scroller > div > .ace_layer.ace_text-layer',
+            'zh-CN': (el: HTMLElement) => el.stopTranslateSearch = true
+        },
+        // 禁止翻译输入的命令
+        {
+            'selector': '.ace-container > div > div.ace_scroller > div > div.ace_layer.ace_text-layer',
+            'zh-CN': (el: HTMLElement) => el.stopTranslateSearch = true
+        },
+        // 禁止翻译内存字段
+        {
+            'selector': '.memory-watch-editing.ng-scope > div.editor table > tbody tr',
+            'zh-CN': (el: HTMLElement) => el.stopTranslateSearch = true
+        }
     ]
 }
 

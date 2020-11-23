@@ -1,3 +1,5 @@
+import { EXCEPT_ELEMENT } from 'setting'
+
 /**
  * 递归获取该元素下所有包含内容的 text 元素
  * 
@@ -115,6 +117,9 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
     return function (mutationsList: MutationRecord[]) {
         // 获取发生变更的节点
         const changedNodes: Node[] = [].concat(...mutationsList.map(mutation => {
+            if (mutation.target.stopTranslateSearch) return []
+            if (isExceptElement(mutation.target)) return []
+
             if (mutation.type === 'childList') {
                 if (mutation.addedNodes.length > 0) return [...mutation.addedNodes]
                 // 变更有可能是有节点移除了，这时候是没必要进行翻译操作的
@@ -129,8 +134,21 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
         }))
 
         // 执行回调
-        callback(changedNodes)
+        if (changedNodes.length > 0) callback(changedNodes)
     }
+}
+
+/**
+ * 判断一个节点是否被禁止翻译
+ * 
+ * 如果节点是 HTML 元素的话，会使用自身进行选择器匹配，如果不是的话，会用其父节点进行选择器匹配
+ * 
+ * @param el 要进行判断的节点
+ * @returns 是否为被禁止翻译的节点
+ */
+export const isExceptElement = function (el: Node): boolean {
+    const matchEl = isHTMLElement(el) ? el : el.parentElement
+    return !!EXCEPT_ELEMENT.find(exceptSelector => matchEl.matches(exceptSelector))
 }
 
 

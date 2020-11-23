@@ -44,13 +44,13 @@ const content: PageContent = {
         // 中央抽奖区域
         {
             'en-US': 'Pixelization is available',
-            'zh-CN': '使用pixel来抽取装饰物',
+            'zh-CN': '使用 pixel 来抽取装饰物',
             'reuse': true
         },
-        { 'en-US': 'You need', 'zh-CN': '你需要', 'reuse': true },
+        { 'en-US': 'You need', 'zh-CN': '你需要\u00A0', 'reuse': true },
         {
             'en-US': 'to pixelize one decoration.',
-            'zh-CN': '来抽取装饰物',
+            'zh-CN': '\u00A0来抽取装饰物',
             'reuse': true
         },
         {
@@ -62,23 +62,23 @@ const content: PageContent = {
         { 'en-US': 'Restrict by theme', 'zh-CN': '限定主题', 'reuse': true },
         {
             'en-US': 'How to get pixels?',
-            'zh-CN': '如何获取pixel?',
+            'zh-CN': '如何获取 pixel?',
             'reuse': true
         },
         {
             'en-US': 'Pixelization progress',
-            'zh-CN': 'pixel收集进度',
+            'zh-CN': 'pixel 收集进度',
             'reuse': true
         },
         // 侧边栏 Steam 交互相关
         {
             'en-US': 'error connecting to Steam',
-            'zh-CN': '连接至Steam时发生错误',
+            'zh-CN': '连接至 Steam 时发生错误',
             'reuse': true
         },
         {
             'en-US': 'Drag to Transfer to Steam',
-            'zh-CN': '拖拽物品转移到Steam库存',
+            'zh-CN': '拖拽物品转移到 Steam 库存',
             'reuse': true
         },
         {
@@ -88,24 +88,24 @@ const content: PageContent = {
         },
         {
             'en-US': 'Transfer to Steam',
-            'zh-CN': '转移到Steam库存',
+            'zh-CN': '转移到 Steam 库存',
             'reuse': true
         },
-        { 'en-US': 'Convert to pixels', 'zh-CN': '分解为pixel', 'reuse': true },
-        { 'en-US': 'Steam inventory', 'zh-CN': 'Steam库存', 'reuse': true },
+        { 'en-US': 'Convert to pixels', 'zh-CN': '分解为 pixel', 'reuse': true },
+        { 'en-US': 'Steam inventory', 'zh-CN': 'Steam 库存', 'reuse': true },
         {
             'en-US': 'Steam Community Market',
-            'zh-CN': 'Steam社区市场',
+            'zh-CN': 'Steam 社区市场',
             'reuse': true
         },
         {
             'en-US': 'Taking from Steam...',
-            'zh-CN': '正在从Steam库存获取...',
+            'zh-CN': '正在从 Steam 库存获取...',
             'reuse': true
         },
         {
             'en-US': 'Transfering to Steam...',
-            'zh-CN': '正在转移至Steam库存...',
+            'zh-CN': '正在转移至 Steam 库存...',
             'reuse': true
         },
         // 分解
@@ -163,18 +163,23 @@ const content: PageContent = {
         },
         { 'en-US': 'Deactivate', 'zh-CN': '停用', 'reuse': true },
         { 'en-US': 'Cancel', 'zh-CN': '取消', 'reuse': true },
-        {
-            'selector': 'button.btn.btn--transparent',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('Unselect', '撤销选择')
-            },
-            'reuse': true
-        },
+
+        // 这里暂时放弃显示选中了多少个内容
+        { 'en-US': /Unselect \(\d+\)/, 'zh-CN': () => '取消选中', 'reuse': true },
+        // {
+        //     'selector': 'button.btn.btn--transparent',
+        //     'zh-CN': (el: HTMLElement) => {
+        //         el.innerHTML = el.innerHTML.replace('Unselect', '撤销选择')
+        //     },
+        //     'protect': true,
+        //     'reuse': true
+        // },
+
         // 明细
         // 皮肤明细
         {
             'en-US': 'You can use this image to decorate your creeps.',
-            'zh-CN': '你可以用此物品来装饰你的creep。',
+            'zh-CN': '你可以用此物品来装饰你的 creep。',
             'reuse': true
         },
         { 'en-US': 'Name Filter', 'zh-CN': '名称过滤器', 'reuse': true },
@@ -186,7 +191,7 @@ const content: PageContent = {
         { 'en-US': 'Exclude', 'zh-CN': '除外', 'reuse': true },
         { 'en-US': 'Alpha', 'zh-CN': '透明度', 'reuse': true },
         { 'en-US': 'Brightness', 'zh-CN': '亮度', 'reuse': true },
-        { 'en-US': 'Convert back to', 'zh-CN': '分解为', 'reuse': true },
+        { 'en-US': 'Convert back to', 'zh-CN': '分解为 ', 'reuse': true },
         { 'en-US': 'Back edit', 'zh-CN': '返回编辑', 'reuse': true },
         { 'en-US': 'Decoration activated', 'zh-CN': '装饰已启用', 'reuse': true },
         { 'en-US': 'Got it', 'zh-CN': '好的', 'reuse': true },
