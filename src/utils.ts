@@ -1,3 +1,5 @@
+import { EXCEPT_ELEMENT } from 'setting'
+
 /**
  * 递归获取该元素下所有包含内容的 text 元素
  * 
@@ -5,7 +7,7 @@
  * @return 包含内容的 text 元素数组
  */
 export const getContentElement = function (el: Node): Text[] {
-    if (el instanceof HTMLElement) {
+    if (isHTMLElement(el)) {
         // 该元素被禁止翻译了就跳过
         if (el.stopTranslateSearch) return []
         const contentElement: Text[] = []
@@ -21,15 +23,37 @@ export const getContentElement = function (el: Node): Text[] {
                 contentElement.push(children as Text)
             }
             // 元素节点的话就递归继续获取（不会搜索 script 标签）
-            else if (children.nodeType === Node.ELEMENT_NODE && children.nodeName !== 'SCRIPT') {
+            else if (isHTMLElement(children) && children.nodeName !== 'SCRIPT') {
                 contentElement.push(...getContentElement(children))
             }
         }
 
         return contentElement
     }
+    // 如果是文本节点的话就直接返回
+    if (isText(el)) return [el]
 
     return []
+}
+
+
+/**
+ * 判断一个节点是否为 HTMLElement
+ * 
+ * @param el 要判断的节点
+ */
+export const isHTMLElement = function (el: Node): el is HTMLElement {
+    return el.nodeType === Node.ELEMENT_NODE
+}
+
+
+/**
+ * 判断一个节点是否为 Text
+ * 
+ * @param el 要判断的节点
+ */
+export const isText = function (el: Node): el is Text {
+    return el.nodeType === Node.TEXT_NODE
 }
 
 
@@ -93,6 +117,9 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
     return function (mutationsList: MutationRecord[]) {
         // 获取发生变更的节点
         const changedNodes: Node[] = [].concat(...mutationsList.map(mutation => {
+            if (mutation.target.stopTranslateSearch) return []
+            if (isExceptElement(mutation.target)) return []
+
             if (mutation.type === 'childList') {
                 if (mutation.addedNodes.length > 0) return [...mutation.addedNodes]
                 // 变更有可能是有节点移除了，这时候是没必要进行翻译操作的
@@ -106,13 +133,22 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
             return []
         }))
 
-        // 给所有需要处理的元素执行回调
-        for (const node of changedNodes) {
-            if (!(node instanceof HTMLElement) || node.nodeType === Node.COMMENT_NODE) continue
-
-            callback(node)
-        }
+        // 执行回调
+        if (changedNodes.length > 0) callback(changedNodes)
     }
+}
+
+/**
+ * 判断一个节点是否被禁止翻译
+ * 
+ * 如果节点是 HTML 元素的话，会使用自身进行选择器匹配，如果不是的话，会用其父节点进行选择器匹配
+ * 
+ * @param el 要进行判断的节点
+ * @returns 是否为被禁止翻译的节点
+ */
+export const isExceptElement = function (el: Node): boolean {
+    const matchEl = isHTMLElement(el) ? el : el.parentElement
+    return !!EXCEPT_ELEMENT.find(exceptSelector => matchEl.matches(exceptSelector))
 }
 
 

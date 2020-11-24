@@ -26,6 +26,17 @@ const GRAPH_SELECT_LIST: MultipleMap = {
     'Creeps lost': 'creep 损失'
 }
 
+/**
+ * 获取翻译总览数据统计
+ */
+export const getOverviewHeaderContent = function (): TranslationContent {
+    return {
+        'selector': '.profile-stat-title',
+        'zh-CN': translateMultiple(OVERVIEW_HEADER),
+        'reuse': true
+    }
+}
+
 const content: PageContent = {
     hashs: ['#!/overview'],
     content: [
@@ -37,22 +48,20 @@ const content: PageContent = {
         { 'en-US': 'Stats Period', 'zh-CN': '统计时长', 'reuse': true },
 
         { 'en-US': 'Graph:', 'zh-CN': '图表:', 'reuse': true },
+        { 'en-US': 'View leaderboard', 'zh-CN': '查看排行榜', 'reuse': true },
 
-        {
-            'selector': '.profile-stat-title',
-            'zh-CN': translateMultiple(OVERVIEW_HEADER)
-        },
+        getOverviewHeaderContent(),
         // 翻译下拉框当前选中值
         {
             'selector': 'button > span.toggle-text.ng-scope > span',
             'zh-CN': translateMultiple(GRAPH_SELECT_LIST),
-            'queryWith': document.body,
             'reuse': true
         },
         // 翻译下拉框选项
         {
             'selector': 'a.ng-binding.ng-scope',
-            'zh-CN': translateMultiple(GRAPH_SELECT_LIST)
+            'zh-CN': translateMultiple(GRAPH_SELECT_LIST),
+            'reuse': true
         }
     ]
 }

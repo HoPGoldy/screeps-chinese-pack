@@ -49,3 +49,18 @@ export const getObjectiveTranslationContent = function (contents: MultipleMap, l
         }
     ]
 }
+
+/**
+ * 获取每个教程章节中都包含的 UI 翻译内容
+ */
+export const getBaseUIContent = function (): TranslationContent[] {
+    return [
+        { 'en-US': 'Back', 'zh-CN': '返回', 'reuse': true },
+        { 'en-US': 'Start', 'zh-CN': '开始', 'reuse': true },
+        { 'en-US': 'Next', 'zh-CN': '下一步', 'reuse': true },
+        { 'en-US': 'Got it', 'zh-CN': '明白了', 'reuse': true },
+        { 'en-US': 'Code', 'zh-CN': '代码', 'reuse': true },
+        { 'en-US': 'Stay', 'zh-CN': '留在这里', 'reuse': true },
+        { 'en-US': 'Documentation:', 'zh-CN': '文档：', 'reuse': true }
+    ]
+}
