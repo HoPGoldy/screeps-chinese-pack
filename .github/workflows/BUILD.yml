@@ -1,0 +1,34 @@
+name: BUILD
+
+on:
+  push:
+    branches:    
+      - main
+
+jobs:
+  work:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: egordm/gha-yarn-node-cache@v1
+
+    - name: Install
+      run: yarn install
+
+    - name: Build
+      run: yarn build
+
+    - name: Deploy
+      env:
+        TARGET_REPO_TOKEN: ${{ secrets.TARGET_REPO_TOKEN }}
+      run: |
+        cd dist
+        # 初始化 git
+        git init
+        git config user.email "hopgoldy@gmail.com"
+        git config user.name "CI Builder"
+        # 生成并推送 commit
+        git add .
+        git commit -m "UPDATE BY GITHUB ACTION"
+        git push --quiet --force https://$TARGET_REPO_TOKEN@github.com/screeps-cn/screeps-chinese-pack-release.git master
