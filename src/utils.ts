@@ -65,6 +65,8 @@ export const getNoQueryHash = function (hash: string): string {
     return hash.split('?')[0]
 }
 
+// 缓存上次的路由，用于减少路由回调触发次数
+let lastHash = ''
 
 /**
  * 监听路由的变化
@@ -73,7 +75,13 @@ export const getNoQueryHash = function (hash: string): string {
  */
 export const onHashChange = function (callback: HashChangeCallback = () => {}) {
     // 在更新时触发回调
-    const hashCallback = () => callback(document.location.hash)
+    const hashCallback = () => {
+        const newHash = getNoQueryHash(document.location.hash)
+        if (lastHash === newHash) return
+
+        callback(document.location.hash)
+        lastHash = newHash
+    }
 
     // pushState 和 replaceState 不会触发对应的回调，这里包装一下
     history.pushState = wapperHistory('pushState')
@@ -148,6 +156,8 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
  */
 export const isExceptElement = function (el: Node): boolean {
     const matchEl = isHTMLElement(el) ? el : el.parentElement
+    // 如果父节点都没有那还翻译啥
+    if (!matchEl) return true
     return !!EXCEPT_ELEMENT.find(exceptSelector => matchEl.matches(exceptSelector))
 }
 
