@@ -66,8 +66,15 @@ export const updateSource = function (hash: string): CurrentPageContent {
 
     // 找到所有匹配的翻译源
     for (const page of pages) {
-        const matched = page.hashs.find(pageHash => currentHash.startsWith(pageHash))
-        if (!matched) continue
+        const matched = page.hashs.find(pageHash => {
+            // 如果 hash 为空的话就精确匹配，不然太多了
+            if (currentHash === '') return currentHash === pageHash
+            // 有 hash 的话就进行首匹配
+            if (pageHash !== '') return currentHash.startsWith(pageHash)
+            return false
+        })
+
+        if (matched === undefined) continue
 
         // 根据是否由 selector 分开存储
         page.content.forEach(content => {

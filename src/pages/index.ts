@@ -12,6 +12,7 @@ import account from './account'
 import enter from './enter'
 import shards from './shards'
 import map from './map'
+import homePage from './homePage'
 
 
 export default [
@@ -29,5 +30,6 @@ export default [
     enter,
     shards,
     map,
-    inventory
+    inventory,
+    homePage
 ]
