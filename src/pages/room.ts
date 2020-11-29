@@ -133,7 +133,7 @@ const content: PageContent = {
         // 建筑过多弹窗
         {
             'en-US': 'You have too many construction sites. The maximum number of construction sites per player is 100.',
-            'zh-CN': '你创建的 construction site 过多。每个玩家能够创建的 construction site 上限为 100。',
+            'zh-CN': '您创建的 construction site 过多。每个玩家能够创建的 construction site 上限为 100。',
             'reuse': true
         },
         // 下方提示
@@ -182,7 +182,7 @@ const content: PageContent = {
         { 'en-US': 'Sends any resources to a\u00A0Terminal in another room.', 'zh-CN': '能够向另一房间的 Terminal 发送任意资源。', 'reuse': true },
         { 'en-US': 'Produces trade commodities.', 'zh-CN': '能够生产可交易商品。', 'reuse': true },
         { 'en-US': 'Spawns creeps using energy contained in the room spawns and extensions.', 'zh-CN': '使用房间内 Spawn 与 Extension 储备的能量生产 creep。', 'reuse': true },
-        { 'en-US': 'Provides visibility into a distant room from your script.', 'zh-CN': '能够使你的脚本获取远处一房间的视野。', 'reuse': true },
+        { 'en-US': 'Provides visibility into a distant room from your script.', 'zh-CN': '能够使您的脚本获取远处一房间的视野。', 'reuse': true },
         { 'en-US': 'Spawns power creeps with special unique powers.', 'zh-CN': '能够生产拥有特殊技能的超能 creep。', 'reuse': true },
         { 'en-US': 'Launches a nuke to a distant room dealing huge damage to the landing area.', 'zh-CN': '能够向远处一房间发射核弹，对命中区域造成巨大伤害。', 'reuse': true },
 
@@ -266,7 +266,7 @@ const content: PageContent = {
         // invader core creep
         {
             'en-US': 'This creep is angry with your harvesting activity here. Its home is located somewhere in this sector.',
-            'zh-CN': '你的采集行为激怒了这个 creep。它的出生点位于本 sector 的某个位置。',
+            'zh-CN': '您的采集行为激怒了这个 creep。它的出生点位于本 sector 的某个位置。',
             'reuse': true
         },
 

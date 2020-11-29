@@ -46,7 +46,7 @@ const content: PageContent = {
             'zh-CN': (el: HTMLElement) => {
                 el.innerHTML = el.innerHTML.replace(
                     'Enter your email to stay tuned <br> for news about Screeps Arena development:',
-                    '输入你的邮箱来获取 Screeps Arena 的最新进展'
+                    '输入您的邮箱来获取 Screeps Arena 的最新进展'
                 )
             }
         },
@@ -64,7 +64,7 @@ const content: PageContent = {
             'zh-CN': (el: HTMLElement) => {
                 el.innerHTML = el.innerHTML.replace(
                     '<em>Real programming</em>, not just pseudocode. You can use libs from real projects.',
-                    '<em>用真实的代码编程</em>，而不是伪代码。你可以调用任何真正的第三方库。'
+                    '<em>用真实的代码编程</em>，而不是伪代码。您可以调用任何真正的第三方库。'
                 )
                 el.innerHTML = el.innerHTML.replace('Use JavaScript or ', '使用 JavaScript 或者通过 WebAssembly')
                 el.innerHTML = el.innerHTML.replace('compile other languages', '编译其它语言。')
@@ -90,7 +90,7 @@ const content: PageContent = {
                 )
                 el.innerHTML = el.innerHTML.replace(
                     'Programmable world living a continuous life <em>24/7 in real-time</em> even when you\'re offline.',
-                    '可编程世界 <em>在现实中 24/7 不停歇地运行</em>，当你下线后亦是如此。'
+                    '可编程世界 <em>在现实中 24/7 不停歇地运行</em>，当您下线后亦是如此。'
                 )
             }
         },
@@ -105,7 +105,7 @@ const content: PageContent = {
                 )
                 el.innerHTML = el.innerHTML.replace(
                     'You can <em>change any aspect</em> of game objects\' behavior.',
-                    '你可以 <em>修改</em> 游戏内部对象的 <em>任何行为特征</em>。'
+                    '您可以 <em>修改</em> 游戏内部对象的 <em>任何行为特征</em>。'
                 )
                 el.innerHTML = el.innerHTML.replace(
                     '<em>Contribute</em> to the game engine development and <em>earn in-game benefits</em>.',

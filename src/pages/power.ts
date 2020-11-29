@@ -20,8 +20,8 @@ const content: PageContent = {
 
     content: [
         // 无 Power Creep 时
-        { 'en-US': 'You have no Power Creeps yet.', 'zh-CN': '你还没有 Power Creeps' },
-        { 'en-US': 'You need 1 free Power Level in your account to create a new Power Creep.', 'zh-CN': '需要一个你账号内空余的超能等级来创建一个新的 Power Creep' },
+        { 'en-US': 'You have no Power Creeps yet.', 'zh-CN': '您还没有 Power Creeps' },
+        { 'en-US': 'You need 1 free Power Level in your account to create a new Power Creep.', 'zh-CN': '需要一个您账号内空余的超能等级来创建一个新的 Power Creep' },
         { 'en-US': 'Upgrade', 'zh-CN': '升级' },
         { 'en-US': 'Back', 'zh-CN': '返回', 'reuse': true },
 

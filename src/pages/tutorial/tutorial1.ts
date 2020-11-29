@@ -119,7 +119,7 @@ const OBJECTIVE_CONTENT = {
     'Scripting basics': '脚本基础',
 
     'Create a worker creep with the body array <code>[WORK,CARRY,MOVE]</code> and name <code>Harvester1</code> (the name is important for the tutorial!).\nYou can type the code in the console yourself or copy&nbsp;&amp;&nbsp;paste the hint below.':
-    '创建一个身体部件为 <code>[WORK,CARRY,MOVE]</code> 并且名字叫做 <code>Harvester1</code>（这个名字对本教程来说非常重要！）的工人 creep。你可以自己在控制台中输入这些代码，或者复制&nbsp;&amp;&nbsp;粘贴下面的提示。',
+    '创建一个身体部件为 <code>[WORK,CARRY,MOVE]</code> 并且名字叫做 <code>Harvester1</code>（这个名字对本教程来说非常重要！）的工人 creep。您可以自己在控制台中输入这些代码，或者复制&nbsp;&amp;&nbsp;粘贴下面的提示。',
 
     'Hide the editor panel with <strong>Alt+Enter</strong> and select your creep with the help of the "View" action.':
     '按下 <strong>Alt+Enter</strong> 键来隐藏编辑器面板并在 “查看” 功能下选中您的 creep',

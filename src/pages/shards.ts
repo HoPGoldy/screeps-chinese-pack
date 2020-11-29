@@ -9,8 +9,8 @@ const content: PageContent = {
             }
         },
 
-        { 'en-US': 'World shards are isolated from each other and run your code separately.', 'zh-CN': ' 在世界中的不同位面是独立的，并且会分开运行你的代码。' },
-        { 'en-US': 'Your creeps can travel between them using special portals.', 'zh-CN': '通过使用特殊的传送门。你的 creep 可以在不同位面间穿行。' },
+        { 'en-US': 'World shards are isolated from each other and run your code separately.', 'zh-CN': ' 在世界中的不同位面是独立的，并且会分开运行您的代码。' },
+        { 'en-US': 'Your creeps can travel between them using special portals.', 'zh-CN': '通过使用特殊的传送门。您的 creep 可以在不同位面间穿行。' },
         { 'en-US': 'Learn more', 'zh-CN': '了解更多' },
 
         { 'en-US': 'claimable rooms', 'zh-CN': '可占领房间', 'reuse': true },

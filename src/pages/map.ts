@@ -80,11 +80,11 @@ const content: PageContent = {
         // 未选择房间时
         { 'en-US': 'Welcome to the', 'zh-CN': '欢迎来到 ', 'reuse': true },
         { 'en-US': 'screeps world', 'zh-CN': 'SCREEPS 世界', 'reuse': true },
-        { 'en-US': 'Choose a room to found your colony.', 'zh-CN': '选择一个房间来建立你的殖民地', 'reuse': true },
+        { 'en-US': 'Choose a room to found your colony.', 'zh-CN': '选择一个房间来建立您的殖民地', 'reuse': true },
         { 'en-US': 'First time?', 'zh-CN': '第一次尝试? ', 'reuse': true },
-        { 'en-US': 'See tips how to choose', 'zh-CN': '看看这个帮你选择的小贴士', 'reuse': true },
+        { 'en-US': 'See tips how to choose', 'zh-CN': '看看这个帮您选择的小贴士', 'reuse': true },
         { 'en-US': 'OK', 'zh-CN': '好的', 'reuse': true },
-        { 'en-US': 'Select your room', 'zh-CN': '挑选你的房间', 'reuse': true },
+        { 'en-US': 'Select your room', 'zh-CN': '挑选您的房间', 'reuse': true },
         { 'en-US': 'Another area', 'zh-CN': '另一个区域', 'reuse': true },
         { 'en-US': 'Random room', 'zh-CN': '随机房间', 'reuse': true },
         // map2相关
