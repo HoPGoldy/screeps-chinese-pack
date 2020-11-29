@@ -1,5 +1,3 @@
-import { EXCEPT_ELEMENT } from 'setting'
-
 /**
  * 递归获取该元素下所有包含内容的 text 元素
  * 
@@ -146,19 +144,32 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
     }
 }
 
+
 /**
  * 判断一个节点是否被禁止翻译
  * 
- * 如果节点是 HTML 元素的话，会使用自身进行选择器匹配，如果不是的话，会用其父节点进行选择器匹配
+ * 会顺着 dom 树一直往上找，遇到设置有 stopTranslateSearch 属性的祖先节点的话就禁止翻译
  * 
  * @param el 要进行判断的节点
  * @returns 是否为被禁止翻译的节点
  */
 export const isExceptElement = function (el: Node): boolean {
-    const matchEl = isHTMLElement(el) ? el : el.parentElement
-    // 如果父节点都没有那还翻译啥
-    if (!matchEl) return true
-    return !!EXCEPT_ELEMENT.find(exceptSelector => matchEl.matches(exceptSelector))
+    if (el.stopTranslateSearch) return true
+    if (el.parentNode) return isExceptElement(el.parentNode)
+
+    return false
+}
+
+/**
+ * 将一个 html 元素及其子元素设置为禁止翻译
+ * 
+ * @param selector 禁止翻译的 css 选择器
+ */
+export const dontTranslate = function (selector: string): TranslationContent {
+    return {
+        'selector': selector,
+        'zh-CN': (el: HTMLElement) => el.stopTranslateSearch = true
+    }
 }
 
 

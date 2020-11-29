@@ -1,4 +1,4 @@
-import { translateMultiple } from 'utils'
+import { dontTranslate, translateMultiple } from 'utils'
 
 const CONSTRUCT_NOTICE: MultipleMap = {
     'Choose location': '选择位置',
@@ -291,21 +291,8 @@ const content: PageContent = {
         //     'reuse': true
         // }
 
-        // 禁止翻译代码内容
-        {
-            'selector': '.ace_scroller > div > .ace_layer.ace_text-layer',
-            'zh-CN': (el: HTMLElement) => el.stopTranslateSearch = true
-        },
-        // 禁止翻译输入的命令
-        {
-            'selector': '.ace-container > div > div.ace_scroller > div > div.ace_layer.ace_text-layer',
-            'zh-CN': (el: HTMLElement) => el.stopTranslateSearch = true
-        },
-        // 禁止翻译内存字段
-        {
-            'selector': '.memory-watch-editing.ng-scope > div.editor table > tbody tr',
-            'zh-CN': (el: HTMLElement) => el.stopTranslateSearch = true
-        }
+        // 禁止翻译代码、控制台、内存字段
+        dontTranslate('.tab-pane')
     ]
 }
 

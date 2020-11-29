@@ -1,3 +1,5 @@
+import { dontTranslate } from 'utils'
+
 const content: PageContent = {
     hashs: ['#!/'],
     content: [
@@ -40,7 +42,24 @@ const content: PageContent = {
 
         // 右上角登陆按钮
         { 'en-US': 'Sign in', 'zh-CN': '登陆 ', 'reuse': true },
-        { 'en-US': 'or register', 'zh-CN': '或注册', 'reuse': true }
+        { 'en-US': 'or register', 'zh-CN': '或注册', 'reuse': true },
+
+        // 阻止翻译右上角的 CPU 及内存使用量
+        dontTranslate('.cpu > .sysbar-title > strong'),
+        dontTranslate('.mem > div.sysbar-title > strong'),
+
+        // 阻止翻译左侧边栏头部的赛季服倒计时
+        {
+            'selector': 'app-time-left',
+            /**
+             * 因为这个元素会因为未知原因销毁重建一次，导致单纯通过 dontTranslate 设置的禁止翻译被清掉了
+             * 所以这里加个延迟，等元素重建完成后再添加禁止翻译
+             */
+            'zh-CN': () => setTimeout(() => {
+                const el = document.body.querySelector('app-time-left')
+                el.stopTranslateSearch = true
+            }, 1000)
+        }
     ]
 }
 
