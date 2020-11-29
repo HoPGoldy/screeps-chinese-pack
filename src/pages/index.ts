@@ -14,6 +14,7 @@ import enter from './enter'
 import shards from './shards'
 import map from './map'
 import homePage from './homePage'
+import register from './register'
 
 
 export default [
@@ -33,5 +34,6 @@ export default [
     shards,
     map,
     inventory,
-    homePage
+    homePage,
+    register
 ]

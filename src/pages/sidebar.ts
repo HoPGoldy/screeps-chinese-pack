@@ -26,7 +26,21 @@ const content: PageContent = {
         { 'en-US': 'Sign out', 'zh-CN': '登出', 'reuse': true },
 
         { 'en-US': 'New update is available', 'zh-CN': '有可用的更新' },
-        { 'en-US': 'RELOAD', 'zh-CN': '重新加载' }
+        { 'en-US': 'RELOAD', 'zh-CN': '重新加载' },
+
+        // 登陆弹窗
+        { 'en-US': 'Sign In', 'zh-CN': '登陆', 'reuse': true },
+        { 'en-US': 'E-mail or username', 'zh-CN': '邮箱或用户名', 'reuse': true },
+        { 'en-US': 'Password', 'zh-CN': '密码', 'reuse': true },
+        { 'en-US': 'SIGN IN', 'zh-CN': '登陆', 'reuse': true },
+        { 'en-US': 'OR', 'zh-CN': '或', 'reuse': true },
+        { 'en-US': 'I forgot my password', 'zh-CN': '我忘记密码了', 'reuse': true },
+        { 'en-US': 'Create a new account', 'zh-CN': '创建一个新账户', 'reuse': true },
+        { 'en-US': 'Account credentials are invalid', 'zh-CN': '账号验证失败', 'reuse': true },
+
+        // 右上角登陆按钮
+        { 'en-US': 'Sign in', 'zh-CN': '登陆 ', 'reuse': true },
+        { 'en-US': 'or register', 'zh-CN': '或注册', 'reuse': true }
     ]
 }
 
