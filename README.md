@@ -1,5 +1,8 @@
 # Screeps-chinese-pack
 
+![build badge](https://github.com/screeps-cn/screeps-chinese-pack/workflows/BUILD/badge.svg)
+![Base on](https://img.shields.io/badge/Base%20on-Tampermonkey-blue)
+
 用于汉化 [screeps.com](https://screeps.com) 网站的 [油猴脚本](https://www.tampermonkey.net/)。由 Screeps 中国玩家自发创建并维护，[点此](./CONTRIBUTING.md) 来查看如何参与本项目！
 
 # 需求
