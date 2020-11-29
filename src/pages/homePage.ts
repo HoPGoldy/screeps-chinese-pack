@@ -14,17 +14,17 @@ const content: PageContent = {
         { 'en-US': 'Sign in', 'zh-CN': '登录' },
 
         { 'en-US': 'MMO sandbox game for programmers', 'zh-CN': '为程序员量身打造的 MMO 沙盒游戏' },
+        { 'en-US': 'It means "scripting creeps"', 'zh-CN': 'Screeps 的含义是编程（scripting）您的爬虫（creep）。' },
         {
-            'selector': 'section.sc-products > header > div',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('It means "scripting creeps"', '含义为 “为creep编写脚本”')
-                el.innerHTML = el.innerHTML.replace('It\'s an open-source game for programmers,', '这是一个为程序员量身打造的开源游戏，')
-                el.innerHTML = el.innerHTML.replace('wherein the core mechanic is programming', '其核心机制为编写你自己的')
-                el.innerHTML = el.innerHTML.replace(' your units\' AI.', 'AI单元，')
-                el.innerHTML = el.innerHTML.replace('You control your colony by writing JavaScript.', '通过书写JavaScript代码来控制你的领地。')
-            }
+            'en-US': 'It\'s an open-source game for programmers,\nwherein the core mechanic is programming',
+            'zh-CN': 'Screeps 是一款面向编程爱好者的开源 MMO RTS 沙盒游戏，其核心机制是为您的单位编写 AI。'
         },
-        { 'en-US': 'MMO real-time sandbox with huge persistent world', 'zh-CN': '在广阔永恒的世界中畅玩MMO实时沙盒游戏' },
+        {
+            'en-US': 'your units\' AI.\nYou control your colony by writing JavaScript.',
+            'zh-CN': '您可以通过书写 JavaScript 代码来掌控自己的殖民地。'
+        },
+
+        { 'en-US': 'MMO real-time sandbox with huge persistent world', 'zh-CN': '在广阔永恒的世界中畅玩 MMO 实时沙盒游戏' },
         { 'en-US': 'View on', 'zh-CN': '浏览' },
         { 'en-US': 'Live demo', 'zh-CN': '在线试玩' },
         { 'en-US': 'No registration required', 'zh-CN': '无需注册' },
@@ -64,14 +64,14 @@ const content: PageContent = {
             'zh-CN': (el: HTMLElement) => {
                 el.innerHTML = el.innerHTML.replace(
                     '<em>Real programming</em>, not just pseudocode. You can use libs from real projects.',
-                    '<em>用真实的代码编程</em>，而不是伪代码。你可以调用现有项目库。'
+                    '<em>用真实的代码编程</em>，而不是伪代码。你可以调用任何真正的第三方库。'
                 )
-                el.innerHTML = el.innerHTML.replace('Use JavaScript or ', '使用JavaScript或者通过 WebAssembly')
+                el.innerHTML = el.innerHTML.replace('Use JavaScript or ', '使用 JavaScript 或者通过 WebAssembly')
                 el.innerHTML = el.innerHTML.replace('compile other languages', '编译其它语言。')
                 el.innerHTML = el.innerHTML.replace(' via WebAssembly.', '')
                 el.innerHTML = el.innerHTML.replace(
                     '<a class="link" href="http://docs.screeps.com/">Docs and game API</a> of a full-fledged platform.',
-                    '在成熟的现有平台中获取<a class="link" href="http://docs.screeps.com/">游戏文档及API</a>。'
+                    '包含完整详细的 <a class="link" href="https://screeps-cn.gitee.io/">游戏文档及 API</a>。'
                 )
             }
         },
@@ -82,11 +82,11 @@ const content: PageContent = {
                 el.innerHTML = el.innerHTML.replace('<b>W</b>orld', '<b>世</b>界')
                 el.innerHTML = el.innerHTML.replace(
                     '<em>Huge persistent world</em> consisting of 70,000 interconnected game rooms.',
-                    '拥有70,000个内部相通的游戏房间的<em>巨大永恒世界</em>。'
+                    '拥有 70,000 个内部相通的游戏房间的<em>巨大永恒世界</em>。'
                 )
                 el.innerHTML = el.innerHTML.replace(
                     '<em>40-server cluster</em> (160 CPU cores) processing player scripts using Node.js.',
-                    '<em>40个服务器集群</em>（160 CPU核心）使用 Node.js 运行玩家脚本。'
+                    '<em>40 个服务器集群</em>（160 CPU核心）运行基于 Node.js 的玩家脚本。'
                 )
                 el.innerHTML = el.innerHTML.replace(
                     'Programmable world living a continuous life <em>24/7 in real-time</em> even when you\'re offline.',
@@ -101,15 +101,15 @@ const content: PageContent = {
                 el.innerHTML = el.innerHTML.replace('<b>S</b>andbox', '<b>沙</b>盒')
                 el.innerHTML = el.innerHTML.replace(
                     'Engine released on <a class="link" href="https://github.com/screeps/screeps">GitHub</a> as an open and moddable program platform.',
-                    '游戏引擎在<a class="link" href="https://github.com/screeps/screeps">GitHub</a>上作为一个开放的可修改的程序平台发布。'
+                    '游戏引擎在 <a class="link" href="https://github.com/screeps/screeps">GitHub</a> 上作为一个开源且可修改的程序平台发布。'
                 )
                 el.innerHTML = el.innerHTML.replace(
                     'You can <em>change any aspect</em> of game objects\' behavior.',
-                    '你可以<em>修改</em>游戏内部对象的<em>任何行为特征</em>。'
+                    '你可以 <em>修改</em> 游戏内部对象的 <em>任何行为特征</em>。'
                 )
                 el.innerHTML = el.innerHTML.replace(
                     '<em>Contribute</em> to the game engine development and <em>earn in-game benefits</em>.',
-                    '为游戏引擎做出<em>贡献</em>来获得<em>游戏内的回报</em>。'
+                    '为游戏引擎做出 <em>贡献</em> 来获得 <em>游戏内的回报</em>。'
                 )
             }
         },
