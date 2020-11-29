@@ -1,8 +1,8 @@
 import { translateMultiple } from 'utils'
 
 const CONSTRUCT_NOTICE: MultipleMap = {
-    'Choose location': '选择建造位置',
-    'Place your spawn': '选择建造Spawn的位置'
+    'Choose location': '选择位置',
+    'Place your spawn': '放置您的 Spawn'
 }
 
 const TOOLTIP_LABEL: MultipleMap = {
@@ -22,7 +22,7 @@ const TOOLTIP_LABEL: MultipleMap = {
 }
 
 const content: PageContent = {
-    hashs: ['#!/room', '#!/sim/custom', '#!/sim/survival', '#!/sim/tutorial/'],
+    hashs: ['#!/room', '#!/sim/custom', '#!/sim/survival', '#!/sim/tutorial/', '#!/history'],
     content: [
         {
             'selector': 'div.tooltip.ng-scope.ng-isolate-scope > div.tooltip-inner.ng-binding',
@@ -95,15 +95,15 @@ const content: PageContent = {
             'reuse': true
         },
         // RoomObject 面板
-        { 'en-US': 'Position:', 'zh-CN': '位置 (position):', 'reuse': true },
-        { 'en-US': 'Hits:', 'zh-CN': '生命值 (hits):', 'reuse': true },
-        { 'en-US': 'Owner:', 'zh-CN': '所有者 (owner):', 'reuse': true },
-        { 'en-US': 'Energy:', 'zh-CN': '能量 (energy):', 'reuse': true },
-        { 'en-US': 'Cooldown:', 'zh-CN': '冷却 (cooldown):', 'reuse': true },
-        { 'en-US': 'Decay in:', 'zh-CN': '老化 (decay):', 'reuse': true },
-        { 'en-US': 'Public:', 'zh-CN': '开放 (public):', 'reuse': true },
-        { 'en-US': 'Name:', 'zh-CN': '名称 (name):', 'reuse': true },
-        { 'en-US': 'Fatigue:', 'zh-CN': '疲劳 (fatigue):', 'reuse': true },
+        { 'en-US': 'Position:', 'zh-CN': '位置 position:', 'reuse': true },
+        { 'en-US': 'Hits:', 'zh-CN': '生命值 hits:', 'reuse': true },
+        { 'en-US': 'Owner:', 'zh-CN': '所有者 owner:', 'reuse': true },
+        { 'en-US': 'Energy:', 'zh-CN': '能量 energy:', 'reuse': true },
+        { 'en-US': 'Cooldown:', 'zh-CN': '冷却 cooldown:', 'reuse': true },
+        { 'en-US': 'Decay in:', 'zh-CN': '老化 decay:', 'reuse': true },
+        { 'en-US': 'Public:', 'zh-CN': '开放 public:', 'reuse': true },
+        { 'en-US': 'Name:', 'zh-CN': '名称 name:', 'reuse': true },
+        { 'en-US': 'Fatigue:', 'zh-CN': '疲劳 fatigue:', 'reuse': true },
         { 'en-US': 'Time to live:', 'zh-CN': '剩余存活时间:', 'reuse': true },
         { 'en-US': 'Make public', 'zh-CN': '设为开放', 'reuse': true },
         { 'en-US': 'Make non-public', 'zh-CN': '设为非开放', 'reuse': true },
@@ -111,15 +111,15 @@ const content: PageContent = {
         { 'en-US': 'Destroy this structure', 'zh-CN': '摧毁该建筑', 'reuse': true },
         { 'en-US': 'Click again to confirm', 'zh-CN': '再次点击以确认', 'reuse': true },
 
-        { 'en-US': 'Mineral:', 'zh-CN': '矿藏 (mineral):', 'reuse': true },
-        { 'en-US': 'Density:', 'zh-CN': '丰度 (density):', 'reuse': true },
-        { 'en-US': 'Amount:', 'zh-CN': '余量 (amount):', 'reuse': true },
+        { 'en-US': 'Mineral:', 'zh-CN': '矿藏 mineral:', 'reuse': true },
+        { 'en-US': 'Density:', 'zh-CN': '丰度 density:', 'reuse': true },
+        { 'en-US': 'Amount:', 'zh-CN': '余量 amount:', 'reuse': true },
         { 'en-US': 'Regeneration in:', 'zh-CN': '重新生成于:', 'reuse': true },
         { 'en-US': 'Learn more', 'zh-CN': '了解更多', 'reuse': true },
         { 'en-US': 'Build an extractor here to mine this mineral deposit.', 'zh-CN': '在此处建筑一个 extractor 以采集该矿藏。', 'reuse': true },
-        { 'en-US': 'Amount:', 'zh-CN': '余量 (amount):', 'reuse': true },
+        { 'en-US': 'Amount:', 'zh-CN': '余量 amount:', 'reuse': true },
 
-        { 'en-US': 'Level:', 'zh-CN': '等级 (level):', 'reuse': true },
+        { 'en-US': 'Level:', 'zh-CN': '等级 level:', 'reuse': true },
         { 'en-US': 'Safe modes available:', 'zh-CN': '剩余安全模式:', 'reuse': true },
         { 'en-US': 'Downgrade in:', 'zh-CN': '降级时间:', 'reuse': true },
         { 'en-US': 'Power enabled:', 'zh-CN': '是否启用 Power:', 'reuse': true },
@@ -133,7 +133,7 @@ const content: PageContent = {
         // 建筑过多弹窗
         {
             'en-US': 'You have too many construction sites. The maximum number of construction sites per player is 100.',
-            'zh-CN': '你创建的construction site过多。每个玩家能够创建的construction site上限为100。',
+            'zh-CN': '你创建的 construction site 过多。每个玩家能够创建的 construction site 上限为 100。',
             'reuse': true
         },
         // 下方提示
@@ -143,65 +143,61 @@ const content: PageContent = {
             'reuse': true
         },
         // 建筑状态
-        {
-            'selector': 'div > div > div > button > .ng-scope > div',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('Available:', '可建造数:')
-                el.innerHTML = el.innerHTML.replace('required', '')
-                el.innerHTML = el.innerHTML.replace('RCL ', '要求RCL')
-                el.innerHTML = el.innerHTML.replace('Available', '可建造')
-                el.innerHTML = el.innerHTML.replace('No controller', '控制器无效')
-            },
-            'reuse': true
-        },
-        // Spawn建造弹窗
+        // 无法更新可建筑数量，暂时禁用
+        // {
+        //     'selector': 'div > div > div > button > .ng-scope > div',
+        //     'zh-CN': (el: HTMLElement) => {
+        //         el.innerHTML = el.innerHTML.replace('Available:', '可建造数:')
+        //         el.innerHTML = el.innerHTML.replace('required', '')
+        //         el.innerHTML = el.innerHTML.replace('RCL ', '要求RCL')
+        //         el.innerHTML = el.innerHTML.replace('Available', '可建造')
+        //         el.innerHTML = el.innerHTML.replace('No controller', '控制器无效')
+        //     },
+        //     'reuse': true
+        // },
+        // Spawn 建造弹窗
         { 'en-US': 'Create', 'zh-CN': '建造', 'reuse': true },
-        {
-            'selector': 'div > div > section > form > .modal-body > input',
-            'zh-CN': (el: HTMLElement) => {
-                el.setAttribute('placeholder', '名称')
-            },
-            'reuse': true
-        },
-        {
-            'selector': 'div > div > section > form.ng-pristine.ng-valid-required.ng-valid.ng-valid-unique > div.modal-body',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('Enter name', '输入Spawn的名称')
-            },
-            'reuse': true
-        },
+        { 'en-US': 'Enter name:', 'zh-CN': '输入名称', 'reuse': true },
         { 'en-US': 'Cancel', 'zh-CN': '取消', 'reuse': true },
         { 'en-US': 'OK', 'zh-CN': '确认', 'reuse': true },
         // 建筑描述
-        { 'en-US': 'Contains additional energy which can be used by spawns for spawning bigger creeps.', 'zh-CN': '为Spawn提供生产更大体型creep所需要的储能空间。', 'reuse': true },
+        { 'en-US': 'Contains additional energy which can be used by spawns for spawning bigger creeps.', 'zh-CN': '为 Spawn 提供生产更大体型 creep 所需要的储能空间。', 'reuse': true },
         { 'en-US': 'Decreases movement cost. Decays over time and requires repair.', 'zh-CN': '降低移动的消耗。会随着时间推移而老化并需要维护。', 'reuse': true },
-        { 'en-US': 'Blocks movement of all creeps. Requires repair after construction.', 'zh-CN': '能够阻挡所有creep。建造之后需要维护。', 'reuse': true },
-        { 'en-US': 'Defends creeps and structures on the same tile and blocks enemy movement. Decays over time and requires repair.', 'zh-CN': '保护位于同一位置的creep及建筑，能够阻挡敌人。会随着时间推移而风化并需要维护。', 'reuse': true },
-        { 'en-US': 'Remotely attacks or heals any creep in a room, or repairs a structure.', 'zh-CN': '能够对同房间的任意creep进行远距离攻击或治疗，也可对建筑进行维护。', 'reuse': true },
-        { 'en-US': 'Stores up to 2,000 resource units. Decays over time and requires repair.', 'zh-CN': '能够存储2,000单位的资源。会随着时间推移而老化并需要维护。', 'reuse': true },
-        { 'en-US': 'Stores up to 1,000,000 resource units.', 'zh-CN': '能够存储1,000,000单位的资源。', 'reuse': true },
-        { 'en-US': 'Remotely transfers energy to another Link in the same room.', 'zh-CN': '能够向同房间的Link远距离传送能量。', 'reuse': true },
+        { 'en-US': 'Blocks movement of all creeps. Requires repair after construction.', 'zh-CN': '能够阻挡所有 creep。建造之后需要维护。', 'reuse': true },
+        {
+            'en-US': 'Defends creeps and structures on the same tile and blocks enemy movement. Decays over time and requires repair.',
+            'zh-CN': '保护位于同一位置的 creep 及建筑，能够阻挡敌人。会随着时间推移而老化并需要维护。',
+            'reuse': true
+        },
+        {
+            'en-US': 'Remotely attacks or heals any creep in a room, or repairs a structure.',
+            'zh-CN': '能够对同房间的任意 creep 进行远距离攻击或治疗，也可对建筑进行维护。',
+            'reuse': true
+        },
+        { 'en-US': 'Stores up to 2,000 resource units. Decays over time and requires repair.', 'zh-CN': '能够存储 2,000 点资源。会随着时间推移而老化并需要维护。', 'reuse': true },
+        { 'en-US': 'Stores up to 1,000,000 resource units.', 'zh-CN': '能够存储 1,000,000 点资源。', 'reuse': true },
+        { 'en-US': 'Remotely transfers energy to another Link in the same room.', 'zh-CN': '能够向同房间的 Link 远距离传送能量。', 'reuse': true },
         { 'en-US': 'Allows to mine a mineral deposit.', 'zh-CN': '允许玩家采集矿物。', 'reuse': true },
-        { 'en-US': 'Produces mineral compounds and boosts creeps.', 'zh-CN': '能够制造矿物化合物并强化creep。', 'reuse': true },
-        { 'en-US': 'Sends any resources to a\u00A0Terminal in another room.', 'zh-CN': '能够向另一房间的Terminal发送任意资源。', 'reuse': true },
+        { 'en-US': 'Produces mineral compounds and boosts creeps.', 'zh-CN': '能够制造矿物化合物并强化 creep。', 'reuse': true },
+        { 'en-US': 'Sends any resources to a\u00A0Terminal in another room.', 'zh-CN': '能够向另一房间的 Terminal 发送任意资源。', 'reuse': true },
         { 'en-US': 'Produces trade commodities.', 'zh-CN': '能够生产可交易商品。', 'reuse': true },
-        { 'en-US': 'Spawns creeps using energy contained in the room spawns and extensions.', 'zh-CN': '使用房间内Spawn与Extension储备的能量生产creep。', 'reuse': true },
+        { 'en-US': 'Spawns creeps using energy contained in the room spawns and extensions.', 'zh-CN': '使用房间内 Spawn 与 Extension 储备的能量生产 creep。', 'reuse': true },
         { 'en-US': 'Provides visibility into a distant room from your script.', 'zh-CN': '能够使你的脚本获取远处一房间的视野。', 'reuse': true },
-        { 'en-US': 'Spawns power creeps with special unique powers.', 'zh-CN': '能够生产拥有特殊技能的超能creep。', 'reuse': true },
+        { 'en-US': 'Spawns power creeps with special unique powers.', 'zh-CN': '能够生产拥有特殊技能的超能 creep。', 'reuse': true },
         { 'en-US': 'Launches a nuke to a distant room dealing huge damage to the landing area.', 'zh-CN': '能够向远处一房间发射核弹，对命中区域造成巨大伤害。', 'reuse': true },
 
         // 右侧面板相关提示
         {
             'selector': 'a.help.ng-scope',
             'zh-CN': (el: HTMLElement) => {
-                el.setAttribute('title', '该controller在降级时间达到最大之前无法升级(点击了解详情)')
+                el.setAttribute('title', '该 controller 在降级时间达到最大之前无法升级（点击了解详情)')
             },
             'reuse': true
         },
         {
             'selector': 'div.damaged.ng-binding.ng-scope > a',
             'zh-CN': (el: HTMLElement) => {
-                el.setAttribute('title', '通过升级controller避免降级(点击了解详情)')
+                el.setAttribute('title', '通过升级 controller 避免降级（点击了解详情）')
             },
             'reuse': true
         },
@@ -211,55 +207,28 @@ const content: PageContent = {
         { 'en-US': 'Progress:', 'zh-CN': '进度(progress):', 'reuse': true },
         { 'en-US': 'Remove construction site', 'zh-CN': '移除建筑工地', 'reuse': true },
 
-        // creep面板
+        // creep 面板
         { 'en-US': 'Suicide', 'zh-CN': '自杀 suicide' },
         { 'en-US': 'View memory', 'zh-CN': '查看 memory' },
         { 'en-US': 'Body', 'zh-CN': '部件' },
 
         // powercreep
-        { 'en-US': 'Class:', 'zh-CN': '种类:', 'reuse': true },
-
-        // 自定义面板
-        { 'en-US': 'Customize', 'zh-CN': '自定义房间设置', 'reuse': true },
-        { 'en-US': 'Choose action:', 'zh-CN': '选择操作:', 'reuse': true },
-        { 'en-US': 'Erase', 'zh-CN': '清除目标', 'reuse': true },
-        { 'en-US': 'Wall', 'zh-CN': 'Wall(地形)', 'reuse': true },
-        { 'en-US': 'C. Wall', 'zh-CN': 'Wall(建筑)', 'reuse': true },
-
-        // 练习/模拟房间面板
-        // ticks速度调整面板
-        { 'en-US': 'Simulation Room', 'zh-CN': '模拟器房间', 'reuse': true },
-        // {
-        //     'selector': 'div.speed.ng-scope > span.ng-binding',
-        //     'zh-CN': (el: HTMLElement) => {
-        //         el.innerHTML = el.innerHTML.replace('Speed', '速度(Speed)')
-        //     },
-        //     'reuse': true
-        // },
-        { 'en-US': 'Leave simulation', 'zh-CN': '退出模拟器', 'reuse': true },
-
-        // 玩家控制权面板
-        { 'en-US': 'Player Control', 'zh-CN': '玩家控制', 'reuse': true },
-        { 'en-US': 'Player 2', 'zh-CN': '玩家2', 'reuse': true },
-
-        // 模拟器controller
-        { 'en-US': 'Increase level', 'zh-CN': '提升等级', 'reuse': true },
-        { 'en-US': 'Decrease level', 'zh-CN': '降低等级', 'reuse': true },
+        { 'en-US': 'Class:', 'zh-CN': '种类：', 'reuse': true },
 
         // 房间显示设置 
         { 'en-US': 'Show my names', 'zh-CN': '显示己方名称', 'reuse': true },
         { 'en-US': 'Show hostile names', 'zh-CN': '显示敌方名称', 'reuse': true },
-        { 'en-US': 'Show flags', 'zh-CN': '显示旗帜 (flag)', 'reuse': true },
-        { 'en-US': 'Show flags names', 'zh-CN': '显示旗帜 (flag)名称', 'reuse': true },
-        { 'en-US': 'Show creeps speech', 'zh-CN': '显示creep的对话气泡', 'reuse': true },
-        { 'en-US': 'Show visuals', 'zh-CN': '显示房间视觉效果(RoomVisual)', 'reuse': true },
+        { 'en-US': 'Show flags', 'zh-CN': '显示旗帜（flag）', 'reuse': true },
+        { 'en-US': 'Show flags names', 'zh-CN': '显示旗帜（flag）名称', 'reuse': true },
+        { 'en-US': 'Show creeps speech', 'zh-CN': '显示 creep 的对话气泡', 'reuse': true },
+        { 'en-US': 'Show visuals', 'zh-CN': '显示房间视觉效果（RoomVisual）', 'reuse': true },
         { 'en-US': 'Lighting:', 'zh-CN': '单位提供光照:', 'reuse': true },
         { 'en-US': 'Swamp texture:', 'zh-CN': '沼泽纹理:', 'reuse': true },
-        { 'en-US': 'Hardware acceleration (WebGL)', 'zh-CN': '硬件加速 (WebGL)', 'reuse': true },
+        { 'en-US': 'Hardware acceleration (WebGL)', 'zh-CN': '硬件加速（WebGL）', 'reuse': true },
         { 'en-US': 'Show metrics', 'zh-CN': '显示相关参数', 'reuse': true },
         { 'en-US': 'HD resolution:', 'zh-CN': '高清显示设置:', 'reuse': true },
-        { 'en-US': 'Upscaling (performance)', 'zh-CN': 'Upscaling (性能)', 'reuse': true },
-        { 'en-US': 'Native (quality)', 'zh-CN': 'Native (效果)', 'reuse': true },
+        { 'en-US': 'Upscaling (performance)', 'zh-CN': 'Upscaling（性能）', 'reuse': true },
+        { 'en-US': 'Native (quality)', 'zh-CN': 'Native（效果）', 'reuse': true },
         { 'en-US': 'Normal', 'zh-CN': '正常', 'reuse': true },
         { 'en-US': 'Low', 'zh-CN': '低', 'reuse': true },
         { 'en-US': 'Disabled', 'zh-CN': '关闭', 'reuse': true },
@@ -279,13 +248,13 @@ const content: PageContent = {
         // },
         {
             'en-US': 'While this structure is alive, it will send invader creeps to all rooms in this sector. It also seems there are some valuable resources inside.',
-            'zh-CN': '当该建筑存在时, 会在本sector的全部房间生成 invader creeps。其内部似乎有贵重的资源。',
+            'zh-CN': '当该建筑存在时, 会在本 sector 的全部房间生成 invader creeps。其内部似乎有贵重的资源。',
             'reuse': true
         },
 
         // 特殊建筑面板
         // portal
-        { 'en-US': 'Destination:', 'zh-CN': '目的地 (destination):', 'reuse': true },
+        { 'en-US': 'Destination:', 'zh-CN': '目的地 destination:', 'reuse': true },
 
         // controller
         { 'en-US': 'Reserved:', 'zh-CN': '预定:', 'reuse': true },
@@ -297,7 +266,7 @@ const content: PageContent = {
         // invader core creep
         {
             'en-US': 'This creep is angry with your harvesting activity here. Its home is located somewhere in this sector.',
-            'zh-CN': '你的采集行为激怒了这个creep。它的出生点位于本sector的某个位置。',
+            'zh-CN': '你的采集行为激怒了这个 creep。它的出生点位于本 sector 的某个位置。',
             'reuse': true
         },
 
@@ -305,7 +274,7 @@ const content: PageContent = {
         { 'en-US': 'Spawning in:', 'zh-CN': '下一次生成单位:', 'reuse': true },
 
         // deposite
-        { 'en-US': 'Deposit:', 'zh-CN': '沉积物(Deposit):', 'reuse': true },
+        { 'en-US': 'Deposit:', 'zh-CN': '沉积物 Deposit:', 'reuse': true },
         { 'en-US': 'Last cooldown:', 'zh-CN': '上一次采集冷却:', 'reuse': true },
 
         // powerbank
