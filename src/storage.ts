@@ -14,6 +14,14 @@ const currentPageContent: CurrentPageContent = {
 
 
 /**
+ * HTML 元素内容缓存
+ * 
+ * 会缓存上次翻译后的内容，如果下次获取元素发现没有变化就不会执行翻译
+ */
+export const contentCache = new Map<string, string>()
+
+
+/**
  * 获取当前的翻译源文本
  * 
  * @return 当前使用的翻译源 [ 普通翻译对象，包含选择器的翻译对象 ]
@@ -58,8 +66,15 @@ export const updateSource = function (hash: string): CurrentPageContent {
 
     // 找到所有匹配的翻译源
     for (const page of pages) {
-        const matched = page.hashs.find(pageHash => currentHash.startsWith(pageHash))
-        if (!matched) continue
+        const matched = page.hashs.find(pageHash => {
+            // 如果 hash 为空的话就精确匹配，不然太多了
+            if (currentHash === '') return currentHash === pageHash
+            // 有 hash 的话就进行首匹配
+            if (pageHash !== '') return currentHash.startsWith(pageHash)
+            return false
+        })
+
+        if (matched === undefined) continue
 
         // 根据是否由 selector 分开存储
         page.content.forEach(content => {

@@ -13,7 +13,7 @@ type TranslationContent = {
      * 当值为字符串时将直接替换到对应元素的 innerHTML
      * 值为函数时将执行该函数来对元素进行处理
      */
-    [Language in Languages]?: string | TextUpdateCallback | ElementUpdateCallback
+    [Language in Languages]?: string | TextUpdateCallback | ElementUpdateCallback | RegExp
 } & {
     /**
      * 该翻译内容是否可以重用
@@ -31,22 +31,34 @@ type TranslationContent = {
     selector?: string
 
     /**
-     * 上面的 selector 基于那个元素进行搜索
+     * 保护原始 dom 节点
      * 
-     * 默认情况下会对变更的元素执行 selector 搜索以减小范围，但是有可能在变更元素之外出现了需要翻译的文本，这时就可以使用该选项重新指定搜索源，例如：
-     * queryWith: document.body
+     * **在使用 `selector` 属性时启用**，将该选项设置为 true 时将不会修改原始 dom 对象，
+     * 而是新建一个相同的新节点并将原来的节点设置为 `display:none;`，
+     * 以此防止修改原始 dom 导致破坏 angluar 对其的控制从而无法更新新内容
      */
-    queryWith?: HTMLElement
+    protect?: boolean
 }
 
 /**
  * 在元素上自定义添加的属性
  */
-interface Element {
+interface Node {
     /**
      * 该值为 true 时将阻止 getContentElement 函数继续向下的递归查找
      */
     stopTranslateSearch?: boolean
+
+    /**
+     * TranslationContent 中包含 protect 时会为被保护的元素创建一个新节点，
+     * 这一类节点上都会被标记为 standNode
+     */
+    isStandNode?: boolean
+
+    /**
+     * 如果自己是被保护的节点的话，这个属性将指向自己的替身元素
+     */
+    standNode?: Element
 }
 
 /**
@@ -101,7 +113,7 @@ type HashChangeCallback = (newHash: string) => any
 /**
  * 页面内容变化时触发的回调
  */
-type ContentChangeCallback = (contentElement: HTMLElement) => any
+type ContentChangeCallback = (contentElement: Node[]) => any
 
 /**
  * 元素更新时触发的回调

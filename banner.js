@@ -13,5 +13,6 @@ export default `
 // @author       hopgoldy
 // @match        https://screeps.com/*
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 `

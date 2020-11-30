@@ -1,6 +1,12 @@
 # Screeps-chinese-pack
 
-用于汉化 [screeps.com](https://screeps.com) 网站的 [油猴脚本](https://www.tampermonkey.net/)。由 Screeps 中国玩家自发创建并维护，[点此](./CONTRIBUTING.md) 来查看如何参与本项目！
+![build badge](https://github.com/screeps-cn/screeps-chinese-pack/workflows/BUILD/badge.svg)
+![Base on](https://img.shields.io/badge/Base%20on-Tampermonkey-blue)
+
+用于汉化 [screeps.com](https://screeps.com) 网站的 [油猴脚本](https://www.tampermonkey.net/)。由 Screeps 中国玩家自发创建并维护。[点此](./CONTRIBUTING.md) 来查看如何参与本项目！
+
+本脚本发布于 **[greasyfork - screeps-chinese-pack](https://greasyfork.org/zh-CN/scripts/416651-screeps-chinese-pack)**，
+安装请参照 [installing-user-scripts](https://greasyfork.org/zh-CN/help/installing-user-scripts)。
 
 # 需求
 

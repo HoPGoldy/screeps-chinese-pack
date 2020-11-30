@@ -58,7 +58,7 @@ const TUTORIAL_CONTENT = {
     '现在，选中我们的 creep 然后看着它努力的工作（<i>译者注：没有人不喜欢看蚂蚁搬家</i>）。',
 
     'As you can see on the right panel, this powerful creep harvests 8 energy units per tick.\nA few such creeps can completely drain an energy source before it refills thus giving your colony a\nmaximum energy boost.':
-    '你可以在右边的这个面板中看到，这个超强的 creep 每 tick 能采集 8 点能量。两三个这样的 creep 就可以在一个 source 恢复能量之前将其完全采干，并由此为您的殖民地带来最大化的能量收益。',
+    '您可以在右边的这个面板中看到，这个超强的 creep 每 tick 能采集 8 点能量。两三个这样的 creep 就可以在一个 source 恢复能量之前将其完全采干，并由此为您的殖民地带来最大化的能量收益。',
 
     'Hence, by upgrading your Controller, constructing new extensions and more powerful creeps, you\nconsiderably improve the effectiveness of your colony work. Also, by replacing a lot of small creeps\nwith fewer large ones, you save CPU resources on controlling them which is an important prerequisite to\nplay in the online mode.':
     '因此，通过升级您的 controller，建造新的 extension 和更强大的 creep，您殖民地的效率将会被极大的提升。并且，您可以用大型的 creep 代替一群小型的 creep 来减少用于操控它们的 CPU，请记住它，这在多人游戏里非常重要。',

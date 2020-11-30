@@ -2,6 +2,7 @@ import overview from './overview'
 import sidebar from './sidebar'
 import simTab from './simTab'
 import room from './room'
+import roomSim from './roomSim'
 import tutorial from './tutorial'
 import power from './power'
 import market from './market'
@@ -11,6 +12,9 @@ import rank from './rank'
 import account from './account'
 import enter from './enter'
 import shards from './shards'
+import map from './map'
+import homePage from './homePage'
+import register from './register'
 
 
 export default [
@@ -19,6 +23,7 @@ export default [
     simTab,
     ...tutorial,
     room,
+    roomSim,
     power,
     room,
     ...market,
@@ -27,5 +32,8 @@ export default [
     ...account,
     enter,
     shards,
-    inventory
+    map,
+    inventory,
+    homePage,
+    register
 ]

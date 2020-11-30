@@ -5,7 +5,7 @@
  * @return 包含内容的 text 元素数组
  */
 export const getContentElement = function (el: Node): Text[] {
-    if (el instanceof HTMLElement) {
+    if (isHTMLElement(el)) {
         // 该元素被禁止翻译了就跳过
         if (el.stopTranslateSearch) return []
         const contentElement: Text[] = []
@@ -21,15 +21,37 @@ export const getContentElement = function (el: Node): Text[] {
                 contentElement.push(children as Text)
             }
             // 元素节点的话就递归继续获取（不会搜索 script 标签）
-            else if (children.nodeType === Node.ELEMENT_NODE && children.nodeName !== 'SCRIPT') {
+            else if (isHTMLElement(children) && children.nodeName !== 'SCRIPT') {
                 contentElement.push(...getContentElement(children))
             }
         }
 
         return contentElement
     }
+    // 如果是文本节点的话就直接返回
+    if (isText(el)) return [el]
 
     return []
+}
+
+
+/**
+ * 判断一个节点是否为 HTMLElement
+ * 
+ * @param el 要判断的节点
+ */
+export const isHTMLElement = function (el: Node): el is HTMLElement {
+    return el.nodeType === Node.ELEMENT_NODE
+}
+
+
+/**
+ * 判断一个节点是否为 Text
+ * 
+ * @param el 要判断的节点
+ */
+export const isText = function (el: Node): el is Text {
+    return el.nodeType === Node.TEXT_NODE
 }
 
 
@@ -41,6 +63,8 @@ export const getNoQueryHash = function (hash: string): string {
     return hash.split('?')[0]
 }
 
+// 缓存上次的路由，用于减少路由回调触发次数
+let lastHash = ''
 
 /**
  * 监听路由的变化
@@ -49,7 +73,13 @@ export const getNoQueryHash = function (hash: string): string {
  */
 export const onHashChange = function (callback: HashChangeCallback = () => {}) {
     // 在更新时触发回调
-    const hashCallback = () => callback(document.location.hash)
+    const hashCallback = () => {
+        const newHash = getNoQueryHash(document.location.hash)
+        if (lastHash === newHash) return
+
+        callback(document.location.hash)
+        lastHash = newHash
+    }
 
     // pushState 和 replaceState 不会触发对应的回调，这里包装一下
     history.pushState = wapperHistory('pushState')
@@ -93,6 +123,9 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
     return function (mutationsList: MutationRecord[]) {
         // 获取发生变更的节点
         const changedNodes: Node[] = [].concat(...mutationsList.map(mutation => {
+            if (mutation.target.stopTranslateSearch) return []
+            if (isExceptElement(mutation.target)) return []
+
             if (mutation.type === 'childList') {
                 if (mutation.addedNodes.length > 0) return [...mutation.addedNodes]
                 // 变更有可能是有节点移除了，这时候是没必要进行翻译操作的
@@ -106,12 +139,36 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
             return []
         }))
 
-        // 给所有需要处理的元素执行回调
-        for (const node of changedNodes) {
-            if (node.nodeType !== Node.ELEMENT_NODE) continue
+        // 执行回调
+        if (changedNodes.length > 0) callback(changedNodes)
+    }
+}
 
-            callback(node as HTMLElement)
-        }
+
+/**
+ * 判断一个节点是否被禁止翻译
+ * 
+ * 会顺着 dom 树一直往上找，遇到设置有 stopTranslateSearch 属性的祖先节点的话就禁止翻译
+ * 
+ * @param el 要进行判断的节点
+ * @returns 是否为被禁止翻译的节点
+ */
+export const isExceptElement = function (el: Node): boolean {
+    if (el.stopTranslateSearch) return true
+    if (el.parentNode) return isExceptElement(el.parentNode)
+
+    return false
+}
+
+/**
+ * 将一个 html 元素及其子元素设置为禁止翻译
+ * 
+ * @param selector 禁止翻译的 css 选择器
+ */
+export const dontTranslate = function (selector: string): TranslationContent {
+    return {
+        'selector': selector,
+        'zh-CN': (el: HTMLElement) => el.stopTranslateSearch = true
     }
 }
 
