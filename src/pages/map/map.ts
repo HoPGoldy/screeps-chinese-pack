@@ -32,12 +32,19 @@ const GRAPH_SELECT_LIST: MultipleMap = {
     'Power processed for the last 7 days': '过去7天的 power 处理'
 }
 
+/**
+ * 旧版本地图
+ * @see https://screeps.com/a/#!/map/shard3
+ */
 const content: PageContent = {
-    hashs: ['#!/map'],
+    hashs: ['#!/map/'],
     content: [
-        { 'en-US': 'Check out alpha version of the new world map with support of Decorations and Map Visuals (coming soon)', 'zh-CN': '转换为支持装饰与地图可视化（即将来临）的世界地图a测版本' },
         {
-            'selector': 'body > div.top-content.ng-scope > div.page-content.ng-scope > section > div.map-container > form > input',
+            'en-US': 'Check out alpha version of the new world map with support of Decorations and Map Visuals (coming soon)',
+            'zh-CN': '切换为支持装饰与地图可视化（即将来临）的世界地图 a 测版本'
+        },
+        {
+            'selector': '.room-search > input',
             'zh-CN': (el: HTMLElement) => {
                 el.setAttribute('placeholder', '通过房间名或玩家名来搜索 ...')
             },
@@ -87,22 +94,6 @@ const content: PageContent = {
         { 'en-US': 'Select your room', 'zh-CN': '挑选您的房间', 'reuse': true },
         { 'en-US': 'Another area', 'zh-CN': '另一个区域', 'reuse': true },
         { 'en-US': 'Random room', 'zh-CN': '随机房间', 'reuse': true },
-        // map2相关
-        { 'en-US': 'Random Room', 'zh-CN': '随机房间', 'reuse': true },
-        { 'en-US': 'Display', 'zh-CN': '展示项目: ', 'reuse': true },
-        { 'en-US': 'Owner control level', 'zh-CN': '房间拥有者房间控制等级', 'reuse': true },
-        { 'en-US': 'Minerals', 'zh-CN': '矿物类型', 'reuse': true },
-        { 'en-US': 'Settings', 'zh-CN': '设置', 'reuse': true },
-        { 'en-US': 'Preferences', 'zh-CN': '偏好' },
-        { 'en-US': 'Show player units', 'zh-CN': '显示玩家单位' },
-        { 'en-US': 'Show map visuals', 'zh-CN': '显示地图视觉效果' },
-        { 'en-US': 'Highlight claimable areas', 'zh-CN': '高亮可占领房间' },
-        {
-            'selector': 'body > app2-router-outlet > app-world-map-base > section > article.__block.--top.--left > form > input',
-            'zh-CN': (el: HTMLElement) => {
-                el.setAttribute('placeholder', '通过房间名或玩家名来搜索 ...')
-            }
-        },
         {
             'selector': '.stats > div:nth-child(2) > span',
             'zh-CN': translateMultiple({

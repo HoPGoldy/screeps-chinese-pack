@@ -32,7 +32,7 @@ export default [
     ...account,
     enter,
     shards,
-    map,
+    ...map,
     inventory,
     homePage,
     register
