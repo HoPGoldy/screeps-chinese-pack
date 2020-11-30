@@ -32,6 +32,7 @@ const content: PageContent = {
         { 'en-US': 'Fire', 'zh-CN': '火热', 'reuse': true },
         { 'en-US': 'Desert', 'zh-CN': '沙漠', 'reuse': true },
         { 'en-US': 'Mono', 'zh-CN': '独行', 'reuse': true },
+        { 'en-US': 'Custom Color', 'zh-CN': '自定义颜色', 'reuse': true },
         // 排序选择框
         { 'en-US': 'Sort', 'zh-CN': '排序', 'reuse': true },
         { 'en-US': 'New to old', 'zh-CN': '获取时间从早到晚', 'reuse': true },
