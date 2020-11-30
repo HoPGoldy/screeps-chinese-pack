@@ -67,6 +67,11 @@ const content: PageContent = {
         },
         { 'en-US': 'Transfer to Steam', 'zh-CN': '转移到 Steam 库存', 'reuse': true },
         { 'en-US': 'Convert to pixels', 'zh-CN': '分解为 pixel', 'reuse': true },
+        { 'en-US': 'Convert to Pixels', 'zh-CN': '分解为 pixel', 'reuse': true },
+        { 'en-US': 'Are you sure you want to convert decoration(s) back to pixels?', 'zh-CN': '确定要将装饰物们分解为pixel吗？', 'reuse': true },
+        { 'en-US': 'You', 'zh-CN': '你', 'reuse': true },
+        { 'en-US': 'can not', 'zh-CN': '将不能', 'reuse': true },
+        { 'en-US': 'use decoration in the future.', 'zh-CN': '继续使用此装饰物', 'reuse': true },
         { 'en-US': 'Steam inventory', 'zh-CN': 'Steam 库存', 'reuse': true },
         {
             'en-US': 'Steam Community Market',
@@ -299,16 +304,7 @@ const content: PageContent = {
                 'Grants access to the Seasonal World or a special event in the Persistent World.',
             'zh-CN': '获得参与赛季服务器或者特殊事件的权限。',
             'reuse': true
-        },
-        {
-            'selector': 'app-store-access-key > section > div > button.btn',
-            'zh-CN': (el: HTMLElement) => {
-                el.innerHTML = el.innerHTML.replace('Buy', '购买')
-                el.innerHTML = el.innerHTML.replace('for', '仅需')
-            },
-            'reuse': true
-        },
-        { 'en-US': 'Type', 'zh-CN': '类别', 'reuse': true }
+        }
     ]
 }
 
