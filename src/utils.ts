@@ -123,7 +123,6 @@ const getMutationCallback = function (callback: ContentChangeCallback) {
     return function (mutationsList: MutationRecord[]) {
         // 获取发生变更的节点
         const changedNodes: Node[] = [].concat(...mutationsList.map(mutation => {
-            if (mutation.target.stopTranslateSearch) return []
             if (isExceptElement(mutation.target)) return []
 
             if (mutation.type === 'childList') {
