@@ -44,6 +44,11 @@ const content: PageContent = {
         { 'en-US': 'Sign in', 'zh-CN': '登陆 ', 'reuse': true },
         { 'en-US': 'or register', 'zh-CN': '或注册', 'reuse': true },
 
+        { 'en-US': 'Global Control Level has been increased!', 'zh-CN': '全局控制等级（GCL）已提升！' },
+        { 'en-US': 'You can control', 'zh-CN': '您现在可以控制 ' },
+        { 'en-US': /\d+ rooms/, 'zh-CN': (text: string) => text.replace('rooms', '') },
+        { 'en-US': 'now.', 'zh-CN': '个房间了。' },
+
         // 阻止翻译右上角的 CPU 及内存使用量
         dontTranslate('.cpu > .sysbar-title > strong'),
         dontTranslate('.mem > div.sysbar-title > strong'),
