@@ -4,6 +4,7 @@ const content: PageContent = {
     hashs: ['#!/profile'],
     content: [
         { 'en-US': 'View Steam profile', 'zh-CN': '查看 Steam 个人资料' },
+        { 'en-US': 'Send message', 'zh-CN': '发送信息' },
         { 'en-US': 'My overview', 'zh-CN': '我的总览' },
         { 'en-US': 'Current month', 'zh-CN': '本月统计' },
         { 'en-US': 'EXPANSION', 'zh-CN': '扩张' },
