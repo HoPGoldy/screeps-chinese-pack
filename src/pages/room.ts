@@ -87,9 +87,9 @@ const content: PageContent = {
         {
             'selector': '.cursor.ng-isolate-scope > div > div > div > span',
             'zh-CN': translateMultiple({
-                'plain': '平原',
-                'swamp': '沼泽',
-                'wall': '墙壁'
+                'plain': '平原（plain）',
+                'swamp': '沼泽（swamp）',
+                'wall': '墙壁（wall）'
             }),
             'protect': true,
             'reuse': true
