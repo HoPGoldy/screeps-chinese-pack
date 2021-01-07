@@ -291,6 +291,18 @@ const content: PageContent = {
         //     'reuse': true
         // }
 
+        // 旗帜放置面板
+        { 'en-US': 'Change position', 'zh-CN': '修改位置', 'reuse': true },
+        { 'en-US': 'Change color', 'zh-CN': '修改颜色', 'reuse': true },
+        { 'en-US': 'Remove flag', 'zh-CN': '移除旗帜', 'reuse': true },
+        { 'en-US': 'Color:', 'zh-CN': '主要颜色 color:', 'reuse': true },
+        { 'en-US': 'Secondary color:', 'zh-CN': '次要颜色 secondaryColor:', 'reuse': true },
+        {
+            'en-US': 'Flag with the same name already exists and will be overwritten!',
+            'zh-CN': '相同名称的旗帜已存在，继续创建将覆盖原旗帜！',
+            'reuse': true
+        },
+
         // 禁止翻译代码、控制台、内存字段
         dontTranslate('.tab-pane')
     ]
