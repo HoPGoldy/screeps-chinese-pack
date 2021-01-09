@@ -1,4 +1,5 @@
 import { dontTranslate, translateMultiple } from 'utils'
+import getTips from './tips'
 
 const CONSTRUCT_NOTICE: MultipleMap = {
     'Choose location': '选择位置',
@@ -309,7 +310,9 @@ const content: PageContent = {
             'en-US': 'Flag with the same name already exists and will be overwritten!',
             'zh-CN': '相同名称的旗帜已存在，继续创建将覆盖原旗帜！',
             'reuse': true
-        }
+        },
+
+        ...getTips()
     ]
 }
 

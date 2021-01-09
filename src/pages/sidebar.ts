@@ -50,8 +50,8 @@ const content: PageContent = {
 
         { 'en-US': 'Global Control Level has been increased!', 'zh-CN': '全局控制等级（GCL）已提升！' },
         { 'en-US': 'You can control', 'zh-CN': '您现在可以控制 ' },
-        { 'en-US': /\d+ rooms/, 'zh-CN': (text: string) => text.replace('rooms', '') },
-        { 'en-US': 'now.', 'zh-CN': '个房间了。' },
+        { 'en-US': /\d+ rooms/, 'zh-CN': (text: string) => text.replace('rooms', '个房间') },
+        { 'en-US': 'now.', 'zh-CN': '了。' },
 
         // 阻止翻译左侧边栏头部的赛季服倒计时
         {
