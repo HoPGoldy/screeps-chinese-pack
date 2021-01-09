@@ -10,11 +10,8 @@ onPageLoad(() => {
     // 翻译初始内容
     translate([document.body])
 
-    // 页面变更时重新加载翻译源并全量翻译
-    onHashChange(hash => {
-        updateSource(hash)
-        translate([document.body])
-    })
+    // 页面变更时重新加载翻译源
+    onHashChange(hash => updateSource(hash))
 
     // 内容变更时翻译后续内容
     onElementChange(translate)
