@@ -24,7 +24,7 @@ yarn install
 
 ## 本地开发
 
-访问 `edge://extensions` 或 `chrome://extensions` 将 Tampermonkey 设置为 **允许访问文件 URL**。
+在浏览器地址栏中输入 `edge://extensions` 或 `chrome://extensions` 并在 Tampermonkey 的详细信息中勾选 **允许访问文件 URL**。
 
 在项目目录中执行如下命令，将会在同目录下生成 `dist/main.js` 文件。
 
