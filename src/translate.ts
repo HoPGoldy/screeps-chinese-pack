@@ -1,6 +1,8 @@
 import { TRANSLATE_FROM, TRANSLATE_TO } from 'setting'
 import { contentCache, getContent, updateContent } from 'storage'
-import { getContentElement, isHTMLElement, trim } from 'utils'
+import {
+    getContentElement, isExceptElement, isHTMLElement, trim
+} from 'utils'
 
 
 /**
@@ -82,8 +84,6 @@ const updateText = function (el: Text, content: TranslationContent): void {
 /**
  * 翻译所有带选择器的内容
  * 
- * 会给匹配到的元素加上 stopTranslateSearch 标识以阻止后续重复翻译
- * 
  * @param el 要翻译的 html 元素
  * @param allQueryContents 所有包含选择器的翻译项
  */
@@ -95,7 +95,7 @@ const translateQueryContent = function (allQueryContents: TranslationContent[]):
 
         // 翻译并阻止后续再次翻译
         targetElements.forEach((element, index) => {
-            if (!isHTMLElement(element)) return
+            if (!isHTMLElement(element) || isExceptElement(element)) return
             const cacheKey = content.selector + index
             // 如果元素的内容没有发生变更，就不执行更新
             const preContent = contentCache.get(cacheKey)
@@ -107,7 +107,6 @@ const translateQueryContent = function (allQueryContents: TranslationContent[]):
 
             // 更新缓存并阻止后续翻译
             contentCache.set(cacheKey, newContent)
-            element.stopTranslateSearch = true
         })
 
         return content.reuse
@@ -125,6 +124,7 @@ const translateQueryContent = function (allQueryContents: TranslationContent[]):
  * @param allContents 所有不带选择器的翻译内容
  */
 const translateNormalContent = function (el: Node, allContents: TranslationContent[]): TranslationContent[] {
+    if (isExceptElement(el)) return allContents
     // 取出所有待翻译元素
     const needTranslateText = getContentElement(el)
 
@@ -184,14 +184,13 @@ const translate = function (changedNode: Node[]): void {
     // 有选择器的内容每次变更只会被翻译一次
     const nextSearchdQueryContents = translateQueryContent(allQueryContents)
     updateContent({ queryContent: nextSearchdQueryContents })
-    // 文本内容每个都会被执行翻译
 
+    // 文本内容每个都会被执行翻译
     for (const node of changedNode) {
         const nextSearchContents = translateNormalContent(node, allContents)
         // 把没有使用或者启用了重用的翻译内容更新回数据源
         updateContent({ content: nextSearchContents })
     }
 }
-
 
 export default translate

@@ -3,6 +3,10 @@ import { dontTranslate } from 'utils'
 const content: PageContent = {
     hashs: ['#!/'],
     content: [
+        // 阻止翻译右上角的 CPU 及内存使用量
+        dontTranslate('.cpu > .sysbar-title > strong'),
+        dontTranslate('.mem > div.sysbar-title > strong'),
+
         { 'en-US': 'Persistent world:', 'zh-CN': '永恒世界：', 'reuse': true },
         { 'en-US': 'Overview', 'zh-CN': '总览', 'reuse': true },
         { 'en-US': 'World', 'zh-CN': '世界', 'reuse': true },
@@ -48,10 +52,6 @@ const content: PageContent = {
         { 'en-US': 'You can control', 'zh-CN': '您现在可以控制 ' },
         { 'en-US': /\d+ rooms/, 'zh-CN': (text: string) => text.replace('rooms', '') },
         { 'en-US': 'now.', 'zh-CN': '个房间了。' },
-
-        // 阻止翻译右上角的 CPU 及内存使用量
-        dontTranslate('.cpu > .sysbar-title > strong'),
-        dontTranslate('.mem > div.sysbar-title > strong'),
 
         // 阻止翻译左侧边栏头部的赛季服倒计时
         {

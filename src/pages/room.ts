@@ -24,6 +24,12 @@ const TOOLTIP_LABEL: MultipleMap = {
 const content: PageContent = {
     hashs: ['#!/room', '#!/sim/custom', '#!/sim/survival', '#!/sim/tutorial/', '#!/history'],
     content: [
+        // 禁止翻译代码、控制台、内存字段
+        dontTranslate('.ace_editor'),
+        dontTranslate('.console-messages-list'),
+        dontTranslate('.memory-content'),
+        dontTranslate('.memory-segment-content'),
+
         {
             'selector': 'div.tooltip.ng-scope.ng-isolate-scope > div.tooltip-inner.ng-binding',
             'zh-CN': (el: HTMLElement) => {
@@ -48,18 +54,20 @@ const content: PageContent = {
             'selector': 'section > section > div:nth-child(2) > div.modules-list > form > input',
             'zh-CN': (el: HTMLInputElement) => {
                 el.placeholder = '输入新模块名称...'
-            }
+            },
+            'reuse': true
         },
         // // 下方 Console 面板
         { 'en-US': 'Console', 'zh-CN': '控制台' },
         // // 下方 Memory 面板
         { 'en-US': 'Memory', 'zh-CN': '内存' },
-        {
-            'selector': 'div.tab-pane > .ng-scope > section > div:nth-child(2) > div > form > input',
-            'zh-CN': (el: HTMLInputElement) => {
-                el.placeholder = '添加新的内存监视路径，例如：creeps.John'
-            }
-        },
+        // 为了放置内存字段被错误翻译，内存面板被整个禁止翻译了，所以这个也就用不到了
+        // {
+        //     'selector': 'div.tab-pane > .ng-scope > section > div:nth-child(2) > div > form > input',
+        //     'zh-CN': (el: HTMLInputElement) => {
+        //         el.placeholder = '添加新的内存监视路径，例如：creeps.John'
+        //     }
+        // },
         { 'en-US': 'SEGMENT #:', 'zh-CN': '片段 #:', 'reuse': true },
 
         { 'en-US': 'Sign:', 'zh-CN': '签名:', 'reuse': true },
@@ -301,10 +309,7 @@ const content: PageContent = {
             'en-US': 'Flag with the same name already exists and will be overwritten!',
             'zh-CN': '相同名称的旗帜已存在，继续创建将覆盖原旗帜！',
             'reuse': true
-        },
-
-        // 禁止翻译代码、控制台、内存字段
-        dontTranslate('.tab-pane')
+        }
     ]
 }
 

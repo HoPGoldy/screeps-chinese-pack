@@ -88,5 +88,8 @@ export const updateSource = function (hash: string): CurrentPageContent {
     currentPageContent.content = newContent
     currentPageContent.queryContent = newQueryContent
 
+    // 页面切换了，清空缓存
+    contentCache.clear()
+
     return currentPageContent
 }
