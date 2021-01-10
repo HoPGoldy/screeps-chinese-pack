@@ -116,7 +116,9 @@ const content: PageContent = {
             'selector': 'a.ng-binding.ng-scope',
             'zh-CN': translateMultiple(GRAPH_SELECT_LIST),
             'reuse': true
-        }
+        },
+
+        { 'en-US': 'Room not found', 'zh-CN': '未找到该房间' }
     ]
 }
 

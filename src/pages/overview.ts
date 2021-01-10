@@ -47,10 +47,12 @@ const content: PageContent = {
         { 'en-US': 'Manage Power Creeps', 'zh-CN': '管理 power creep' },
         { 'en-US': 'Stats Period', 'zh-CN': '统计时长', 'reuse': true },
 
-        { 'en-US': 'Graph:', 'zh-CN': '图表:', 'reuse': true },
+        { 'en-US': /Graph(:|)/, 'zh-CN': '图表', 'reuse': true },
+        { 'en-US': 'Owner:', 'zh-CN': '所有者:' },
         { 'en-US': 'View leaderboard', 'zh-CN': '查看排行榜', 'reuse': true },
 
         getOverviewHeaderContent(),
+
         // 翻译下拉框当前选中值
         {
             'selector': 'button > span.toggle-text.ng-scope > span',
@@ -60,6 +62,12 @@ const content: PageContent = {
         // 翻译下拉框选项
         {
             'selector': 'a.ng-binding.ng-scope',
+            'zh-CN': translateMultiple(GRAPH_SELECT_LIST),
+            'reuse': true
+        },
+        // 点开房间后的图表
+        {
+            'selector': 'div.graph-item label',
             'zh-CN': translateMultiple(GRAPH_SELECT_LIST),
             'reuse': true
         }
