@@ -36,7 +36,7 @@ export const getContent = function (): CurrentPageContent {
  * 
  * @param newContent 新的翻译内容
  */
-export const updateContent = function (newContent: UpdateNewContent): void {
+export const updateContent = function (newContent: Partial<CurrentPageContent>): void {
     // 遍历所有键尝试更新
     Object.keys(newContent).forEach(key => {
         // 如果没有值或者当前数据源不包含该键就不更新

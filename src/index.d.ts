@@ -78,16 +78,6 @@ interface PageContent {
 }
 
 /**
- * 要进行更新的新翻译内容
- * 
- * 会判断其键是否有值并进行局部更新
- */
-interface UpdateNewContent {
-    content?: TranslationContent[],
-    queryContent?: TranslationContent[]
-}
-
-/**
  * 当前页面使用的翻译源
  * 
  * 和上面 PageContent 的区别在于这个的 hash 是完全等于当前页面的 hash 的
@@ -104,16 +94,6 @@ interface CurrentPageContent {
      */
     queryContent: TranslationContent[]
 }
-
-/**
- * hash 变化时触发的回调事件
- */
-type HashChangeCallback = (newHash: string) => any
-
-/**
- * 页面内容变化时触发的回调
- */
-type ContentChangeCallback = (contentElement: Node[]) => any
 
 /**
  * 元素更新时触发的回调
@@ -153,4 +133,15 @@ interface TranslationDirection {
  */
 interface MultipleMap {
     [originContent: string]: string
+}
+
+interface ListenerCallbacks {
+    /**
+     * hash 变化时触发的回调事件
+     */
+    onHashChange: (hash: string) => any
+    /**
+     * 页面内容变化时触发的回调
+     */
+    onElementChange: (changedNodes: Node[]) => any
 }
