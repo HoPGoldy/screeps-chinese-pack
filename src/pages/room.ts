@@ -19,7 +19,8 @@ const TOOLTIP_LABEL: MultipleMap = {
     'Main&nbsp;memory': '主内存',
     'Segments': '分段内存',
     'Hide side panel': '隐藏侧边栏',
-    'Display options': '显示设置'
+    'Display options': '显示设置',
+    'Place spawn': '放置 spawn'
 }
 
 const content: PageContent = {
