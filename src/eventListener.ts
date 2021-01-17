@@ -41,15 +41,6 @@ export default function (callbacks: ListenerCallbacks) {
  */
 const getMutationCallback = function ({ onHashChange, onElementChange }: ListenerCallbacks) {
     return function (mutationsList: MutationRecord[]) {
-        // 先检查下 hash 有没有变
-        const { hash } = getContent()
-        const newHash = getNoQueryHash(document.location.hash)
-        // hash 变了，重新加载翻译源然后再更新
-        if (hash !== newHash) {
-            onHashChange(document.location.hash)
-            updateContent({ hash: newHash })
-        }
-
         // 获取发生变更的节点
         const changedNodes: Node[] = [].concat(...mutationsList.map(mutation => {
             if (isExceptElement(mutation.target)) return []
@@ -67,7 +58,19 @@ const getMutationCallback = function ({ onHashChange, onElementChange }: Listene
             return []
         }))
 
-        // 执行回调
-        if (changedNodes.length > 0) onElementChange(changedNodes)
+        // 如果没有发生变化的节点，就不需要翻译
+        if (changedNodes.length <= 0) return
+
+        // 翻译前检查下 hash 有没有变
+        const { hash } = getContent()
+        const newHash = getNoQueryHash(document.location.hash)
+        // hash 变了，重新加载翻译源然后再更新
+        if (hash !== newHash) {
+            onHashChange(document.location.hash)
+            updateContent({ hash: newHash })
+        }
+
+        // 触发回调
+        onElementChange(changedNodes)
     }
 }
