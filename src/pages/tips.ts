@@ -241,7 +241,7 @@ const getTips = function (): TranslationContent[] {
     if (Number(tipTipOfTheDay) === -1) return []
 
     // 如果还没看过每日提示，或者提示显示日期已经过了一天了，就添加每日提示内容
-    if (!tipTipOfTheDay || Number(tipTipOfTheDay) + (24 * 60 * 60 * 1000) < new Date().getDate()) {
+    if (!tipTipOfTheDay || Number(tipTipOfTheDay) + (24 * 60 * 60 * 1000) < new Date().getTime()) {
         return tips
     }
 
