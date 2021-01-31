@@ -15,7 +15,6 @@ export const getObjectiveTranslationContent = function (contents: MultipleMap, l
     const contentsIndex = Object.keys(contents)
 
     return [
-
         // 翻译所有行动目标，注意这里的选择器是目标元素最前面的小箭头，向右的就作为行动目标解析
         {
             'selector': '.objective > .fa-caret-right',
@@ -30,7 +29,9 @@ export const getObjectiveTranslationContent = function (contents: MultipleMap, l
                 const newContent = contents[targetContentKey]
                 objectiveEl.innerHTML = objectiveEl.innerHTML.replace(targetContentKey, newContent)
             },
-            'reuse': true
+            'reuse': true,
+            // 因为这里 selector 获取的是前面的小箭头，而这个是不会变的，所以需要跳过查重检查
+            'ingnoreRepeatedCheck': true
         },
 
         // 翻译所有文档目标，注意这里的选择器是目标元素最前面的小箭头，向下的就作为文档目标解析

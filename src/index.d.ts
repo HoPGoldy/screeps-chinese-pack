@@ -38,6 +38,13 @@ type TranslationContent = {
      * 以此防止修改原始 dom 导致破坏 angluar 对其的控制从而无法更新新内容
      */
     protect?: boolean
+
+    /**
+     * 是否禁用查重检查
+     * 在使用 selector 时会默认启用查重检查，如果内容不变的话将不会执行翻译操作
+     * 而启用了该选项后将关闭这个检查
+     */
+    ingnoreRepeatedCheck?: boolean
 }
 
 /**

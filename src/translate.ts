@@ -127,20 +127,29 @@ const translateQueryContent = function (allQueryContents: TranslationContent[]):
         const targetElements = document.body.querySelectorAll(content.selector)
         if (targetElements.length === 0) return true
 
-        // 翻译并阻止后续再次翻译
+        // 执行翻译
         targetElements.forEach((element, index) => {
             if (!isHTMLElement(element) || isExceptElement(element)) return
-            const cacheKey = content.selector + index
-            // 如果元素的内容没有发生变更，就不执行更新
-            const preContent = contentCache.get(cacheKey)
-            if (preContent !== undefined && preContent === element.innerHTML) return
 
-            const newContent = content.protect ?
-                updateProtectElement(element, content) :
-                updateElement(element, content)
+            // 没有跳过检查的就从缓存里读出之前的内容进行检查
+            if (!content.ingnoreRepeatedCheck) {
+                const cacheKey = content.selector + index
+                // 如果元素的内容没有发生变更，就不执行更新
+                const preContent = contentCache.get(cacheKey)
+                if (preContent !== undefined && preContent === element.innerHTML) return
 
-            // 更新缓存并阻止后续翻译
-            contentCache.set(cacheKey, newContent)
+                const newContent = content.protect ?
+                    updateProtectElement(element, content) :
+                    updateElement(element, content)
+
+                // 更新缓存
+                contentCache.set(cacheKey, newContent)
+                return
+            }
+
+            // 不然就直接进行更新
+            if (content.protect) updateProtectElement(element, content)
+            else updateElement(element, content)
         })
 
         return content.reuse
