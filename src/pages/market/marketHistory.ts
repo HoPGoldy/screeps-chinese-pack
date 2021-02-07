@@ -14,7 +14,7 @@ const content: PageContent = {
 
         // 明细
         { 'en-US': 'Resources', 'zh-CN': '资源', 'reuse': true },
-        { 'en-US': 'Owner', 'zh-CN': '原资源拥有人', 'reuse': true },
+        { 'en-US': 'Owner', 'zh-CN': '订单发起人', 'reuse': true },
         { 'en-US': 'Dealer', 'zh-CN': '成交人', 'reuse': true },
         { 'en-US': 'Fee type', 'zh-CN': '费用类型', 'reuse': true },
         { 'en-US': 'Add amount', 'zh-CN': '订单量增加', 'reuse': true },
