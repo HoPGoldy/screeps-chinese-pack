@@ -1,5 +1,4 @@
-import pages from 'pages'
-import { getNoQueryHash } from 'utils'
+import { getNoQueryHash } from './utils'
 
 /**
  * 实际的存储对象
@@ -12,6 +11,11 @@ const currentPageContent: CurrentPageContent = {
     queryContent: []
 }
 
+/**
+ * 当前使用的所有翻译数据来源
+ * 可以通过 updateSource 指定和更新
+ */
+let allPageContent: PageContent[] = []
 
 /**
  * HTML 元素内容缓存
@@ -50,12 +54,14 @@ export const updateContent = function (newContent: Partial<CurrentPageContent>):
 /**
  * 尝试更新翻译源文本
  * 
- * 会去检查 hash 是否匹配，当 hash 变更（切换到了新页面）时会重新从 pages 里选择翻译源
+ * 会去检查 hash 是否匹配，当 hash 变更（切换到了新页面）时会重新从 allPageContent 里选择翻译源
  * 
  * @param hash 要进行翻译源匹配的 hash 值
+ * @param allSource 当前使用的所有翻译源
  * @returns 更新后的翻译源
  */
-export const updateSource = function (hash: string): CurrentPageContent {
+export const updateSource = function (hash: string, allSource?: PageContent[]): CurrentPageContent {
+    if (allSource) allPageContent = allSource
     const currentHash = getNoQueryHash(hash)
 
     // 没有变更就不进行搜索
@@ -65,7 +71,7 @@ export const updateSource = function (hash: string): CurrentPageContent {
     const newQueryContent = []
 
     // 找到所有匹配的翻译源
-    for (const page of pages) {
+    for (const page of allPageContent) {
         const matched = page.hashs.find(pageHash => {
             // 如果 hash 为空的话就精确匹配，不然太多了
             if (currentHash === '') return currentHash === pageHash

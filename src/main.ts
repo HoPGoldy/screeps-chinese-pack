@@ -1,13 +1,13 @@
 import translate from 'translate'
 import listener from 'eventListener'
-import { onPageLoad } from 'utils'
 import { updateSource } from 'storage'
+import pages from 'pages'
 
 // 设置初始翻译源
-updateSource(document.location.hash)
+updateSource(document.location.hash, pages)
 
 // 页面内容出现后执行翻译
-onPageLoad(() => {
+document.addEventListener('DOMContentLoaded', () => {
     // 翻译初始内容
     translate([document.body])
 
