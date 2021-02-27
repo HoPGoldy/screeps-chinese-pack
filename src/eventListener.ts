@@ -10,8 +10,8 @@
  * 下面则为第二种方法的实现。
  */
 
-import { getContent, updateContent } from 'storage'
-import { getNoQueryHash, isExceptElement } from 'utils'
+import { getContent, updateContent } from './storage'
+import { getNoQueryHash, isExceptElement } from './utils'
 
 
 /**
@@ -19,7 +19,7 @@ import { getNoQueryHash, isExceptElement } from 'utils'
  * 
  * @param callbacks 要触发的回调
  */
-export default function (callbacks: ListenerCallbacks) {
+export default function (callbacks: ListenerCallbacks): MutationObserver {
     const observer = new MutationObserver(getMutationCallback(callbacks))
 
     // 启动监听
@@ -28,6 +28,8 @@ export default function (callbacks: ListenerCallbacks) {
         characterData: true,
         subtree: true
     })
+
+    return observer
 }
 
 

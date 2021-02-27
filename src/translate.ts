@@ -1,6 +1,6 @@
-import { TRANSLATE_FROM, TRANSLATE_TO } from 'setting'
-import { contentCache, getContent, updateContent } from 'storage'
-import { isExceptElement, isHTMLElement, isText, trim } from 'utils'
+import { TRANSLATE_FROM, TRANSLATE_TO } from './setting'
+import { contentCache, getContent, updateContent } from './storage'
+import { isExceptElement, isHTMLElement, isText, trim } from './utils'
 
 
 /**
