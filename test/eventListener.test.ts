@@ -1,5 +1,5 @@
-import listener from '../src/eventListener'
-import { isText } from '../src/utils'
+import listener from '@/eventListener'
+import { isText } from '@/utils'
 
 describe('eventListener 模块', () => {
     const onHashChange = jest.fn()
@@ -57,7 +57,7 @@ describe('eventListener 模块', () => {
             expect(firstArg[0]).toBeInstanceOf(Text)
             observer.disconnect()
             done()
-        }, 500)
+        })
     })
 
     test('移除元素不会触发回调', done => {
@@ -77,6 +77,6 @@ describe('eventListener 模块', () => {
             expect(calls.length).toBe(0)
             observer.disconnect()
             done()
-        }, 500)
+        })
     })
 })

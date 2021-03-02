@@ -49,8 +49,6 @@ const getMutationCallback = function ({ onHashChange, onElementChange }: Listene
 
             if (mutation.type === 'childList') {
                 if (mutation.addedNodes.length > 0) return [...mutation.addedNodes]
-                // 变更有可能是有节点移除了，这时候是没必要进行翻译操作的
-                if (mutation.removedNodes.length === 0) return [mutation.target]
             }
             // 是节点内容变更的话就直接返回变更的节点
             else if (mutation.type === 'characterData') {

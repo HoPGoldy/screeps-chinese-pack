@@ -1,4 +1,4 @@
-import { getContent, updateContent, updateSource } from '../src/storage'
+import { getContent, updateContent, updateSource } from '@/storage'
 
 describe('storage 模块', () => {
     // 通过匹配不存在的 hash 来清空翻译源

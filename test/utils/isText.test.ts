@@ -1,4 +1,4 @@
-import { isText } from '../../src/utils'
+import { isText } from '@/utils'
 
 describe('isText', () => {
     test('可以匹配符合的元素', () => {

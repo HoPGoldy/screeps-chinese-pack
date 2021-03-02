@@ -24,9 +24,6 @@
     "url": "https://github.com/HoPGoldy/screeps-chinese-pack/issues"
   },
   "homepage": "https://github.com/HoPGoldy/screeps-chinese-pack#readme",
-  "jest": {
-    "testEnvironment": "node"
-  },
   "eslintIgnore": [
     "dist/**"
   ],

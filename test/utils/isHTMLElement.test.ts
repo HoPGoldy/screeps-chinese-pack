@@ -1,4 +1,4 @@
-import { isHTMLElement } from '../../src/utils'
+import { isHTMLElement } from '@/utils'
 
 describe('isHTMLElement', () => {
     test('可以匹配符合的元素', () => {

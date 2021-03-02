@@ -3,9 +3,12 @@
         "target": "es2017",
         "moduleResolution": "Node", 
         "outDir": "dist/",
-        "baseUrl": "src/",
+        "baseUrl": "./src",
         "sourceMap": false,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "paths": {
+            "@/*": [ "./*" ]
+        }
     },
     "include": [ "src/**/*.ts", "test/**/*.ts" ],
     "exclude": [ "node_modules" ]

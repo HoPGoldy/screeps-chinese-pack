@@ -1,4 +1,4 @@
-import { isExceptElement } from '../../src/utils'
+import { isExceptElement } from '@/utils'
 
 describe('isExceptElement', () => {
     // 设置一个三层 div 的结构
