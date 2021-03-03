@@ -16,6 +16,9 @@ jobs:
     - name: Install
       run: yarn install
 
+    - name: Test
+      run: yarn run test-c
+
     - name: Build
       run: yarn build
 
@@ -32,3 +35,13 @@ jobs:
         git add .
         git commit -m "UPDATE BY GITHUB ACTION"
         git push --quiet --force https://$TARGET_REPO_TOKEN@github.com/screeps-cn/screeps-chinese-pack-release.git master
+
+  finish:
+    needs: work
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Upload
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.github_token }}
+        parallel-finished: true
