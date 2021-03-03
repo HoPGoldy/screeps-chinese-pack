@@ -2,7 +2,7 @@
 
 ![build badge](https://github.com/screeps-cn/screeps-chinese-pack/workflows/BUILD/badge.svg)
 ![Base on](https://img.shields.io/badge/Base%20on-Tampermonkey-blue)
-[![Coverage Status](https://coveralls.io/repos/github/HoPGoldy/screeps-chinese-pack/badge.svg?branch=screeps-chinese-pack)](https://coveralls.io/github/HoPGoldy/screeps-chinese-pack?branch=screeps-chinese-pack)
+[![Coverage Status](https://coveralls.io/repos/github/screeps-cn/screeps-chinese-pack/badge.svg?branch=screeps-chinese-pack)](https://coveralls.io/github/screeps-cn/screeps-chinese-pack?branch=screeps-chinese-pack)
 
 用于汉化 [screeps.com](https://screeps.com) 网站的 [油猴脚本](https://www.tampermonkey.net/)。由 Screeps 中国玩家自发创建并维护。[点此](./CONTRIBUTING.md) 来查看如何参与本项目！
 
