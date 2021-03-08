@@ -9,6 +9,8 @@
 本脚本发布于 **[greasyfork - screeps-chinese-pack](https://greasyfork.org/zh-CN/scripts/416651-screeps-chinese-pack)**，
 安装请参照 [installing-user-scripts](https://greasyfork.org/zh-CN/help/installing-user-scripts)。
 
+Click [here](./README.en-US.md) to read the English readme.
+
 # 需求
 
 - node `>=10.13.0`
