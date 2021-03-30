@@ -33,6 +33,8 @@ const content: PageContent = {
 
         { 'en-US': 'New update is available', 'zh-CN': '有可用的更新' },
         { 'en-US': 'RELOAD', 'zh-CN': '重新加载' },
+        { 'en-US': 'Your CPU is limited', 'zh-CN': '您的 CPU 受限' },
+        { 'en-US': 'Order a subscription here', 'zh-CN': '点此购买一个订阅 ' },
 
         // 登陆弹窗
         { 'en-US': 'Sign In', 'zh-CN': '登陆', 'reuse': true },
@@ -64,7 +66,22 @@ const content: PageContent = {
                 const el = document.body.querySelector('app-time-left')
                 el.stopTranslateSearch = true
             }, 1000)
-        }
+        },
+
+        // 重生确认框
+        {
+            'en-US': 'All your buildings and creeps will become unowned so that you\n        can reset your spawn in any vacant room on the map.',
+            'zh-CN': '您将失去所有的建筑和 creep，然后您就可以在地图上的任意无主房间重新放置 spawn。',
+            'reuse': true
+        },
+        { 'en-US': 'Learn more', 'zh-CN': '了解更多', 'reuse': true },
+        { 'en-US': 'Note:', 'zh-CN': '注意：', 'reuse': true },
+        {
+            'en-US': 'you will NOT be able to spawn again in the same\n        room within 3 days since the initial spawn placement!',
+            'zh-CN': '在放置第一个 spawn 之后的三天内，您将无法再次重生在相同房间中。',
+            'reuse': true
+        },
+        { 'en-US': 'Cancel', 'zh-CN': '取消', 'reuse': true }
     ]
 }
 

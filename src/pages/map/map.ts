@@ -1,3 +1,4 @@
+import { DOCUMENT_CN } from '@/setting'
 import { translateMultiple } from 'utils'
 
 /**
@@ -118,7 +119,24 @@ const content: PageContent = {
             'reuse': true
         },
 
-        { 'en-US': 'Room not found', 'zh-CN': '未找到该房间' }
+        { 'en-US': 'Room not found', 'zh-CN': '未找到该房间' },
+
+        // 失败之后的提示框
+        { 'en-US': 'Oops!', 'zh-CN': '真糟糕！' },
+        {
+            'selector': '.modal-body.alert > div > p',
+            'zh-CN': translateMultiple({
+                'It seems that you have lost all your spawns. But cheer up! Losing is fun in Screeps! Your scripts are always with you, your Global Control Level is well and alive, and you can start from scratch and quickly regain your former glory.':
+                '看起来您好像已经失去了所有的 spawn。但是不要灰心！在 Screeps 中失败何尝不是一种乐趣！您的代码始终都在，您的全局控制等级也没有损失，现在您可以从零开始轻松重现往日的荣光！',
+
+                'Click on the Respawn button below, and all your buildings and creeps will become unowned so that you can reset your spawn in any vacant room on the map. And don\'t forget to <a href="http://docs.screeps.com/defense.html" app-nw-external-link="">build defenses</a> this time!':
+                `点击下方的重生按钮，您将失去现存所有的建筑和 creep，然后您就可以在地图上的任意无主房间重新放置 spawn。这次可不要忘了 <a href="${DOCUMENT_CN}/defense.html" app-nw-external-link="">构建防御</a>！`,
+
+                'Learn more about birth and death in <a href="http://docs.screeps.com/respawn.html" app-nw-external-link="">this article</a>.':
+                `点击 <a href="${DOCUMENT_CN}/respawn.html" app-nw-external-link="">本文</a> 来了解更多重生与失败的信息。`
+            })
+        },
+        { 'en-US': 'Cancel', 'zh-CN': '取消' }
     ]
 }
 
