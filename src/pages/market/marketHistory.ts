@@ -43,8 +43,8 @@ const content: PageContent = {
         { 'en-US': 'Market API', 'zh-CN': '市场API' },
 
         // 页尾
-        { 'en-US': 'Newer', 'zh-CN': '更早的记录' },
-        { 'en-US': 'Older', 'zh-CN': '更晚的记录' }
+        { 'en-US': 'Newer', 'zh-CN': '更新的记录' },
+        { 'en-US': 'Older', 'zh-CN': '更早的记录' }
     ]
 }
 
