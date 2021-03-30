@@ -17,7 +17,8 @@ const content: PageContent = {
         { 'en-US': 'active players', 'zh-CN': '活跃玩家', 'reuse': true },
         { 'en-US': 'avg tick duration', 'zh-CN': '每 tick 平均时间', 'reuse': true },
         { 'en-US': 'CPU limit', 'zh-CN': 'CPU 限制', 'reuse': true },
-        { 'en-US': /CPU assigned/, 'zh-CN': (text: string) => text.replace('assigned', '被分配'), 'reuse': true },
+        // 重新分配后不会立刻显示，暂时隐藏
+        // { 'en-US': /CPU assigned/, 'zh-CN': (text: string) => text.replace('assigned', '被分配'), 'reuse': true, 'protect': true },
         { 'en-US': 'Re-assign CPU', 'zh-CN': '重新分配 CPU', 'reuse': true },
 
         { 'en-US': 'Unused CPU left:', 'zh-CN': '未使用的 CPU 剩余：' },
