@@ -31,6 +31,7 @@ const content: PageContent = {
         dontTranslate('.console-messages-list'),
         dontTranslate('.memory-content'),
         dontTranslate('.memory-segment-content'),
+        dontTranslate('form.console-input'),
 
         {
             'selector': 'div.tooltip.ng-scope.ng-isolate-scope > div.tooltip-inner.ng-binding',
